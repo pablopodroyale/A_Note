@@ -1,6 +1,11 @@
 package entidades;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedHashMap;
+
+import org.jfugue.pattern.Pattern;
 
 import funciones_helper.Funcion_Helper;
 
@@ -109,7 +114,12 @@ public class AnoteManagger {
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
-		
+
+	}
+
+	public void save(String nombreMelodia, PatternSingleton pattern) {
+		Melodia melodia = getMelody(nombreMelodia);
+		melodia.save(pattern);
 	}
 
 }

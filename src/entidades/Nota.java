@@ -1,9 +1,11 @@
 package entidades;
 
+import edu.ort.csv_utils.CSVCCompatible;
 import funciones_helper.Funcion_Helper;
 import interfaces.sonable;
 
-public class Nota implements sonable {
+public class Nota implements sonable, CSVCCompatible<Nota> {
+	private static final String HEADER_NOTA = "Nombre_Nota,Octava,Figura,Alteracion";
 	private static final String ERROR_ALTERACION = "Error, la alteracion debe ser '#' o 'b'";
 	private static final String ERROR_FIGURA_INVALIDA = "Error, figura invalida";
 	private static final String ERROR_RANGO_OCTAVA = "Error, la octava debe estar entre 0 y 9";
@@ -134,6 +136,25 @@ public class Nota implements sonable {
 	public void play(PatternSingleton pattern, PlayerSingleton player) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public String toCSV() {
+		return toString();
+	}
+
+	@Override
+	public String toString() {
+		return nombre + "," + octava + "," + figura + "," + alteracion;
+	}
+
+	public void save() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static String getHeader() {
+		return HEADER_NOTA;
 	}
 
 }

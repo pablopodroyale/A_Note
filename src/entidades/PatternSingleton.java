@@ -1,5 +1,8 @@
 package entidades;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.jfugue.pattern.Pattern;
 
 public class PatternSingleton extends Pattern {
@@ -15,5 +18,7 @@ public class PatternSingleton extends Pattern {
 		}
 		return instance;
 	}
+
+	
 
 }

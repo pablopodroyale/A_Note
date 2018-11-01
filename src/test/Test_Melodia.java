@@ -1,5 +1,8 @@
 package test;
 
+import java.io.File;
+import java.io.IOException;
+
 import entidades.AnoteManagger;
 import entidades.Nota;
 import entidades.PatternSingleton;
@@ -180,9 +183,12 @@ public class Test_Melodia {
 		nota.setOctava("5");
 		anoteManagger.addNoteToMelody("nombreMelodia", nota);
 
-		anoteManagger.setTempo("nombreMelodia", "100");
+		anoteManagger.setTempo("nombreMelodia", "99");
 		anoteManagger.setInstrument("nombreMelodia", "CONTRABASS");
-		anoteManagger.play("nombreMelodia", pattern, player);
+		//anoteManagger.play("nombreMelodia", pattern, player);
+		
+		anoteManagger.save("nombreMelodia", pattern);
+		
 
 	}
 }

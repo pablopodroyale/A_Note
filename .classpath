@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="D:/ort/Segundo_1/Taller3/A_Note/JFUGUE_DIR"/>
 	<classpathentry kind="lib" path="D:/ort/Segundo_1/Taller3/jfugue-5.0.9.jar" sourcepath="JFUGUE_DIR"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/archivos"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
