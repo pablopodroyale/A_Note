@@ -3,8 +3,8 @@ package persistencia;
 import java.util.ArrayList;
 import java.util.List;
 
-import tp1.utils.textfiles.BufferedTextReader;
-import tp1.utils.textfiles.TextReader;
+import utils_textfiles.BufferedTextReader;
+import utils_textfiles.TextReader;
 
 public abstract class CSVReader<ClassType> {
 	// private static final String CSV_EXTENSION = ".csv";

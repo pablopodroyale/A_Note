@@ -8,4 +8,8 @@ public class NoteWriter extends CSVWriter<Nota>{
 		// TODO Auto-generated constructor stub
 	}
 
+	public NoteWriter() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

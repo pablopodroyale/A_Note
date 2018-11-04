@@ -1,23 +1,12 @@
 package entidades;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-
-import org.jfugue.pattern.Pattern;
-import org.jfugue.player.Player;
-
-import edu.ort.csv_utils.ArticuloWriter;
-import edu.ort.csv_utils.CSVCCompatible;
 import funciones_helper.Funcion_Helper;
 import interfaces.sonable;
-import persistencia.NoteWriter;
-import tp1.utils.textfiles.IniManager;
+import repository.IRepository_CSV;
 
 public class Melodia implements sonable {
+
 	private static final int TEMPO_MAXIMO = Integer.MAX_VALUE;
 	private static final int TEMPO_MINIMO = 1;
 	private static final String MASCARA_TEMPO = " T%s ";
@@ -27,10 +16,10 @@ public class Melodia implements sonable {
 	private static final String MASCARAPATH = "%s";
 	private static final String EXTENSION_INI = ".ini";
 	private static final String EXTENSION_CSV = ".csv";
-	private static final String TEMPO = "Tiempo";
+	private static final String TEMPO_CONST_STRING = "Tiempo";
 	private static final String INSTRUMENT = "Instrumento";
 	private static final String CANCIONES = "Canciones";
-	
+
 	// private Compas compas;
 	private String tempo;
 	private String instrument;
@@ -66,7 +55,7 @@ public class Melodia implements sonable {
 	}
 
 	@Override
-	public void play(PatternSingleton pattern, PlayerSingleton player) {
+	public void play(MyPattern pattern, PlayerSingleton player) {
 		if (!this.instrument.isEmpty()) {
 			pattern.add(instrument);
 		}
@@ -97,45 +86,83 @@ public class Melodia implements sonable {
 
 	}
 
-	public void save(String path, PatternSingleton pattern) {
-		if (!this.instrument.isEmpty()) {
-			pattern.add(instrument);
-		}
-		if (!this.tempo.isEmpty()) {
-			pattern.add(tempo);
-		}
+	public void save(IRepository_CSV persisitidor_Csv, boolean append) {
+		// Guarda las notas
+		persisitidor_Csv.saveCSV(this.notas, this.nombre, append);
+	}
 
-		notas.forEach(x -> {
-			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
-		});
-		try {
-			pattern.save(new File(path), this.nombre);
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
+	public int getTempoMaximo() {
+		return TEMPO_MAXIMO;
+	}
 
-		}
+	public int getTempoMinimo() {
+		return TEMPO_MINIMO;
+	}
+
+	public String getMascaraTempo() {
+		return MASCARA_TEMPO;
+	}
+
+	public String getMascaraInstrument() {
+		return MASCARA_INSTRUMENT;
+	}
+
+	public int getInstrumentoMin() {
+		return INSTRUMENTO_MIN;
+	}
+
+	public int getInstrumentoMax() {
+		return INSTRUMENTO_MAX;
+	}
+
+	public String getMascarapath() {
+		return MASCARAPATH;
+	}
+
+	public String getExtensionIni() {
+		return EXTENSION_INI;
+	}
+
+	public String getExtensionCsv() {
+		return EXTENSION_CSV;
+	}
+
+	public String getInstrumentConst() {
+		return INSTRUMENT;
+	}
+
+	public String getCancionesConst() {
+		return CANCIONES;
+	}
+
+	public String getInstrument() {
+		return instrument;
+	}
+
+	public ArrayList<Nota> getNotas() {
+		return notas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getTempoConstString() {
+		return TEMPO_CONST_STRING;
+	}
+
+	public void load(IRepository_CSV persisitidor_Csv) {
+		persisitidor_Csv.load(notas, this.nombre);
 
 	}
 
-	public void save(PatternSingleton pattern) {
-		// Crea el directorio
-		String path = new File("").getAbsolutePath() + File.separator + CANCIONES + File.separator + this.nombre;
-		String pathIni = path + File.separator + this.nombre + EXTENSION_INI;
-		String pathCsv = path + File.separator + this.nombre + EXTENSION_CSV;
-		try {
-			Files.createDirectories(Paths.get(path));
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-		// Guarda la melodia
-		IniManager iniManager = new IniManager(pathIni);
-		iniManager.addSection(nombre);
-		iniManager.setItem(nombre, TEMPO, this.tempo);
-		iniManager.setItem(nombre, INSTRUMENT, this.instrument);
-		iniManager.save();
-		// Guarda las notas
-		NoteWriter noteWriter = new NoteWriter(Nota.getHeader());
-		noteWriter.writeAll(pathCsv, notas);
+	public void list() {
+		notas.forEach(x -> System.out.println(x.toString()));
+	}
+
+	public void setNombre(String nombreMelodia) {
+		Funcion_Helper.validarString(nombreMelodia);
+		this.nombre = nombreMelodia;
 
 	}
 

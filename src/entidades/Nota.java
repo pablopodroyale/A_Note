@@ -1,16 +1,18 @@
 package entidades;
 
-import edu.ort.csv_utils.CSVCCompatible;
 import funciones_helper.Funcion_Helper;
 import interfaces.sonable;
+import persistencia.CSVCompatible;
 
-public class Nota implements sonable, CSVCCompatible<Nota> {
+public class Nota implements sonable, CSVCompatible<Nota> {
 	private static final String HEADER_NOTA = "Nombre_Nota,Octava,Figura,Alteracion";
-	private static final String ERROR_ALTERACION = "Error, la alteracion debe ser '#' o 'b'";
+	private static final String ERROR_ALTERACION = "Error, la alteracion debe ser '#' o 'b' o 'n'";
 	private static final String ERROR_FIGURA_INVALIDA = "Error, figura invalida";
 	private static final String ERROR_RANGO_OCTAVA = "Error, la octava debe estar entre 0 y 9";
 	private static final int RANGO_OCTAVA_MIN = 0;
 	private static final int RANGO_OCTAVA_MAX = 9;
+	private static final int CANT_ATRIBUTOS = 4;
+	private static final String ERR_CANT_VALORES = "Error, la cantidad de valores recibidos, no coincide con los esperados";
 	private String nombre;
 	private String octava;
 	private String figura;
@@ -23,14 +25,58 @@ public class Nota implements sonable, CSVCCompatible<Nota> {
 	 * Fomato Nota: [nombre],[octava],[figura],[alteración] Sólo recibe el nombre de
 	 * la nota, setea la octava por defecto 6, figura negra, alteracion ""
 	 * 
-	 * @param nombreNota
+	 * @param line
 	 */
-	public Nota(String nombreNota) {
-		// Validar que el nombre de nota sea correcto
-		setNombre(nombreNota);
-		this.octava = "6";
-		this.figura = Figuras_Ritmicas.NEGRA.getNombreJFuge();
-		this.alteracion = "";
+	public Nota(String line) {
+		// por el if esta recibiendo la linea leida por el reader
+
+		String fields[] = line.split(",");
+		// verifyFields(lineOrName);
+
+		if (fields.length < CANT_ATRIBUTOS) {
+			throw new IllegalArgumentException(ERR_CANT_VALORES);
+		}
+
+		setValues(fields[0], fields[1], (fields[2]), fields[3]);
+
+	}
+
+	/***
+	 * Fomato Nota: [nombre],[octava],[figura],[alteración] Sólo recibe el nombre de
+	 * la nota, setea la octava por defecto 6, figura negra, alteracion "n"
+	 * 
+	 * @param nombre
+	 * @param octava
+	 * @param figura
+	 * @param alteracion
+	 */
+	public Nota(String nombre, String octava, String figura, String alteracion) {
+		setValues(nombre, octava, figura, alteracion);
+	}
+
+	private void verifyFields(String lineOrName) {
+		String fields[] = lineOrName.split(",");
+		if (fields[0] != null) {
+			System.out.println("0 ok");
+		}
+		if (fields[1] != null) {
+			System.out.println("1 ok");
+		}
+		if (fields[2] != null) {
+			System.out.println("2 ok");
+		}
+		if (fields[3] != null) {
+			System.out.println("3 ok");
+		}
+
+	}
+
+	private void setValues(String nombre, String octava, String figura, String alteracion) {
+		setNombre(nombre);
+		setOctava(octava);
+		setFigura(figura);
+		setAlteracion(alteracion);
+
 	}
 
 	private void setNombre(String nombreNota) {
@@ -82,7 +128,6 @@ public class Nota implements sonable, CSVCCompatible<Nota> {
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
-
 	}
 
 	private void validarOctava(String poctava) {
@@ -108,7 +153,8 @@ public class Nota implements sonable, CSVCCompatible<Nota> {
 	}
 
 	private void alteracionValidator(String alteracion) {
-		if (!alteracion.equalsIgnoreCase("#") && !alteracion.equalsIgnoreCase("b")) {
+		if (!alteracion.equalsIgnoreCase("#") && !alteracion.equalsIgnoreCase("b")
+				&& !alteracion.equalsIgnoreCase("n")) {
 			throw new IllegalArgumentException(ERROR_ALTERACION);
 		}
 	}
@@ -133,14 +179,9 @@ public class Nota implements sonable, CSVCCompatible<Nota> {
 	}
 
 	@Override
-	public void play(PatternSingleton pattern, PlayerSingleton player) {
+	public void play(MyPattern pattern, PlayerSingleton player) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public String toCSV() {
-		return toString();
 	}
 
 	@Override
@@ -148,13 +189,14 @@ public class Nota implements sonable, CSVCCompatible<Nota> {
 		return nombre + "," + octava + "," + figura + "," + alteracion;
 	}
 
-	public void save() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public static String getHeader() {
 		return HEADER_NOTA;
+	}
+
+	@Override
+	public String ToCSV() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -3,8 +3,9 @@ package persistencia;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import tp1.utils.textfiles.BufferedTextWriter;
-import tp1.utils.textfiles.TextWriter;
+import utils_textfiles.BufferedTextWriter;
+import utils_textfiles.TextWriter;
+
 
 public abstract class CSVWriter<ClassType> {
 	private String header;
@@ -13,11 +14,15 @@ public abstract class CSVWriter<ClassType> {
 	public CSVWriter(String header) {
 		this.header = header;
 	}
+	
+	public CSVWriter() {
+		
+	}
 
-	public void writeAll(String path, ArrayList<ClassType> lista) {
+	public void writeAll(String path, ArrayList<ClassType> lista, boolean append) {
 		BufferedTextWriter bufferWriter = null;
 		try {
-			bufferWriter = new BufferedTextWriter(path);
+			bufferWriter = new BufferedTextWriter(path, append);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}

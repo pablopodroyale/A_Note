@@ -1,24 +1,28 @@
 package entidades;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.LinkedHashMap;
-
-import org.jfugue.pattern.Pattern;
-
 import funciones_helper.Funcion_Helper;
+import repository.CSV_Repository;
+import repository.IRepository_CSV;
+import repository.IRepository_Ini;
+import repository.IniRepository;
 
 public class AnoteManagger {
 	private static final int MAX_INSTRUMENT = 127;
 	private static final String ERROR_STRING_VACIO = "Error, el nombre no puede estar vacio";
 	private static final String ERROR_MELODIA_INEXISTENTE = "Error, la melodia no existe";
 	private static final String ERROR_MELODIA_EXISTENTE = "Error, la melodia ya exite";
-
+	// private static final String ROOT_CANCIONES = "Canciones";
+	// private static final String ROOT = new File("").getAbsolutePath() +
+	// File.separator + ROOT_CANCIONES + File.separator;
+	private IRepository_Ini persisitidor_Ini;
+	private IRepository_CSV persisitidor_Csv;
 	private LinkedHashMap<String, Melodia> melodias;
 
 	public AnoteManagger() {
 		this.melodias = new LinkedHashMap<>();
+		this.persisitidor_Ini = new IniRepository();
+		this.persisitidor_Csv = new CSV_Repository();
 	}
 
 	public void createMelody(String nombreMelodia) {
@@ -69,7 +73,26 @@ public class AnoteManagger {
 
 	}
 
-	public void play(String nombreMelodia, PatternSingleton pattern, PlayerSingleton player) {
+	public void addNoteToMelody(String nombreMelodia, String nombreNota, String octava, String figura,
+			String alteracion) {
+		Nota nota;
+		Melodia melodia;
+		try {
+			Funcion_Helper.validarString(nombreMelodia);
+			Funcion_Helper.validarString(nombreNota);
+			Funcion_Helper.validarString(figura);
+			Funcion_Helper.validarString(octava);
+			Funcion_Helper.validarString(alteracion);
+			melodia = getMelody(nombreMelodia);
+			nota = new Nota(nombreNota, octava, figura, alteracion);
+			melodia.setNote(nota);
+		} catch (RuntimeException re) {
+			System.out.println(re.getMessage());
+		}
+
+	}
+
+	public void play(String nombreMelodia, MyPattern pattern, PlayerSingleton player) {
 		try {
 			Funcion_Helper.validarString(nombreMelodia);
 		} catch (RuntimeException re) {
@@ -117,9 +140,45 @@ public class AnoteManagger {
 
 	}
 
-	public void save(String nombreMelodia, PatternSingleton pattern) {
+	public void save(String nombreMelodia, MyPattern pattern, boolean append) {
 		Melodia melodia = getMelody(nombreMelodia);
-		melodia.save(pattern);
+		persisitidor_Ini.saveIni(melodia, append);
+		melodia.save(persisitidor_Csv, append);
 	}
 
+	// Revisar como hacer el load de la melodia, si aca o en melodia usando el ini
+	public void load(String nombreMelodia) {
+		Melodia melodia = persisitidor_Ini.load(nombreMelodia);
+		melodia.load(persisitidor_Csv);
+		melodia.list();
+		melodias.put(nombreMelodia, melodia);
+
+	}
+
+	public void updateNombreMelodia(String nombreaAnteriorMelodia, String nuevoNombre, boolean append) {
+		Melodia melodia;
+		try {
+			// Pregunto primero si esta en memoria porque quizas esta creada en esta sesion
+
+			melodia = persisitidor_Ini.load(nombreaAnteriorMelodia);
+			if (melodia == null) {
+				throw new IllegalArgumentException(ERROR_MELODIA_EXISTENTE);
+			} else {
+				Funcion_Helper.tryOpen();
+				// Cambio el nombre de la melodia en memoria
+				melodia.setNombre(nuevoNombre);
+				// Cambio el nombre en el archivo ini
+				// persisitidor_Ini.saveIni(melodia);
+				persisitidor_Ini.updateIni(melodia, nombreaAnteriorMelodia, append);
+				persisitidor_Ini.updateNombreIni(nombreaAnteriorMelodia, nuevoNombre);
+				// Le cambio el nombre al archivo csv
+				persisitidor_Csv.updateName(nombreaAnteriorMelodia, nuevoNombre);
+				// Le cambio el nombre a la carpeta
+				Funcion_Helper.updateFolder(nombreaAnteriorMelodia, nuevoNombre);
+			}
+
+		} catch (RuntimeException re) {
+			System.out.println(re.getMessage());
+		}
+	}
 }

@@ -1,9 +1,9 @@
 package interfaces;
 
-import entidades.PatternSingleton;
+import entidades.MyPattern;
 import entidades.PlayerSingleton;
 
 public interface sonable {
 
-	void play(PatternSingleton pattern, PlayerSingleton player);
+	void play(MyPattern pattern, PlayerSingleton player);
 }

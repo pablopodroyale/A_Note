@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package org.jfugue.musicxml;
+package test.java.org.jfugue.musicxml;
 
 import static org.junit.Assert.assertTrue;
 
