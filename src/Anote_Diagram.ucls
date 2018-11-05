@@ -164,101 +164,45 @@
     </display>  
   </class>  
   <dependency id="19">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="20">    
     <bendpoint x="65" y="903"/>    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="18"/>  
   </dependency>  
-  <association id="20">    
-    <bendpoint x="398" y="702"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="21" name="persisitidor_Ini">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="22" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <dependency id="21">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
   <dependency id="23">    
-    <end type="SOURCE" refId="17"/>    
+    <bendpoint x="581" y="1313"/>    
+    <bendpoint x="574" y="1404"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
   <dependency id="24">    
-    <bendpoint x="580" y="1924"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="15"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
   <dependency id="25">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="12"/>  
   </dependency>  
-  <realization id="26">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <association id="27">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="28" name="noteWriter">        
-        <position height="0" width="0" x="-600" y="-223"/>      
-      </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-600" y="-223"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <bendpoint x="109" y="1847"/>    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="31" name="notas">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="18"/>  
-  </dependency>  
-  <realization id="34">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <association id="36">    
-    <bendpoint x="593" y="620"/>    
-    <bendpoint x="593" y="903"/>    
-    <bendpoint x="593" y="1042"/>    
+  <association id="26">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="37" name="persisitidor_Csv">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="38" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="27" name="melodias"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="41">    
+  <dependency id="29">    
     <bendpoint x="-166" y="622"/>    
     <bendpoint x="-158" y="904"/>    
     <bendpoint x="-158" y="1092"/>    
@@ -268,7 +212,39 @@
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="15"/>  
   </dependency>  
-  <dependency id="42">    
+  <association id="30">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="31" name="noteReader">        
+        <position height="0" width="0" x="-165" y="18"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-165" y="18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="33">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <association id="34">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="35" name="instance">        
+        <position height="0" width="0" x="5" y="-6"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="5" y="-6"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="37">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="38">    
     <bendpoint x="572" y="620"/>    
     <bendpoint x="572" y="903"/>    
     <bendpoint x="572" y="1042"/>    
@@ -276,64 +252,7 @@
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="43">    
-    <bendpoint x="88" y="1847"/>    
-    <bendpoint x="226" y="1876"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="44">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="46">    
-    <bendpoint x="564" y="1749"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="47">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="48" name="instance">        
-        <position height="0" width="0" x="5" y="-6"/>      
-      </attribute>      
-      <multiplicity id="49" minimum="0" maximum="1">        
-        <position height="0" width="0" x="5" y="-6"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="50">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="51">    
-    <bendpoint x="46" y="1847"/>    
-    <bendpoint x="16" y="1918"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="52">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <realization id="53">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <dependency id="54">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="55">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="56">    
+  <dependency id="39">    
     <bendpoint x="4" y="620"/>    
     <bendpoint x="4" y="903"/>    
     <bendpoint x="112" y="1036"/>    
@@ -343,66 +262,106 @@
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="57">    
-    <bendpoint x="25" y="1847"/>    
-    <bendpoint x="100" y="1914"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <dependency id="59">    
-    <bendpoint x="581" y="1313"/>    
-    <bendpoint x="574" y="1404"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <association id="60">    
+  <realization id="40">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="41">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="61" name="noteReader">        
-        <position height="0" width="0" x="-165" y="18"/>      
+      <attribute id="42" name="noteWriter">        
+        <position height="0" width="0" x="-600" y="-223"/>      
       </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-165" y="18"/>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-600" y="-223"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="63">    
+  <realization id="44">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <dependency id="45">    
     <bendpoint x="614" y="620"/>    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <association id="64">    
-    <bendpoint x="44" y="620"/>    
-    <bendpoint x="44" y="903"/>    
+  <association id="46">    
+    <bendpoint x="398" y="702"/>    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="65" name="melodias">        
-        <position height="0" width="0" x="-160" y="-120"/>      
+      <attribute id="47" name="persisitidor_Ini">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="66" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-160" y="-120"/>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="67">    
+  <dependency id="49">    
+    <bendpoint x="580" y="1924"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="51">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <realization id="52">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="53">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <realization id="68">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <dependency id="69">    
+  <dependency id="54">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
+    <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="70">    
+  <dependency id="55">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="56">    
+    <bendpoint x="564" y="1749"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <realization id="59">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <association id="60">    
+    <bendpoint x="593" y="620"/>    
+    <bendpoint x="593" y="903"/>    
+    <bendpoint x="593" y="1042"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="61" name="persisitidor_Csv">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="63">    
     <bendpoint x="949" y="620"/>    
     <bendpoint x="949" y="903"/>    
     <bendpoint x="949" y="1042"/>    

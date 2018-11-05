@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import entidades.Melodia;
+import funciones_helper.Mapper_Ini;
 import utils_textfiles.IniManager;
 
 public class IniRepository implements IRepository_Ini {
@@ -79,14 +80,19 @@ public class IniRepository implements IRepository_Ini {
 	public void updateIni(Melodia melodia, String nombreAnterior, boolean append) {
 		String pathAnteriorIni = ROOT + File.separator + nombreAnterior + File.separator + nombreAnterior
 				+ EXTENSION_INI;
-//		String instrumento = removeInstrumentMask(melodia.getInstrument());
-		//String tempo = removeTempoMak(melodia.getTempo());
-		//this.iniManager.addSection(melodia.getNombre());
+		// String instrumento = removeInstrumentMask(melodia.getInstrument());
+		// String tempo = removeTempoMak(melodia.getTempo());
+		// this.iniManager.addSection(melodia.getNombre());
+		iniManager.updateSection(nombreAnterior, melodia.getNombre());
 		iniManager.setPathDestiny(pathAnteriorIni);
-		//iniManager.setItem(melodia.getNombre(), melodia.getTempoConstString(), tempo);
-		//iniManager.setItem(melodia.getNombre(), melodia.getInstrumentConst(), instrumento);
+
+		// melodia.setNombre(nombreMelodia);
+		// iniManager.setItem(melodia.getNombre(), melodia.getTempoConstString(),
+		// tempo);
+		// iniManager.setItem(melodia.getNombre(), melodia.getInstrumentConst(),
+		// instrumento);
+
 		iniManager.save(append);
-		// si es diferente el nombre cambio el nombre del archivo ini al finalizar se de
 
 	}
 
@@ -99,6 +105,18 @@ public class IniRepository implements IRepository_Ini {
 		File dir = new File(pathAnteriorIni);
 		File newDir = new File(nuevoPath);
 		dir.renameTo(newDir);
+	}
+
+	@Override
+	public void updateSection(String nombreAnterior, String nuevoNombre) {
+		this.iniManager.updateSection(nombreAnterior, nuevoNombre);
+
+	}
+
+	@Override
+	public void update(Melodia melodia) {
+		Mapper_Ini.Map(melodia, iniManager);
+		iniManager.save(false);
 	}
 
 }

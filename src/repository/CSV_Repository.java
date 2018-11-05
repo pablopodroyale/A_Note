@@ -63,7 +63,6 @@ public class CSV_Repository implements IRepository_CSV {
 			File newDir = new File(nuevoPathCSV);
 			dir.renameTo(newDir);
 			// Cambiar el nombre de la carpeta padre
-			System.out.println(dir.getAbsolutePath().toString());
 			dir = new File(dir.getAbsolutePath());
 			newDir = new File(newDir.getAbsolutePath());
 			dir.renameTo(newDir);

@@ -12,4 +12,8 @@ public interface IRepository_Ini {
 
 	void updateNombreIni(String nombreaAnteriorMelodia, String nuevoNombre);
 
+	void updateSection(String nombreAnterior, String nuevoNombre);
+
+	void update(Melodia melodia);
+
 }

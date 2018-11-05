@@ -1,6 +1,8 @@
 package entidades;
 
 import java.util.ArrayList;
+
+import funciones_helper.Contador;
 import funciones_helper.Funcion_Helper;
 import interfaces.sonable;
 import repository.IRepository_CSV;
@@ -19,12 +21,14 @@ public class Melodia implements sonable {
 	private static final String TEMPO_CONST_STRING = "Tiempo";
 	private static final String INSTRUMENT = "Instrumento";
 	private static final String CANCIONES = "Canciones";
+	private static final String ERROR_NOTA_INVALIDA = "Error, la nota es invalida";
 
 	// private Compas compas;
 	private String tempo;
 	private String instrument;
 	private ArrayList<Nota> notas;
 	private String nombre;
+	private Contador contadorNotas;
 
 	/***
 	 * Orden de parametros: nombre, instrument, tempo
@@ -36,6 +40,7 @@ public class Melodia implements sonable {
 		this.nombre = nombreMelodia;
 		this.tempo = "";
 		this.instrument = "";
+		this.contadorNotas = new Contador();
 
 	}
 
@@ -72,7 +77,14 @@ public class Melodia implements sonable {
 	}
 
 	public void setNote(Nota nota) {
+		asignarIdANota(nota);
+
 		this.notas.add(nota);
+	}
+
+	private void asignarIdANota(Nota nota) {
+		nota.setId(contadorNotas.getValor());
+		contadorNotas.incrementar();
 	}
 
 	public void setInstrument(String instrument) {
@@ -164,6 +176,45 @@ public class Melodia implements sonable {
 		Funcion_Helper.validarString(nombreMelodia);
 		this.nombre = nombreMelodia;
 
+	}
+
+	public void updateNota(String idNota, String nombreNota, String octava, String figura, String alteracion,
+			IRepository_CSV persisitidor_Csv) {
+		try {
+			Funcion_Helper.validarRango(0, notas.size(), Integer.parseInt(idNota));
+		} catch (RuntimeException re) {
+			System.out.println(re.getMessage());
+		}
+		Nota nota = getNotaById(idNota);
+		nota.setNombre(nombreNota);
+		nota.setOctava(octava);
+		nota.setFigura(figura);
+		nota.setAlteracion(alteracion);
+		persisitidor_Csv.saveCSV(notas, nombre, false);;
+	}
+
+	private Nota getNotaById(String idNota) {
+		Nota aux;
+		Nota nota = null;
+		int indice = 0;
+		int idNot = Integer.parseInt(idNota);
+		while (indice < notas.size() && nota == null) {
+			aux = notas.get(indice);
+			if (aux.getId() == idNot) {
+				nota = aux;
+			} else {
+				indice++;
+			}
+		}
+		if (nota == null) {
+			throw new IllegalArgumentException(ERROR_NOTA_INVALIDA);
+		}
+		return nota;
+	}
+
+	public void loadNotas(IRepository_CSV persisitidor_Csv) {
+		persisitidor_Csv.load(notas, this.nombre);
+		
 	}
 
 }

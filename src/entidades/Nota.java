@@ -17,28 +17,31 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	private String octava;
 	private String figura;
 	private String alteracion;
-
 	// Definir como manejar el id
 	private int id;
-
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getId() {
+		return id;
+	}
 	/***
 	 * Fomato Nota: [nombre],[octava],[figura],[alteración] Sólo recibe el nombre de
 	 * la nota, setea la octava por defecto 6, figura negra, alteracion ""
 	 * 
 	 * @param line
+	 * @param id 
 	 */
-	public Nota(String line) {
+	public Nota(String line, int id) {
 		// por el if esta recibiendo la linea leida por el reader
-
 		String fields[] = line.split(",");
 		// verifyFields(lineOrName);
-
 		if (fields.length < CANT_ATRIBUTOS) {
 			throw new IllegalArgumentException(ERR_CANT_VALORES);
 		}
-
 		setValues(fields[0], fields[1], (fields[2]), fields[3]);
-
+		setId(id);
 	}
 
 	/***
@@ -79,7 +82,7 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 
 	}
 
-	private void setNombre(String nombreNota) {
+	public void setNombre(String nombreNota) {
 		try {
 			Funcion_Helper.validarString(nombreNota);
 			this.nombre = nombreNota;

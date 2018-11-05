@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.LinkedHashMap;
+
 import funciones_helper.Funcion_Helper;
 import repository.CSV_Repository;
 import repository.IRepository_CSV;
@@ -166,13 +167,15 @@ public class AnoteManagger {
 			} else {
 				Funcion_Helper.tryOpen();
 				// Cambio el nombre de la melodia en memoria
-				melodia.setNombre(nuevoNombre);
+				// persisitidor_Csv.updateName(nombreaAnteriorMelodia, nuevoNombre);
 				// Cambio el nombre en el archivo ini
 				// persisitidor_Ini.saveIni(melodia);
+				melodia.setNombre(nuevoNombre);
 				persisitidor_Ini.updateIni(melodia, nombreaAnteriorMelodia, append);
 				persisitidor_Ini.updateNombreIni(nombreaAnteriorMelodia, nuevoNombre);
+				persisitidor_Ini.updateSection(nombreaAnteriorMelodia, nuevoNombre);
 				// Le cambio el nombre al archivo csv
-				persisitidor_Csv.updateName(nombreaAnteriorMelodia, nuevoNombre);
+
 				// Le cambio el nombre a la carpeta
 				Funcion_Helper.updateFolder(nombreaAnteriorMelodia, nuevoNombre);
 			}
@@ -180,5 +183,60 @@ public class AnoteManagger {
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
+	}
+
+	public void updateInstrumentMelodia(String nombreMelodia, String instrumento) {
+		Melodia melodia;
+		try {
+			Funcion_Helper.validarString(nombreMelodia);
+			Funcion_Helper.validarString(instrumento);
+			melodia = persisitidor_Ini.load(nombreMelodia);
+			if (melodia != null) {
+				melodia.setInstrument(instrumento);
+				persisitidor_Ini.update(melodia);
+			}
+
+		} catch (RuntimeException re) {
+			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
+		}
+
+	}
+
+	public void updateTempoMelodia(String nombreMelodia, String tempo) {
+		Melodia melodia;
+		try {
+			Funcion_Helper.validarString(nombreMelodia);
+			Funcion_Helper.validarString(tempo);
+			melodia = persisitidor_Ini.load(nombreMelodia);
+			if (melodia != null) {
+				melodia.setTempo(tempo);
+				persisitidor_Ini.update(melodia);
+			}
+		} catch (RuntimeException re) {
+			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
+		}
+
+	}
+
+	public void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
+			String alteracion) {
+		Melodia melodia;
+		try {
+			Funcion_Helper.validarString(nombreMelodia);
+			Funcion_Helper.validarString(idNota);
+			Funcion_Helper.validarString(nombreNota);
+			Funcion_Helper.validarString(octava);
+			Funcion_Helper.validarString(figura);
+			Funcion_Helper.validarString(alteracion);
+			melodia = persisitidor_Ini.load(nombreMelodia);
+			if (melodia != null) {
+				melodia.loadNotas(persisitidor_Csv);
+				//persisitidor_Csv.load(melodia.getNotas(), nombreMelodia);
+				melodia.updateNota(idNota, nombreNota, octava, figura, alteracion, persisitidor_Csv);
+			}
+		} catch (RuntimeException re) {
+			System.out.println(re.getMessage());
+		}
+
 	}
 }

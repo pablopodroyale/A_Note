@@ -1,4 +1,5 @@
 package utils_textfiles;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -6,12 +7,13 @@ import java.util.LinkedHashMap;
 public class IniManager {
 	private static final String ERROR_SECCION_INVALIDA = "Error, la seccion no es valida";
 	private static final String ERROR_ARGUMENTO_VACIO = "Error, agregue un nombre valido";
-	//private static final String ERROR_ARCHIVO_INEXISTENTE = "Error, archivo inexistente";
+	// private static final String ERROR_ARCHIVO_INEXISTENTE = "Error, archivo
+	// inexistente";
 	private String fileSource;
 	private String fileDestinyName;
-	
+
 	private HashMap<String, Section> sections;
-	
+
 	// Consructor para inicializar variables
 	public IniManager() {
 		this.sections = new LinkedHashMap<String, Section>();
@@ -21,7 +23,7 @@ public class IniManager {
 	public IniManager(String fileDestiny) {
 		this();
 		this.fileDestinyName = fileDestiny;
-		//createWriter(fileDestiny);
+		// createWriter(fileDestiny);
 	}
 
 	// Constructor para leer y guardar en otro
@@ -29,11 +31,12 @@ public class IniManager {
 		this(fileDestiny);
 		this.fileSource = fileSource;
 		this.fileDestinyName = fileDestiny;
-		//setFileName(fileSource);
+		// setFileName(fileSource);
 	}
-	
+
 	/***
 	 * Cosntructor con paramettro dummy = 0 para sobrecarga que ya existe
+	 * 
 	 * @param fileSource
 	 * @param dummy
 	 */
@@ -54,10 +57,9 @@ public class IniManager {
 	}
 
 	/*
-	private void setFileName(String fileDestiny) {
-		this.fileDestinyName = fileDestiny;
-	}
-	*/
+	 * private void setFileName(String fileDestiny) { this.fileDestinyName =
+	 * fileDestiny; }
+	 */
 
 	private TextReader createReader(String sourceFile) {
 		return new BufferedTextReader(sourceFile);
@@ -77,10 +79,10 @@ public class IniManager {
 		load();
 		list();
 	}
-	
+
 	public void list() {
-		//load();
-		sections.forEach((key,value) -> {
+		// load();
+		sections.forEach((key, value) -> {
 			System.out.println(key);
 			value.list();
 		});
@@ -105,7 +107,7 @@ public class IniManager {
 		Section sectionAux = sections.get(section);
 		String val = null;
 		if (sectionAux != null) {
-			val = sectionAux.getValue(value);
+ 			val = sectionAux.getValue(value);
 		} else {
 			throw new IllegalArgumentException(ERROR_SECCION_INVALIDA);
 		}
@@ -131,12 +133,11 @@ public class IniManager {
 
 	public void save(boolean append) {
 		TextWriter writer = createWriter(this.fileDestinyName, append);
-		sections.forEach((key,value) -> {
+		sections.forEach((key, value) -> {
 			writer.writeLine(createSection(key));
 			writer.newLine();
 			value.save(writer, this.fileDestinyName);
 		});
-		
 		writer.close();
 	}
 
@@ -153,11 +154,11 @@ public class IniManager {
 		while (reader.isReady()) {
 			linea = reader.readLine();
 			if (isSection(linea)) {
-				//section = getSection(linea);
+				// section = getSection(linea);
 				nombreSeccion = getNombre(linea);
 				section = new Section(nombreSeccion);
 				sections.put(nombreSeccion, section);
-				
+
 			} else if (isComment(linea)) {
 				section.setItem(linea);
 			} else if (isItem(linea)) {
@@ -190,8 +191,9 @@ public class IniManager {
 		return sections.get(name);
 	}
 
-	/**	
+	/**
 	 * Devuelve true si existe el ambiente
+	 * 
 	 * @param environment
 	 * @return
 	 */
@@ -200,11 +202,11 @@ public class IniManager {
 	}
 
 	/*
-	private String getSectionName(String name) {
-		return sections.get(name).getName();
-
-	}
-	*/
+	 * private String getSectionName(String name) { return
+	 * sections.get(name).getName();
+	 * 
+	 * }
+	 */
 
 	private boolean isSection(String section) {
 		String pattern = "\\[\\w[\\w ]*\\]";
@@ -234,12 +236,22 @@ public class IniManager {
 
 	public void setPathDestiny(String pathIni) {
 		this.fileDestinyName = pathIni;
-		
+
 	}
 
 	public void setPathSource(String sourcePath) {
 		this.fileSource = sourcePath;
+
+	}
+
+	public void updateSection(String nombreAnterior, String nuevoNombre) {
+		sections.put( nuevoNombre, sections.remove( nombreAnterior ) );
 		
 	}
-	
+
+	public void clear() {
+		this.sections.clear();
+		
+	}
+
 }
