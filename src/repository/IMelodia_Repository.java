@@ -2,7 +2,7 @@ package repository;
 
 import entidades.Melodia;
 
-public interface IRepository_Ini {
+public interface IMelodia_Repository {
 	
 	void saveIni(Melodia melodia, boolean append);
 

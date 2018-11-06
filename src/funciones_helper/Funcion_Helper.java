@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 public final class Funcion_Helper {
 	static final String ERROR_STRING_VACIO = "Error, el nombre no puede estar vacio";
@@ -57,4 +58,16 @@ public final class Funcion_Helper {
 			throw new RuntimeException(ERROR_ARCHIVO_O_CARPETA_EN_USO);
 		}
 	}
+
+	public static String pedirString(String mensaje, Scanner input)
+    {
+        String respuesta;
+        do
+        {
+            System.out.println(mensaje);
+            respuesta = input.nextLine();
+        } while (respuesta.isEmpty()  || respuesta == null);
+
+        return respuesta;
+    }
 }

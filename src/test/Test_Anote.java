@@ -1,19 +1,26 @@
 package test;
 
+import java.util.Scanner;
+import Menu.Menu;
 import entidades.AnoteManagger;
+import entidades.Lector;
 import entidades.MyPattern;
 import entidades.Nota;
 
 import entidades.PlayerSingleton;
 
 public class Test_Anote {
-
+	static Scanner input =(Scanner) new Scanner(System.in);
 	public static void main(String[] args) {
 		Nota nota;
 		MyPattern pattern = new MyPattern();
 		PlayerSingleton player = PlayerSingleton.getInstance();
 		AnoteManagger anoteManagger = new AnoteManagger();
-
+		//Lector lector = new Lector();
+		//anoteManagger.listarCanciones();
+		anoteManagger.deleteMelodia("test");
+		anoteManagger.PedirOpcion(input, pattern);
+		
 		/*
 		 * anoteManagger.createMelody("nombreMelodia"); // Pattern 1 // Nota 1
 		 * anoteManagger.addNoteToMelody("nombreMelodia", "C", "5", "q", "n"); // Nota 2
@@ -62,6 +69,7 @@ public class Test_Anote {
 		// anoteManagger.updateNombreMelodia("nuevoNombre", "nombreMelodia", false);
 		// anoteManagger.updateInstrumentMelodia("nombreMelodia","PIANO");
 		//anoteManagger.updateTempoMelodia("nombreMelodia", "100");
-		anoteManagger.updateNota("nombreMelodia","1","D","5", "q", "n");
+		//anoteManagger.updateNota("nombreMelodia","1","D","5", "q", "n");
+		
 	}
 }

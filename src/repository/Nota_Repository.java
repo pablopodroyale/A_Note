@@ -14,7 +14,7 @@ import persistencia.ControlLevelError;
 import persistencia.NoteReader;
 import persistencia.NoteWriter;
 
-public class CSV_Repository implements IRepository_CSV {
+public class Nota_Repository implements INota_Repository {
 	private NoteWriter noteWriter;
 	private NoteReader noteReader;
 	private static final String CANCIONES = "Canciones";
@@ -22,7 +22,7 @@ public class CSV_Repository implements IRepository_CSV {
 	private static final String EXTENSION_CSV = ".csv";
 	private Path rootPath;
 
-	public CSV_Repository() {
+	public Nota_Repository() {
 		this.noteWriter = new NoteWriter();
 		this.noteReader = new NoteReader(Nota.getHeader());
 		rootPath = Paths.get(ROOT);

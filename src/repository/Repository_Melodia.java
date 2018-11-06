@@ -9,7 +9,7 @@ import entidades.Melodia;
 import funciones_helper.Mapper_Ini;
 import utils_textfiles.IniManager;
 
-public class IniRepository implements IRepository_Ini {
+public class Repository_Melodia implements IMelodia_Repository {
 	private IniManager iniManager;
 	private static final String CANCIONES = "Canciones";
 	private String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
@@ -17,7 +17,7 @@ public class IniRepository implements IRepository_Ini {
 	// private Path rootPath;
 	private static final String ERROR_NO_EXISTE_CANCION = "Error, la cancion seleccionada no existe";
 
-	public IniRepository() {
+	public Repository_Melodia() {
 		this.iniManager = new IniManager();
 		// this.rootPath = Paths.get(ROOT);
 	}

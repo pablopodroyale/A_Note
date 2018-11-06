@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import entidades.Melodia;
 import entidades.Nota;
 
-public interface IRepository_CSV {
+public interface INota_Repository {
 	// ArrayList<Nota> load();
 	void saveCSV(ArrayList<Nota> notas, String nombreMelodia, boolean append);
 

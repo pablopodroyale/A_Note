@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import funciones_helper.Contador;
 import funciones_helper.Funcion_Helper;
 import interfaces.sonable;
-import repository.IRepository_CSV;
+import repository.INota_Repository;
 
 public class Melodia implements sonable {
 
@@ -98,7 +98,7 @@ public class Melodia implements sonable {
 
 	}
 
-	public void save(IRepository_CSV persisitidor_Csv, boolean append) {
+	public void save(INota_Repository persisitidor_Csv, boolean append) {
 		// Guarda las notas
 		persisitidor_Csv.saveCSV(this.notas, this.nombre, append);
 	}
@@ -163,7 +163,7 @@ public class Melodia implements sonable {
 		return TEMPO_CONST_STRING;
 	}
 
-	public void load(IRepository_CSV persisitidor_Csv) {
+	public void load(INota_Repository persisitidor_Csv) {
 		persisitidor_Csv.load(notas, this.nombre);
 
 	}
@@ -179,7 +179,7 @@ public class Melodia implements sonable {
 	}
 
 	public void updateNota(String idNota, String nombreNota, String octava, String figura, String alteracion,
-			IRepository_CSV persisitidor_Csv) {
+			INota_Repository persisitidor_Csv) {
 		try {
 			Funcion_Helper.validarRango(0, notas.size(), Integer.parseInt(idNota));
 		} catch (RuntimeException re) {
@@ -190,7 +190,8 @@ public class Melodia implements sonable {
 		nota.setOctava(octava);
 		nota.setFigura(figura);
 		nota.setAlteracion(alteracion);
-		persisitidor_Csv.saveCSV(notas, nombre, false);;
+		persisitidor_Csv.saveCSV(notas, nombre, false);
+		;
 	}
 
 	private Nota getNotaById(String idNota) {
@@ -212,9 +213,20 @@ public class Melodia implements sonable {
 		return nota;
 	}
 
-	public void loadNotas(IRepository_CSV persisitidor_Csv) {
+	public void loadNotas(INota_Repository persisitidor_Csv) {
 		persisitidor_Csv.load(notas, this.nombre);
-		
+
+	}
+
+	public ArrayList<Nota> getNotas(INota_Repository persisitidor_Csv) {
+		loadNotas(persisitidor_Csv);
+		return notas;
+	}
+
+	public void removeNotaById(String idNota, INota_Repository repositorioNotas_Csv) {
+		loadNotas(repositorioNotas_Csv);
+		notas.remove(getNotaById(idNota));
+		save(repositorioNotas_Csv, false);
 	}
 
 }
