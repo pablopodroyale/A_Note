@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="D:/ort/Segundo_1/Taller3/A_Note/JFUGUE_DIR"/>
-	<classpathentry kind="lib" path="D:/ort/Segundo_1/Taller3/jfugue-5.0.9.jar" sourcepath="JFUGUE_DIR"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="D:/ort/Segundo_1/Taller3/A_Note/JFUGUE_DIR/jfugue-5.0.9.jar" sourcepath="JFUGUE_DIR"/>
+	<classpathentry exported="true" kind="lib" path="JFUGUE_DIR"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

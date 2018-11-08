@@ -78,7 +78,6 @@ public class Melodia implements sonable {
 
 	public void setNote(Nota nota) {
 		asignarIdANota(nota);
-
 		this.notas.add(nota);
 	}
 

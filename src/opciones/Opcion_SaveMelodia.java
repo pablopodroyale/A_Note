@@ -22,6 +22,9 @@ public class Opcion_SaveMelodia extends Opcion {
 	@Override
 	public void ejecutar(AnoteManagger manager, Scanner input, Pattern pattern) {
 		String nombreMelodia = Funcion_Helper.pedirString(MENSAJE, input);
+		if (Funcion_Helper.existMelody(nombreMelodia)) {
+			manager.deleteMelodia(nombreMelodia);
+		}
 		manager.save(nombreMelodia, (MyPattern) pattern, false);
 	}
 

@@ -6,15 +6,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
-import entidades.Melodia;
 import entidades.Nota;
 import persistencia.ControlLevelError;
 import persistencia.NoteReader;
 import persistencia.NoteWriter;
 
-public class Nota_Repository implements INota_Repository {
+public class Repository_Nota_Csv implements INota_Repository {
 	private NoteWriter noteWriter;
 	private NoteReader noteReader;
 	private static final String CANCIONES = "Canciones";
@@ -22,7 +20,7 @@ public class Nota_Repository implements INota_Repository {
 	private static final String EXTENSION_CSV = ".csv";
 	private Path rootPath;
 
-	public Nota_Repository() {
+	public Repository_Nota_Csv() {
 		this.noteWriter = new NoteWriter();
 		this.noteReader = new NoteReader(Nota.getHeader());
 		rootPath = Paths.get(ROOT);

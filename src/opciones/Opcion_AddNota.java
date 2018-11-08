@@ -12,7 +12,7 @@ import repository.INota_Repository;
 public class Opcion_AddNota extends Opcion {
 
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodia";
-	private static final String MENSAJE_NOMBRE_NOTA = "Ingrese el nombre de la nota";;
+	private static final String MENSAJE_NOMBRE_NOTA = "Ingrese el nombre de la nota(DO 'C', Re 'D', Mi 'E', Fa 'F', Sol 'G', Si 'B')";
 	private static final String MENSAJE_NUMERO_OCTAVA = "Ingrese el numero de octava del 1 al 9";;
 	private static final String MENSAJE_NOMBRE_FIGURA = "Ingrese la figura, REDONDA 'w', BLANCA 'h',NEGRA 'q', CORCHEA 'i', SEMICORCHEA 's', FUSA 't', SEMIFUSA 'x'";
 	private static final String MENSAJE_TIPO_ALTERACION = "Ingrese la alteracion, Sotenido '#', bemol 'b', becuadro 'n' ";

@@ -70,4 +70,10 @@ public final class Funcion_Helper {
 
         return respuesta;
     }
+
+	public static boolean existMelody(String nombreMelodia) {
+		String fileName = ROOT + File.separator + nombreMelodia;
+		File file = new File(fileName);
+		return file.exists();
+	}
 }

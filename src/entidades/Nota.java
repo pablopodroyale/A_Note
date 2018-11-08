@@ -57,6 +57,7 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 		setValues(nombre, octava, figura, alteracion);
 	}
 
+	/*
 	private void verifyFields(String lineOrName) {
 		String fields[] = lineOrName.split(",");
 		if (fields[0] != null) {
@@ -73,6 +74,7 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 		}
 
 	}
+	*/
 
 	private void setValues(String nombre, String octava, String figura, String alteracion) {
 		setNombre(nombre);
@@ -190,6 +192,10 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	@Override
 	public String toString() {
 		return nombre + "," + octava + "," + figura + "," + alteracion;
+	}
+	
+	public String toStringConId() {
+		return id + ":" + nombre + "," + octava + "," + figura + "," + alteracion;
 	}
 
 	public static String getHeader() {

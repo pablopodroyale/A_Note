@@ -17,8 +17,8 @@ public class Menu {
 
 	private void cargarOpciones() {
 		register("Crear Melodía");
-		register("Cargar melodía existente");
-		register("Listar melodía");
+		//register("Cargar melodía existente");
+		register("Listar melodías");
 		register("Agregar nota");
 		register("Setear tiempo");
 		register("Setear instrumento");
@@ -30,7 +30,6 @@ public class Menu {
 		register("Eliminar melodia");
 		register("Reproducir");
 		register("Salvar");
-
 	}
 
 	/***

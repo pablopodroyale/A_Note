@@ -1,9 +1,7 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
-import entidades.Melodia;
 import entidades.Nota;
 
 public interface INota_Repository {

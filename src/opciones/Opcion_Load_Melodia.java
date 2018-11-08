@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.jfugue.pattern.Pattern;
 
 import entidades.AnoteManagger;
-import entidades.Melodia;
+
 import funciones_helper.Funcion_Helper;
 import repository.IMelodia_Repository;
 import repository.INota_Repository;

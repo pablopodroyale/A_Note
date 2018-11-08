@@ -6,8 +6,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import java.util.LinkedHashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 import funciones_helper.Funcion_Helper;
 import interfaces.ILector;
@@ -26,10 +28,10 @@ import opciones.Opcion_Update_InstrumentoMelodia;
 import opciones.Opcion_Update_NombreMelodia;
 import opciones.Opcion_Update_NotaMelodia;
 import opciones.Opcion_Update_TempoMelodia;
-import repository.Nota_Repository;
+import repository.Repository_Nota_Csv;
 import repository.INota_Repository;
 import repository.IMelodia_Repository;
-import repository.Repository_Melodia;
+import repository.Repository_Melodia_Ini;
 
 public class AnoteManagger {
 	private static final int MAX_INSTRUMENT = 127;
@@ -38,6 +40,7 @@ public class AnoteManagger {
 	private static final String ERROR_MELODIA_EXISTENTE = "Error, la melodia ya exite";
 	private static final String CANCIONES = "Canciones";
 	private static final String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
+	private static final String ERROR_LISTA_VACIA = "No, hay canciones guardadas";
 	private IMelodia_Repository repositorioMelodia_Ini;
 	private INota_Repository repositorioNotas_Csv;
 	private LinkedHashMap<String, Melodia> melodias;
@@ -46,8 +49,8 @@ public class AnoteManagger {
 
 	public AnoteManagger() {
 		this.melodias = new LinkedHashMap<>();
-		this.repositorioMelodia_Ini = new Repository_Melodia();
-		this.repositorioNotas_Csv = new Nota_Repository();
+		this.repositorioMelodia_Ini = new Repository_Melodia_Ini();
+		this.repositorioNotas_Csv = new Repository_Nota_Csv();
 		this.opciones = new LinkedHashMap<>();
 		cargarOpciones();
 		this.lector = null;
@@ -55,19 +58,20 @@ public class AnoteManagger {
 
 	private void cargarOpciones() {
 		opciones.put(1, new Opcion_Create_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(2, new Opcion_Load_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(3, new Opcion_Details_Canciones(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(4, new Opcion_AddNota(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(5, new Opcion_Set_TempoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(6, new Opcion_Set_InstrumentoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(7, new Opcion_Update_NombreMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(8, new Opcion_Update_InstrumentoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(9, new Opcion_Update_TempoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(10, new Opcion_Update_NotaMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(11, new Opcion_Delete_NotaMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(12, new Opcion_Delete_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(13, new Opcion_Reproducir_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
-		opciones.put(14, new Opcion_SaveMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		// opciones.put(2, new Opcion_Load_Melodia(repositorioMelodia_Ini,
+		// repositorioNotas_Csv));
+		opciones.put(2, new Opcion_Details_Canciones(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(3, new Opcion_AddNota(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(4, new Opcion_Set_TempoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(5, new Opcion_Set_InstrumentoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(6, new Opcion_Update_NombreMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(7, new Opcion_Update_InstrumentoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(8, new Opcion_Update_TempoMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(9, new Opcion_Update_NotaMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(10, new Opcion_Delete_NotaMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(11, new Opcion_Delete_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(12, new Opcion_Reproducir_Melodia(repositorioMelodia_Ini, repositorioNotas_Csv));
+		opciones.put(13, new Opcion_SaveMelodia(repositorioMelodia_Ini, repositorioNotas_Csv));
 
 	}
 
@@ -83,16 +87,21 @@ public class AnoteManagger {
 	}
 
 	public Melodia getMelody(String nombreMelodia) {
-		if (nombreMelodia.isEmpty() || nombreMelodia == null) {
-			throw new IllegalArgumentException(ERROR_STRING_VACIO);
-		} else {
-			Melodia aux = loadMelodyFromIni(nombreMelodia);
-			if (aux == null) {
+		Melodia melodia = null;
+		try {
+			melodia = getMelodiaFromMemory(nombreMelodia);
+			if (melodia == null) {
 				throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-			} else {
-				return aux;
 			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
+
+		return melodia;
+	}
+
+	private Melodia getMelodiaFromMemory(String nombreMelodia) {
+		return melodias.get(nombreMelodia);
 	}
 
 	public ArrayList<Nota> getNotas(String nombreMelodia) {
@@ -151,18 +160,19 @@ public class AnoteManagger {
 	}
 
 	public void play(String nombreMelodia, MyPattern pattern, PlayerSingleton player) {
+		Melodia melodia = null;
 		try {
 			Funcion_Helper.validarString(nombreMelodia);
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
-		Melodia melodia = null;
 		try {
 			melodia = getMelody(nombreMelodia);
-			melodia.play(pattern, player);
+
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
+		melodia.play(pattern, player);
 
 	}
 
@@ -208,7 +218,7 @@ public class AnoteManagger {
 	public void load(String nombreMelodia) {
 		Melodia melodia = repositorioMelodia_Ini.load(nombreMelodia);
 		melodia.load(repositorioNotas_Csv);
-		melodia.list();
+		// melodia.list();
 		melodias.put(nombreMelodia, melodia);
 
 	}
@@ -218,28 +228,33 @@ public class AnoteManagger {
 		try {
 			// Pregunto primero si esta en memoria porque quizas esta creada en esta sesion
 
-			melodia = loadMelodyFromIni(nombreaAnteriorMelodia);
+			melodia = getMelody(nombreaAnteriorMelodia);
 			if (melodia == null) {
 				throw new IllegalArgumentException(ERROR_MELODIA_EXISTENTE);
 			} else {
-				Funcion_Helper.tryOpen();
+				melodia.setNombre(nuevoNombre);
+				cambiarNombreClave(nombreaAnteriorMelodia, nuevoNombre);
+				// Funcion_Helper.tryOpen();
 				// Cambio el nombre de la melodia en memoria
 				// persisitidor_Csv.updateName(nombreaAnteriorMelodia, nuevoNombre);
 				// Cambio el nombre en el archivo ini
 				// persisitidor_Ini.saveIni(melodia);
-				melodia.setNombre(nuevoNombre);
-				repositorioMelodia_Ini.updateIni(melodia, nombreaAnteriorMelodia, append);
-				repositorioMelodia_Ini.updateNombreIni(nombreaAnteriorMelodia, nuevoNombre);
-				repositorioMelodia_Ini.updateSection(nombreaAnteriorMelodia, nuevoNombre);
+				// repositorioMelodia_Ini.updateIni(melodia, nombreaAnteriorMelodia, append);
+				// repositorioMelodia_Ini.updateNombreIni(nombreaAnteriorMelodia, nuevoNombre);
+				// repositorioMelodia_Ini.updateSection(nombreaAnteriorMelodia, nuevoNombre);
 				// Le cambio el nombre al archivo csv
-
 				// Le cambio el nombre a la carpeta
-				Funcion_Helper.updateFolder(nombreaAnteriorMelodia, nuevoNombre);
+				// Funcion_Helper.updateFolder(nombreaAnteriorMelodia, nuevoNombre);
 			}
 
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
+	}
+
+	private void cambiarNombreClave(String nombreAnterior, String nuevoNombre) {
+		melodias.put(nuevoNombre, melodias.remove(nombreAnterior));
+
 	}
 
 	private Melodia loadMelodyFromIni(String nombreaAnteriorMelodia) {
@@ -305,6 +320,7 @@ public class AnoteManagger {
 
 	public void PedirOpcion(Scanner input, MyPattern pattern) {
 		this.lector = new Lector(input);
+		cargarCanciones();
 		try {
 			lector.EjecutarOpcion(this, repositorioMelodia_Ini, repositorioNotas_Csv, opciones, input, pattern);
 		} catch (RuntimeException e) {
@@ -313,9 +329,15 @@ public class AnoteManagger {
 
 	}
 
-	public void listarCanciones() {
-		System.out.println("Canciones:");
-		// create a file that is really a directory
+	private void cargarCanciones() {
+		ArrayList<String> lstCancionesStr = getCanciones();
+		for (int i = 0; i < lstCancionesStr.size(); i++) {
+			load(lstCancionesStr.get(i));
+		}
+	}
+
+	public ArrayList<String> getCanciones() {
+		ArrayList<String> canciones = new ArrayList<>();
 		File aDirectory = new File(ROOT);
 		// get a listing of all files in the directory
 		String[] filesInDir = aDirectory.list();
@@ -323,7 +345,23 @@ public class AnoteManagger {
 		Arrays.sort(filesInDir);
 		// have everything i need, just print it now
 		for (int i = 0; i < filesInDir.length; i++) {
-			System.out.println(i + 1 + ":" + filesInDir[i]);
+			canciones.add(filesInDir[i]);
+		}
+		return canciones;
+	}
+
+	public void listarCanciones() {
+		/*
+		 * // int index = 1; System.out.println("Canciones:"); ArrayList<String>
+		 * canciones = getCanciones(); if (canciones.size() == 0) { throw new
+		 * RuntimeException(ERROR_LISTA_VACIA); }
+		 * 
+		 * for (int i = 0; i < canciones.size(); i++) { System.out.println(i + 1 + ":" +
+		 * canciones.get(i)); // index++; }
+		 */
+		Set<String> canciones = melodias.keySet();
+		for (int j = 0; j < canciones.size(); j++) {
+			System.out.println((j + 1) + ":" + canciones.toArray()[j]);
 		}
 	}
 
@@ -352,20 +390,20 @@ public class AnoteManagger {
 		ArrayList<Nota> notas = getNotas(nombreMelodia);
 		if (notas != null) {
 			for (Nota nota : notas) {
-				System.out.println(nota.toString());
+				System.out.println(nota.toStringConId());
 			}
 		}
-		
+
 	}
 
 	public void removeNotaById(String nombreMelodia, String idNota) {
 		Melodia melodia = loadMelodyFromIni(nombreMelodia);
 		if (melodia != null) {
 			melodia.removeNotaById(idNota, repositorioNotas_Csv);
-		}else {
+		} else {
 			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
 		}
-		
+
 	}
 
 }

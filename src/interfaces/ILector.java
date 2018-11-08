@@ -2,8 +2,6 @@ package interfaces;
 
 import java.util.LinkedHashMap;
 import java.util.Scanner;
-
-import Menu.Menu;
 import entidades.AnoteManagger;
 import entidades.MyPattern;
 import opciones.Opcion;

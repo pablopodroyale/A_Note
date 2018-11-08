@@ -18,7 +18,6 @@ public class Opcion_Details_Canciones extends Opcion {
 	@Override
 	public void ejecutar(AnoteManagger manager, Scanner input, Pattern pattern) {
 		manager.listarCanciones();
-		
 	}
 
 }

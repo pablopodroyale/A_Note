@@ -39,7 +39,7 @@ public abstract class CSVWriter<ClassType> {
 
 	private void writeitems(TextWriter tw, ArrayList<ClassType> lista) {
 		BufferedTextWriter bufferWriter = (BufferedTextWriter) tw;
-		CSVCompatible<ClassType> csv;
+		//CSVCompatible<ClassType> csv;
 		String line = "";
 		for (ClassType classType : lista) {
 			line += classType.toString();

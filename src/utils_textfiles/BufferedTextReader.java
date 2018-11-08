@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class BufferedTextReader implements TextReader {
-	private static final String ERROR_BUFFER = "Error, el buffer tiene un error";
+	//private static final String ERROR_BUFFER = "Error, el buffer tiene un error";
 	private BufferedReader buffer;
-	private ArrayList<String> lista;
-	private FileReader fileReader;
+	//private ArrayList<String> lista;
+	
 
 	public BufferedTextReader(String path) {
-		this.lista = new ArrayList<>();
+		//this.lista = new ArrayList<>();
 		try {
 			this.buffer = new BufferedReader(new FileReader(path));
 		} catch (FileNotFoundException e) {
