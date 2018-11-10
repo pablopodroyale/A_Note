@@ -19,9 +19,10 @@ public class Menu {
 		register("Crear Melodía");
 		//register("Cargar melodía existente");
 		register("Listar melodías");
+		register("Listar detalles melodías");
 		register("Agregar nota");
-		register("Setear tiempo");
-		register("Setear instrumento");
+		//register("Setear tiempo");
+		//register("Setear instrumento");
 		register("Modificar nombre de la melodia");
 		register("Modificar instrumento de una melodia");
 		register("Modificar tiempo de una melodía");

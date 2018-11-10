@@ -2,25 +2,23 @@ package opciones;
 
 import java.util.Scanner;
 
-import org.jfugue.pattern.Pattern;
-
-import entidades.AnoteManagger;
+import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import repository.IMelodia_Repository;
-import repository.INota_Repository;
+import interfaces.IRepositorios;
+
 
 public class Opcion_Delete_NotaMelodia extends Opcion  {
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodia";
 	private static final String MENSAJE_PEDIR_ID = "Ingrese el id de la nota a eliminar";
 	//private static final String MENSAJE_NOMBRE_NOTA = "Ingrese el nombre de la nota";
 
-	public Opcion_Delete_NotaMelodia(IMelodia_Repository ini, INota_Repository csv) {
-		super(ini, csv);
+	public Opcion_Delete_NotaMelodia(IRepositorios repositorioMelodia) {
+		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void ejecutar(AnoteManagger manager, Scanner input, Pattern pattern) {
+	public void ejecutar(AnoteManager manager, Scanner input) {
 		//Melodia melodia;
 		//Listar las notas
 		System.out.println("¿Cuál de las siguientes melodías desea modificar?");

@@ -1,9 +1,8 @@
-package repository;
+package interfaces;
 
-import entidades.Melodia;
 
 public interface IMelodia_Repository {
-	
+	/*
 	void saveIni(Melodia melodia, boolean append);
 
 	Melodia load(String nombreMelodia);
@@ -15,5 +14,8 @@ public interface IMelodia_Repository {
 	void updateSection(String nombreAnterior, String nuevoNombre);
 
 	void update(Melodia melodia);
+
+	boolean containsMelodia(String nombreMelodia);
+	*/
 
 }

@@ -1,18 +1,9 @@
 package repository;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 
-import entidades.Nota;
-import persistencia.ControlLevelError;
-import persistencia.NoteReader;
-import persistencia.NoteWriter;
 
-public class Repository_Nota_Csv implements INota_Repository {
+public class Repository_Nota_Csv  {
+	/*
 	private NoteWriter noteWriter;
 	private NoteReader noteReader;
 	private static final String CANCIONES = "Canciones";
@@ -35,6 +26,7 @@ public class Repository_Nota_Csv implements INota_Repository {
 	/***
 	 * notas, nombre melodia
 	 */
+	/*
 	@Override
 	public void saveCSV(ArrayList<Nota> notas, String nombreMelodia, boolean append) {
 		String pathCSV = ROOT + File.separator + nombreMelodia + File.separator + nombreMelodia + EXTENSION_CSV;
@@ -67,6 +59,7 @@ public class Repository_Nota_Csv implements INota_Repository {
 		}
 
 	}
+	*/
 
 	// noteWriter.writeAll(pathCsv, notas);
 	// NoteWriter noteWriter = new NoteWriter(Nota.getHeader());

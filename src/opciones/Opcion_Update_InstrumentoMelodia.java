@@ -2,23 +2,28 @@ package opciones;
 
 import java.util.Scanner;
 
-import org.jfugue.pattern.Pattern;
+import entidades.AnoteManager;
+import funciones_helper.Funcion_Helper;
+import interfaces.IRepositorios;
 
-import entidades.AnoteManagger;
-import repository.IMelodia_Repository;
-import repository.INota_Repository;
+public class Opcion_Update_InstrumentoMelodia extends Opcion {
 
-public class Opcion_Update_InstrumentoMelodia extends Opcion  {
+	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodía de la lista";
+	private static final String MENSAJE_INSTRUMENTO_MELODIA = "Ingrese el instrumento deseado de la lista";
 
-	public Opcion_Update_InstrumentoMelodia(IMelodia_Repository ini, INota_Repository csv) {
-		super(ini, csv);
+	public Opcion_Update_InstrumentoMelodia(IRepositorios repositorioMelodia) {
+		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void ejecutar(AnoteManagger manager, Scanner input, Pattern pattern) {
-		// TODO Auto-generated method stub
-		
+	public void ejecutar(AnoteManager manager, Scanner input) {
+		manager.listarCanciones();
+		String nombreMelodia = Funcion_Helper.pedirString(MENSAJE_NOMBRE_MELODIA, input);
+		manager.listarInstrumentos();
+		String instrument = Funcion_Helper.pedirString(MENSAJE_INSTRUMENTO_MELODIA, input);
+		manager.setInstrument(nombreMelodia, instrument);
+
 	}
 
 }

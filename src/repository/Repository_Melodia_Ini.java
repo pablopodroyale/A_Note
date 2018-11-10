@@ -1,15 +1,9 @@
 package repository;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import entidades.Melodia;
-import funciones_helper.Mapper_Ini;
-import utils_textfiles.IniManager;
 
-public class Repository_Melodia_Ini implements IMelodia_Repository {
+
+public class Repository_Melodia_Ini  {
+	/*
 	private IniManager iniManager;
 	private static final String CANCIONES = "Canciones";
 	private String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
@@ -70,12 +64,13 @@ public class Repository_Melodia_Ini implements IMelodia_Repository {
 	private String removeInstrumentMask(String instrument) {
 		return instrument.substring(3, instrument.length() - 2);
 	}
-
+	*/
 	/***
 	 * Verificar que el nombre anterior sea igual al que tenga la melodia Si es
 	 * igual actualizo con el nombre que tenia, si no cambio el nombre del archivo y
 	 * despues guardo con ese nuevo path
 	 */
+	/*
 	@Override
 	public void updateIni(Melodia melodia, String nombreAnterior, boolean append) {
 		String pathAnteriorIni = ROOT + File.separator + nombreAnterior + File.separator + nombreAnterior
@@ -118,5 +113,5 @@ public class Repository_Melodia_Ini implements IMelodia_Repository {
 		Mapper_Ini.Map(melodia, iniManager);
 		iniManager.save(false);
 	}
-
+	*/
 }

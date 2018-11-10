@@ -1,10 +1,10 @@
 package entidades;
 
 import funciones_helper.Funcion_Helper;
-import interfaces.sonable;
+import interfaces.ISonable;
 import persistencia.CSVCompatible;
 
-public class Nota implements sonable, CSVCompatible<Nota> {
+public class Nota implements ISonable, CSVCompatible<Nota> {
 	private static final String HEADER_NOTA = "Nombre_Nota,Octava,Figura,Alteracion";
 	private static final String ERROR_ALTERACION = "Error, la alteracion debe ser '#' o 'b' o 'n'";
 	private static final String ERROR_FIGURA_INVALIDA = "Error, figura invalida";
@@ -19,19 +19,21 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	private String alteracion;
 	// Definir como manejar el id
 	private int id;
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	/***
 	 * Fomato Nota: [nombre],[octava],[figura],[alteración] Sólo recibe el nombre de
 	 * la nota, setea la octava por defecto 6, figura negra, alteracion ""
 	 * 
 	 * @param line
-	 * @param id 
+	 * @param id
 	 */
 	public Nota(String line, int id) {
 		// por el if esta recibiendo la linea leida por el reader
@@ -58,23 +60,14 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	}
 
 	/*
-	private void verifyFields(String lineOrName) {
-		String fields[] = lineOrName.split(",");
-		if (fields[0] != null) {
-			System.out.println("0 ok");
-		}
-		if (fields[1] != null) {
-			System.out.println("1 ok");
-		}
-		if (fields[2] != null) {
-			System.out.println("2 ok");
-		}
-		if (fields[3] != null) {
-			System.out.println("3 ok");
-		}
-
-	}
-	*/
+	 * private void verifyFields(String lineOrName) { String fields[] =
+	 * lineOrName.split(","); if (fields[0] != null) { System.out.println("0 ok"); }
+	 * if (fields[1] != null) { System.out.println("1 ok"); } if (fields[2] != null)
+	 * { System.out.println("2 ok"); } if (fields[3] != null) {
+	 * System.out.println("3 ok"); }
+	 * 
+	 * }
+	 */
 
 	private void setValues(String nombre, String octava, String figura, String alteracion) {
 		setNombre(nombre);
@@ -184,16 +177,10 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	}
 
 	@Override
-	public void play(MyPattern pattern, PlayerSingleton player) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public String toString() {
 		return nombre + "," + octava + "," + figura + "," + alteracion;
 	}
-	
+
 	public String toStringConId() {
 		return id + ":" + nombre + "," + octava + "," + figura + "," + alteracion;
 	}
@@ -206,6 +193,13 @@ public class Nota implements sonable, CSVCompatible<Nota> {
 	public String ToCSV() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	//TODO
+	@Override	
+	public void play(PlayerSingleton player) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 import funciones_helper.Contador;
 import funciones_helper.Funcion_Helper;
-import interfaces.sonable;
-import repository.INota_Repository;
+import interfaces.ISonable;
 
-public class Melodia implements sonable {
+public class Melodia implements ISonable {
 
 	private static final int TEMPO_MAXIMO = Integer.MAX_VALUE;
 	private static final int TEMPO_MINIMO = 1;
@@ -22,13 +21,12 @@ public class Melodia implements sonable {
 	private static final String INSTRUMENT = "Instrumento";
 	private static final String CANCIONES = "Canciones";
 	private static final String ERROR_NOTA_INVALIDA = "Error, la nota es invalida";
-
-	// private Compas compas;
 	private String tempo;
 	private String instrument;
 	private ArrayList<Nota> notas;
 	private String nombre;
 	private Contador contadorNotas;
+	private MyPattern pattern;
 
 	/***
 	 * Orden de parametros: nombre, instrument, tempo
@@ -41,7 +39,7 @@ public class Melodia implements sonable {
 		this.tempo = "";
 		this.instrument = "";
 		this.contadorNotas = new Contador();
-
+		this.pattern = new MyPattern();
 	}
 
 	public String getTempo() {
@@ -60,20 +58,22 @@ public class Melodia implements sonable {
 	}
 
 	@Override
-	public void play(MyPattern pattern, PlayerSingleton player) {
+	public void play(PlayerSingleton player) {
 		if (!this.instrument.isEmpty()) {
-			pattern.add(instrument);
+			this.pattern.add(instrument);
 		}
 		if (!this.tempo.isEmpty()) {
-			pattern.add(tempo);
+			this.pattern.add(tempo);
 		}
 
 		notas.forEach(x -> {
 			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
 		});
-		player.play(pattern);
-		System.exit(0);
-
+		try {
+			player.play(pattern);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public void setNote(Nota nota) {
@@ -95,11 +95,6 @@ public class Melodia implements sonable {
 			System.out.println(re.getMessage());
 		}
 
-	}
-
-	public void save(INota_Repository persisitidor_Csv, boolean append) {
-		// Guarda las notas
-		persisitidor_Csv.saveCSV(this.notas, this.nombre, append);
 	}
 
 	public int getTempoMaximo() {
@@ -162,13 +157,8 @@ public class Melodia implements sonable {
 		return TEMPO_CONST_STRING;
 	}
 
-	public void load(INota_Repository persisitidor_Csv) {
-		persisitidor_Csv.load(notas, this.nombre);
-
-	}
-
-	public void list() {
-		notas.forEach(x -> System.out.println(x.toString()));
+	public void listarNotas() {
+		notas.forEach(x -> System.out.println(x.toStringConId()));
 	}
 
 	public void setNombre(String nombreMelodia) {
@@ -177,8 +167,7 @@ public class Melodia implements sonable {
 
 	}
 
-	public void updateNota(String idNota, String nombreNota, String octava, String figura, String alteracion,
-			INota_Repository persisitidor_Csv) {
+	public void updateNota(String idNota, String nombreNota, String octava, String figura, String alteracion) {
 		try {
 			Funcion_Helper.validarRango(0, notas.size(), Integer.parseInt(idNota));
 		} catch (RuntimeException re) {
@@ -189,8 +178,6 @@ public class Melodia implements sonable {
 		nota.setOctava(octava);
 		nota.setFigura(figura);
 		nota.setAlteracion(alteracion);
-		persisitidor_Csv.saveCSV(notas, nombre, false);
-		;
 	}
 
 	private Nota getNotaById(String idNota) {
@@ -212,20 +199,29 @@ public class Melodia implements sonable {
 		return nota;
 	}
 
-	public void loadNotas(INota_Repository persisitidor_Csv) {
-		persisitidor_Csv.load(notas, this.nombre);
-
-	}
-
-	public ArrayList<Nota> getNotas(INota_Repository persisitidor_Csv) {
-		loadNotas(persisitidor_Csv);
-		return notas;
-	}
-
-	public void removeNotaById(String idNota, INota_Repository repositorioNotas_Csv) {
-		loadNotas(repositorioNotas_Csv);
+	public void removeNotaById(String idNota) {
 		notas.remove(getNotaById(idNota));
-		save(repositorioNotas_Csv, false);
 	}
+
+	@Override
+	public String toString() {
+		return "Melodia \nNombre:" + "'" + nombre + "'" + "\nTempo:" + tempo + "\nInstrument:" + instrument;
+	}
+
+	public void loadNotas(ArrayList<Nota> notas) {
+		for (Nota nota : notas) {
+			this.notas.add(nota);
+		}
+	}
+
+	/*
+	 * public void loadNotas(INota_Repository persisitidor_Csv) {
+	 * persisitidor_Csv.load(notas, this.nombre);
+	 * 
+	 * }
+	 * 
+	 * public ArrayList<Nota> getNotas(INota_Repository persisitidor_Csv) {
+	 * loadNotas(persisitidor_Csv); return notas; }
+	 */
 
 }
