@@ -1,0 +1,15 @@
+package utils.files;
+import entidades.Nota;
+
+public class NoteWriter extends CSVWriter<Nota>{
+
+	public NoteWriter(String header) {
+		super(header);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NoteWriter() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

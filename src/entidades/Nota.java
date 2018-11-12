@@ -2,7 +2,7 @@ package entidades;
 
 import funciones_helper.Funcion_Helper;
 import interfaces.ISonable;
-import persistencia.CSVCompatible;
+import utils.files.CSVCompatible;
 
 public class Nota implements ISonable, CSVCompatible<Nota> {
 	private static final String HEADER_NOTA = "Nombre_Nota,Octava,Figura,Alteracion";

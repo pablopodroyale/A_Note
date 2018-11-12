@@ -10,16 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="persistencia.CSVWriter" project="A_Note" 
-    file="/A_Note/src/persistencia/CSVWriter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1433" y="1560"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="funciones_helper.Funcion_Helper" project="A_Note" 
+  <class id="2" language="java" name="funciones_helper.Funcion_Helper" project="A_Note" 
     file="/A_Note/src/funciones_helper/Funcion_Helper.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="882" y="2280"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -28,43 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="entidades.AnoteManagger" project="A_Note" 
-    file="/A_Note/src/entidades/AnoteManagger.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1447" y="864"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="5" language="java" name="repository.INota_Repository" project="A_Note" 
-    file="/A_Note/src/repository/INota_Repository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1813" y="1485"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <interface id="6" language="java" name="interfaces.sonable" project="A_Note" 
-    file="/A_Note/src/interfaces/sonable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1420" y="1876"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <interface id="7" language="java" name="repository.IMelodia_Repository" project="A_Note" 
-    file="/A_Note/src/repository/IMelodia_Repository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="990" y="1170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="8" language="java" name="entidades.MyPattern" project="A_Note" file="/A_Note/src/entidades/MyPattern.java" 
+  <class id="3" language="java" name="entidades.MyPattern" project="A_Note" file="/A_Note/src/entidades/MyPattern.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1524" y="2289"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,16 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="9" language="java" name="persistencia.ControlLevelError" project="A_Note" 
-    file="/A_Note/src/persistencia/ControlLevelError.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2345" y="1523"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <enumeration id="10" language="java" name="entidades.Figuras_Ritmicas" project="A_Note" 
+  <enumeration id="4" language="java" name="entidades.Figuras_Ritmicas" project="A_Note" 
     file="/A_Note/src/entidades/Figuras_Ritmicas.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2136" y="2200"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,25 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="11" language="java" name="persistencia.NoteWriter" project="A_Note" 
-    file="/A_Note/src/persistencia/NoteWriter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1472" y="1278"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="12" language="java" name="persistencia.CSVCompatible" project="A_Note" 
-    file="/A_Note/src/persistencia/CSVCompatible.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1425" y="1730"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="13" language="java" name="entidades.PlayerSingleton" project="A_Note" 
+  <class id="5" language="java" name="entidades.PlayerSingleton" project="A_Note" 
     file="/A_Note/src/entidades/PlayerSingleton.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1263" y="2370"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,25 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="persistencia.CSVReader" project="A_Note" 
-    file="/A_Note/src/persistencia/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2210" y="1156"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="false" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="persistencia.NoteReader" project="A_Note" 
-    file="/A_Note/src/persistencia/NoteReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2070" y="1505"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="entidades.Melodia" project="A_Note" file="/A_Note/src/entidades/Melodia.java" 
+  <class id="6" language="java" name="entidades.Melodia" project="A_Note" file="/A_Note/src/entidades/Melodia.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1000" y="1728"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="funciones_helper.Contador" project="A_Note" 
+  <class id="7" language="java" name="funciones_helper.Contador" project="A_Note" 
     file="/A_Note/src/funciones_helper/Contador.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2132" y="1720"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="funciones_helper.Mapper_Ini" project="A_Note" 
+  <class id="8" language="java" name="funciones_helper.Mapper_Ini" project="A_Note" 
     file="/A_Note/src/funciones_helper/Mapper_Ini.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="564" y="1724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="19" language="java" name="interfaces.ILector" project="A_Note" 
+  <interface id="9" language="java" name="interfaces.ILector" project="A_Note" 
     file="/A_Note/src/interfaces/ILector.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2216" y="816"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,16 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="20" language="java" name="opciones.IOpcion" project="A_Note" file="/A_Note/src/opciones/IOpcion.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="660" y="336"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="false" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="21" language="java" name="opciones.Opcion" project="A_Note" file="/A_Note/src/opciones/Opcion.java" 
+  <class id="10" language="java" name="opciones.Opcion" project="A_Note" file="/A_Note/src/opciones/Opcion.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="766" y="502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -190,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="opciones.Opcion_Create_Melodia" project="A_Note" 
+  <class id="11" language="java" name="opciones.Opcion_Create_Melodia" project="A_Note" 
     file="/A_Note/src/opciones/Opcion_Create_Melodia.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="672" y="666"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -199,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="utils_textfiles.Section" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/Section.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="utils.files.Section" project="A_Note" file="/A_Note/src/utils/files/Section.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3128" y="1344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -208,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="utils_textfiles.BufferedTextWriter" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/BufferedTextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="utils.files.BufferedTextWriter" project="A_Note" 
+    file="/A_Note/src/utils/files/BufferedTextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3472" y="1480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -217,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="25" language="java" name="utils_textfiles.TextWriter" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/TextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="14" language="java" name="utils.files.TextWriter" project="A_Note" 
+    file="/A_Note/src/utils/files/TextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3287" y="1739"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -226,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="26" language="java" name="utils_textfiles.BufferedTextReader" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/BufferedTextReader.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="15" language="java" name="utils.files.BufferedTextReader" project="A_Note" 
+    file="/A_Note/src/utils/files/BufferedTextReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3731" y="1424"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -235,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="utils_textfiles.IniManager" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/IniManager.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="utils.files.IniManager" project="A_Note" 
+    file="/A_Note/src/utils/files/IniManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3490" y="966"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -244,8 +145,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="28" language="java" name="utils_textfiles.TextReader" project="A_Note" 
-    file="/A_Note/src/utils_textfiles/TextReader.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="17" language="java" name="utils.files.TextReader" project="A_Note" 
+    file="/A_Note/src/utils/files/TextReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3547" y="1739"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -253,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="29" language="java" name="Menu.Menu" project="A_Note" file="/A_Note/src/Menu/Menu.java" binary="false" 
+  <class id="18" language="java" name="Menu.Menu" project="A_Note" file="/A_Note/src/Menu/Menu.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="207" width="151" x="365" y="867"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -262,7 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="entidades.Lector" project="A_Note" file="/A_Note/src/entidades/Lector.java" 
+  <class id="19" language="java" name="entidades.Lector" project="A_Note" file="/A_Note/src/entidades/Lector.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="171" width="517" x="1" y="356"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -271,346 +172,168 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="31">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="8"/>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="18"/>    
+  <dependency id="21">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="23">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="25">    
+    <bendpoint x="832" y="1334"/>    
+    <bendpoint x="2082" y="1050"/>    
+    <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="16"/>  
   </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="34">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="25"/>  
-  </dependency>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="30"/>  
-  </dependency>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="37">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="38" name="sections">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="26">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="27" name="instance">        
+        <position height="0" width="0" x="1029" y="418"/>      
       </attribute>      
-      <multiplicity id="39" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="25"/>  
-  </dependency>  
-  <realization id="41">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="19"/>  
-  </realization>  
-  <dependency id="42">    
-    <bendpoint x="3613" y="1344"/>    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="28"/>  
-  </dependency>  
-  <dependency id="43">    
-    <bendpoint x="1568" y="2146"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="21"/>  
-  </generalization>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="47">    
-    <bendpoint x="1244" y="1172"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="48" name="repositorioMelodia_Ini">        
-        <position height="0" width="0" x="748" y="218"/>      
-      </attribute>      
-      <multiplicity id="49" minimum="0" maximum="1">        
-        <position height="0" width="0" x="748" y="218"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="50">    
-    <bendpoint x="3010" y="1088"/>    
-    <bendpoint x="3322" y="1246"/>    
-    <bendpoint x="3336" y="1332"/>    
-    <bendpoint x="3428" y="1358"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="26"/>  
-  </dependency>  
-  <dependency id="51">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <realization id="52">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <dependency id="53">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <association id="54">    
-    <end type="SOURCE" refId="30" navigable="false">      
-      <attribute id="55" name="menu"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="57">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="58">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="59">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <association id="60">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="61" name="lector">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <bendpoint x="1617" y="1044"/>    
-    <bendpoint x="1665" y="1297"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="64" name="repositorioNotas_Csv">        
-        <position height="0" width="0" x="1024" y="424"/>      
-      </attribute>      
-      <multiplicity id="65" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1024" y="424"/>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1029" y="418"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="67" name="opciones">        
-        <position height="0" width="0" x="90" y="-6"/>      
+  <association id="29">    
+    <bendpoint x="1652" y="1828"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="30" name="contadorNotas">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="90" y="-6"/>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="69">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="70">    
-    <end type="SOURCE" refId="1"/>    
+  <dependency id="32">    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </dependency>  
-  <realization id="71">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="28"/>  
-  </realization>  
-  <realization id="72">    
+  <dependency id="33">    
     <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="12"/>  
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="34">    
+    <bendpoint x="3613" y="1344"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <realization id="35">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="14"/>  
   </realization>  
-  <dependency id="73">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="74">    
-    <bendpoint x="832" y="1334"/>    
-    <bendpoint x="2082" y="1050"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="27"/>  
-  </dependency>  
-  <dependency id="75">    
-    <bendpoint x="2820" y="1496"/>    
-    <bendpoint x="2372" y="2268"/>    
-    <bendpoint x="1952" y="2424"/>    
-    <bendpoint x="1660" y="2408"/>    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="76">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <association id="77">    
-    <bendpoint x="1269" y="1310"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="78" name="melodias">        
-        <position height="0" width="0" x="1024" y="424"/>      
-      </attribute>      
-      <multiplicity id="79" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="1024" y="424"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="80">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="81" name="instance">        
-        <position height="0" width="0" x="1029" y="418"/>      
-      </attribute>      
-      <multiplicity id="82" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1029" y="418"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="83">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="84">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="24"/>  
-  </dependency>  
-  <dependency id="85">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <association id="86">    
-    <bendpoint x="1652" y="1828"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="87" name="contadorNotas">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="88" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="89">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="90">    
+  <association id="36">    
     <bendpoint x="1436" y="2016"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="91" name="notas">        
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="37" name="notas">        
         <position height="0" width="0" x="1052" y="652"/>      
       </attribute>      
-      <multiplicity id="92" minimum="0" maximum="2147483647">        
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="1052" y="652"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="93">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="94">    
-    <end type="SOURCE" refId="14"/>    
+  <realization id="39">    
+    <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="95">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <realization id="96">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="6"/>  
   </realization>  
-  <association id="97">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="98" name="contadorNotas">        
+  <association id="40">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="41" name="opcion">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="99" minimum="0" maximum="1">        
+      <multiplicity id="42" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="100">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <generalization id="101">    
+  <realization id="43">    
     <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <dependency id="102">    
-    <bendpoint x="1596" y="1044"/>    
-    <bendpoint x="1596" y="1327"/>    
-    <bendpoint x="1596" y="1466"/>    
-    <bendpoint x="1542" y="1906"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="103">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="104">    
-    <end type="SOURCE" refId="30" navigable="false">      
-      <attribute id="105" name="opcion"/>      
-      <multiplicity id="106" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="107">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="26"/>  
-  </dependency>  
-  <realization id="108">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="20"/>  
+    <end type="TARGET" refId="17"/>  
   </realization>  
-  <dependency id="109">    
+  <dependency id="44">    
     <bendpoint x="3392" y="1344"/>    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="25"/>  
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="14"/>  
   </dependency>  
-  <dependency id="110">    
-    <end type="SOURCE" refId="1"/>    
+  <generalization id="45">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="46">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="111">    
-    <bendpoint x="2910" y="1538"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="28"/>  
+  <association id="47">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="48" name="sections">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
   </dependency>  
+  <dependency id="51">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="54">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="55" name="pattern"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="58" name="menu">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="false" private="true" static="true"/>    
