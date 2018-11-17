@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 public class Opcion_SaveMelodia extends Opcion {
 
 	private static final String MENSAJE = "Ingrese el nombre de la melodia a salvar";
 
-	public Opcion_SaveMelodia(IRepositorios repositorioMelodia) {
+	public Opcion_SaveMelodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}

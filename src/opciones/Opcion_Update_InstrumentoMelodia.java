@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 public class Opcion_Update_InstrumentoMelodia extends Opcion {
 
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodía de la lista";
 	private static final String MENSAJE_INSTRUMENTO_MELODIA = "Ingrese el instrumento deseado de la lista";
 
-	public Opcion_Update_InstrumentoMelodia(IRepositorios repositorioMelodia) {
+	public Opcion_Update_InstrumentoMelodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}
@@ -22,7 +22,7 @@ public class Opcion_Update_InstrumentoMelodia extends Opcion {
 		String nombreMelodia = Funcion_Helper.pedirString(MENSAJE_NOMBRE_MELODIA, input);
 		manager.listarInstrumentos();
 		String instrument = Funcion_Helper.pedirString(MENSAJE_INSTRUMENTO_MELODIA, input);
-		manager.setInstrument(nombreMelodia, instrument);
+		manager.updateInstrumentMelodia(nombreMelodia, instrument);
 
 	}
 

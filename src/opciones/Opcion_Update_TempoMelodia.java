@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 public class Opcion_Update_TempoMelodia extends Opcion {
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodía";
@@ -13,7 +13,7 @@ public class Opcion_Update_TempoMelodia extends Opcion {
 
 
 
-	public Opcion_Update_TempoMelodia(IRepositorios repositorioMelodia) {
+	public Opcion_Update_TempoMelodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}

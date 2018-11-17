@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T01:46:09</date>
+  <millis>1542429969700</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-17T01:46:09</date>
+  <millis>1542429969852</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Incorrect syntax near 'm'.</message>
+</record>
+<record>
+  <date>2018-11-17T01:46:50</date>
+  <millis>1542430010172</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-17T01:46:50</date>
+  <millis>1542430010173</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid column name 'flaca'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T02:05:31</date>
+  <millis>1542431131846</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-17T02:05:38</date>
+  <millis>1542431138423</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid column name 'nombreMelodia'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T02:07:00</date>
+  <millis>1542431220402</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-17T02:07:00</date>
+  <millis>1542431220409</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid column name 'nombreMelodia'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T10:05:49</date>
+  <millis>1542459949276</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-17T10:05:49</date>
+  <millis>1542459949288</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid column name '@P0'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-17T10:08:38</date>
+  <millis>1542460118201</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+</record>
+<record>
+  <date>2018-11-17T10:08:38</date>
+  <millis>1542460118209</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>El valor no está configurado para el número de parámetro 4.</message>
+</record>

@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 public class Opcion_Delete_Melodia extends Opcion {
 
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodia";
 
-	public Opcion_Delete_Melodia(IRepositorios repositorioMelodia) {
+	public Opcion_Delete_Melodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}

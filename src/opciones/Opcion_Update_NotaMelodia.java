@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 public class Opcion_Update_NotaMelodia extends Opcion {
 	private static final String MENSAJE_NOMBRE_MELODIA = "Ingrese el nombre de la melodia";
@@ -14,7 +14,7 @@ public class Opcion_Update_NotaMelodia extends Opcion {
 	private static final String MENSAJE_TIPO_ALTERACION = "Ingrese la alteracion, Sotenido '#', bemol 'b', becuadro 'n' ";
 	private static final String MENSAJE_PEDIR_ID = "Ingrese el id de la nota a modificar";
 
-	public Opcion_Update_NotaMelodia(IRepositorios repositorioMelodia) {
+	public Opcion_Update_NotaMelodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}

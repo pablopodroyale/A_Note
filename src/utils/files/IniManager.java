@@ -92,10 +92,12 @@ public class IniManager {
 
 	public void setItem(String section, String key, String value) {
 		Section s = sections.get(section);
-		if (s != null) {
+		if (s == null) {
+			s = new Section(section);
 			s.setItem(key, value);
+			sections.put(section, s);
 		} else {
-			throw new IllegalArgumentException(ERROR_SECCION_INVALIDA);
+			s.setItem(key, value);
 		}
 	}
 
@@ -190,7 +192,13 @@ public class IniManager {
 	}
 
 	public Section getSection(String name) {
-		return sections.get(name);
+		Section section = null;
+		try {
+			section = sections.get(name);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return section;
 	}
 
 	/**
@@ -200,7 +208,15 @@ public class IniManager {
 	 * @return
 	 */
 	public String getValueof(String environment) {
-		return getSection(environment).getName();
+		Section section = getSection(environment);
+		String name;
+		if (section != null) {
+			name = section.getName();
+		}
+		else {
+			throw new IllegalArgumentException(ERROR_SECCION_INVALIDA);
+		}
+		return name;
 	}
 
 	/*
@@ -266,13 +282,11 @@ public class IniManager {
 
 	}
 
-	public ArrayList<String> getSections(String default1) {
+	public ArrayList<String> getSections() {
 		ArrayList<String> sections = new ArrayList<>();
 		Set<String> sec = this.sections.keySet();
 		for (int i = 0; i < sec.size(); i++) {
-			if (!sec.toArray()[i].toString().equals(default1)) {
-				sections.add(sec.toArray()[i].toString());
-			}
+			sections.add(sec.toArray()[i].toString());
 		}
 		return sections;
 	}

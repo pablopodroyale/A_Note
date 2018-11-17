@@ -21,6 +21,7 @@ public class Melodia implements ISonable {
 	private static final String INSTRUMENT = "Instrumento";
 	private static final String CANCIONES = "Canciones";
 	private static final String ERROR_NOTA_INVALIDA = "Error, la nota es invalida";
+	private static final String ERROR_MELODIA_VACIA = "No, se puede reproducir, la melodía no tiene notas";
 	private String tempo;
 	private String instrument;
 	private ArrayList<Nota> notas;
@@ -34,12 +35,17 @@ public class Melodia implements ISonable {
 	 * @param nombreMelodia
 	 */
 	public Melodia(String nombreMelodia) {
-		this.notas = new ArrayList<>();
-		this.nombre = nombreMelodia;
-		this.tempo = "";
-		this.instrument = "";
+		this(nombreMelodia, "", "");
+	}
+
+	public Melodia(String nombre, String instrument, String tempo) {
+		this.nombre = nombre;
+		this.instrument = instrument;
+		this.tempo = tempo;
 		this.contadorNotas = new Contador();
 		this.pattern = new MyPattern();
+		this.notas = new ArrayList<>();
+
 	}
 
 	public String getTempo() {
@@ -59,21 +65,26 @@ public class Melodia implements ISonable {
 
 	@Override
 	public void play(PlayerSingleton player) {
-		if (!this.instrument.isEmpty()) {
-			this.pattern.add(instrument);
-		}
-		if (!this.tempo.isEmpty()) {
-			this.pattern.add(tempo);
+		if (notas.isEmpty()) {
+			throw new IllegalArgumentException(ERROR_MELODIA_VACIA);
+		} else {
+			if (!this.instrument.isEmpty()) {
+				this.pattern.add(instrument);
+			}
+			if (!this.tempo.isEmpty()) {
+				this.pattern.add(tempo);
+			}
+
+			notas.forEach(x -> {
+				pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
+			});
+			try {
+				player.play(pattern);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 
-		notas.forEach(x -> {
-			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
-		});
-		try {
-			player.play(pattern);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
 	}
 
 	public void setNote(Nota nota) {
@@ -208,10 +219,16 @@ public class Melodia implements ISonable {
 		return "Melodia \nNombre:" + "'" + nombre + "'" + "\nTempo:" + tempo + "\nInstrument:" + instrument;
 	}
 
-	public void loadNotas(ArrayList<Nota> notas) {
+	public void llenarNotas(ArrayList<Nota> notas) {
 		for (Nota nota : notas) {
 			this.notas.add(nota);
 		}
+	}
+
+	public void setNote(String nombreNota, String octava, String figura, String alteracion) {
+		Nota nota = new Nota(nombreNota, octava,figura,alteracion);
+		nota.setId(contadorNotas.getValor());
+		notas.add(nota);
 	}
 
 	/*

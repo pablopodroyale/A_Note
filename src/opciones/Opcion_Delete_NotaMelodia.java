@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import entidades.AnoteManager;
 import funciones_helper.Funcion_Helper;
-import interfaces.IRepositorios;
+import interfaces.RepoMelodias;
 
 
 public class Opcion_Delete_NotaMelodia extends Opcion  {
@@ -12,7 +12,7 @@ public class Opcion_Delete_NotaMelodia extends Opcion  {
 	private static final String MENSAJE_PEDIR_ID = "Ingrese el id de la nota a eliminar";
 	//private static final String MENSAJE_NOMBRE_NOTA = "Ingrese el nombre de la nota";
 
-	public Opcion_Delete_NotaMelodia(IRepositorios repositorioMelodia) {
+	public Opcion_Delete_NotaMelodia(RepoMelodias repositorioMelodia) {
 		super(repositorioMelodia);
 		// TODO Auto-generated constructor stub
 	}

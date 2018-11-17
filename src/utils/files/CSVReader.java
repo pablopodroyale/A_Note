@@ -58,4 +58,5 @@ public abstract class CSVReader<ClassType> {
 			listaItems.clear();
 		}
 	}
+
 }
