@@ -30,7 +30,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	private static final Object ID = "Id";
 	private ILogger logger;
 	private Connection conn;
-	private LinkedHashMap<String, Melodia> melodias;
+	//private LinkedHashMap<String, Melodia> melodias;
 	private Contador contador;
 
 	/***
@@ -47,7 +47,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		 * if (dbManager == null || logger == null) { throw new
 		 * IllegalArgumentException(ERROR_NULL); }
 		 */
-		this.melodias = new LinkedHashMap<>();
+		//this.melodias = new LinkedHashMap<>();
 		this.contador = new Contador();
 		this.logger = logger;
 		try {
@@ -55,6 +55,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		crearTablas();
 	}
 
 	// Seguir salvando las notas
@@ -116,6 +117,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 	}
 
+	/*
 	public void loadNotas(ArrayList<Nota> notas, String nombreMelodia) {
 		String consulta = String.format("SELECT [%s],[%s],[%s],[%s] FROM [dbo].[notas] WHERE nombreMelodia = %s",
 				NOMBRE_MELODIA, OCTAVA, FIGURA, ALTERACION, nombreMelodia);
@@ -130,7 +132,9 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 
 	}
+	*/
 
+	/*
 	@Override
 	public Melodia loadMelodia(String nombreMelodia) {
 		Melodia melodia = null;
@@ -153,6 +157,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 		return melodia;
 	}
+	*/
 
 	@Override
 	public void updateTempo(String nombreMelodia, String tempo) {
@@ -196,8 +201,24 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		logger.logSevere(e.getMessage());
 	}
 
-	public void crearTabla() {
-		String consulta = String.format("CREATE TABLE melodia (%s VARCHAR(50), %s VARCHAR(50), %s VARCHAR(30))", NOMBRE,
+	public void crearTablas() {
+		String consulta = String.format("if object_id('melodias', 'U') is null \r\n" + 
+				"CREATE TABLE melodias (\r\n" + 
+				"	nombreMelodia nvarchar(50) NOT NULL,\r\n" + 
+				"    instrumento nvarchar(50) NOT NULL,\r\n" + 
+				"    tempo nvarchar(50) NOT NULL,\r\n" + 
+				"    PRIMARY KEY (nombreMelodia)\r\n" + 
+				");\r\n" + 
+				"if object_id('notas', 'U') is null \r\n" + 
+				"CREATE TABLE notas (\r\n" + 
+				"	Id int NOT NULL,\r\n" + 
+				"	nombreMelodia nvarchar(50) NOT NULL,\r\n" + 
+				"	nombreNota nvarchar(50) NOT NULL,\r\n" + 
+				"    octava nvarchar(50) NOT NULL,\r\n" + 
+				"	figura nvarchar(50) NOT NULL,\r\n" + 
+				"	alteracion nvarchar(50) NOT NULL,\r\n" + 
+				"	PRIMARY KEY (Id, nombreMelodia)\r\n" + 
+				");", NOMBRE,
 				INSTRUMENTO, TEMPO);
 		Statement statement = null;
 		try {
@@ -366,9 +387,15 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	@Override
 	public void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion) {
 		String consulta = String.format(
-				"INSERT notas (%s, %s, %s,%s, %s,%s)\r\n" + "	VALUES ('%s','%s','%s','%s','%s','%s')", ID,
-				NOMBRE_MELODIA, NOMBRE_NOTA, OCTAVA, FIGURA, ALTERACION, contador.getValor(), nombreMelodia, nombreNota,
-				octava, figura, alteracion);
+				"IF (SELECT nombreMelodia FROM melodias WHERE nombreMelodia = '%s') IS NOT NULL\r\n" + 
+				"BEGIN\r\n" + 
+				"INSERT INTO notas (nombreMelodia,\r\n" + 
+				"			nombreNota,\r\n" + 
+				"			octava,\r\n" + 
+				"			figura, \r\n" + 
+				"			alteracion)\r\n" + 
+				"		VALUES('%s','%s','%s','%s','%s');\r\n" + 
+				"END", nombreMelodia, nombreNota,octava, figura, alteracion);
 		try {
 			PreparedStatement statement = conn.prepareStatement(consulta);
 			statement.executeUpdate();

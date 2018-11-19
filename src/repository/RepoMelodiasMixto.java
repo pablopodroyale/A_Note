@@ -120,7 +120,6 @@ public class RepoMelodiasMixto extends RepositorioMelodia {
 
 	}
 
-	@Override
 	public Melodia loadMelodia(String nombreMelodia) {
 		Melodia melodia = null;
 		String pathIni = ROOT + File.separator + nombreMelodia + File.separator + nombreMelodia + EXTENSION_INI;
@@ -274,7 +273,7 @@ public class RepoMelodiasMixto extends RepositorioMelodia {
 		Melodia melodia = getMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.play(player);
-		}else {
+		} else {
 			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
 		}
 
@@ -285,20 +284,20 @@ public class RepoMelodiasMixto extends RepositorioMelodia {
 		Melodia melodia = getMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.toString();
-		}else {
+		} else {
 			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
 		}
-		
+
 	}
 
 	@Override
-	public void addNote(String nombreMelodia,String nombreNota, String octava, String figura,
-			String alteracion) {
+	public void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion) {
 		Melodia melodia = getMelodia(nombreMelodia);
 		if (melodia != null) {
-			melodia.setNote(nombreNota,octava,figura,alteracion);;
+			melodia.setNote(nombreNota, octava, figura, alteracion);
+			;
 		}
-		
+
 	}
 
 }

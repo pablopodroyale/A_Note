@@ -19,20 +19,10 @@ import opciones.Opcion_Update_NotaMelodia;
 import opciones.Opcion_Update_TempoMelodia;
 
 public class AnoteManager {
-	
-	private static final int MAX_INSTRUMENT = 127;
-	private static final String ERROR_STRING_VACIO = "Error, el nombre no puede estar vacio";
-	private static final String ERROR_MELODIA_INEXISTENTE = "Error, la melodia no existe";
-	private static final String ERROR_MELODIA_EXISTENTE = "Error, la melodia ya exite";
-	// private static final String CANCIONES = "Canciones";
-	// private static final String ROOT = new File("").getAbsolutePath() +
-	// File.separator + CANCIONES;
-	private static final String ERROR_LISTA_VACIA = "No, hay canciones guardadas";
 	private RepoMelodias repositorio;
 	private LinkedHashMap<Integer, Opcion> opciones;
 	private Vista vista;
-	// private MyPattern pattern;
-
+	
 	public AnoteManager(Vista vista, RepoMelodias repositorio) {
 		this.repositorio = repositorio;
 		this.opciones = new LinkedHashMap<>();
@@ -137,7 +127,7 @@ public class AnoteManager {
 		try {
 			repositorio.play(nombreMelodia, player);
 		} catch (RuntimeException re) {
-			System.out.println(re.getMessage());
+			throw new RuntimeException(re.getMessage());
 		}
 	}
 
@@ -179,9 +169,11 @@ public class AnoteManager {
 		repositorio.saveMelodia(nombreMelodia, append);
 	}
 
+	/*
 	public void loadMelodia(String nombreMelodia) {
 		repositorio.loadMelodia(nombreMelodia);
 	}
+	*/
 
 	public void updateNombreMelodia(String nombreaAnteriorMelodia, String nuevoNombre, boolean append) {
 		repositorio.updateNombreMelodia(nombreaAnteriorMelodia, nuevoNombre);
@@ -194,7 +186,7 @@ public class AnoteManager {
 			Funcion_Helper.validarString(instrumento);
 			repositorio.updateInstrumento(nombreMelodia, instrumento);
 		} catch (RuntimeException re) {
-			System.out.println(re.getMessage());
+			throw new RuntimeException(re.getMessage());
 		}
 
 	}
@@ -205,7 +197,7 @@ public class AnoteManager {
 			Funcion_Helper.validarString(tempo);
 			repositorio.updateTempo(nombreMelodia, tempo);
 		} catch (RuntimeException re) {
-			System.out.println(re.getMessage());
+			throw new RuntimeException(re.getMessage());
 		}
 
 	}
@@ -221,7 +213,7 @@ public class AnoteManager {
 		try {
 			vista.EjecutarOpcion(this, repositorio, opciones);
 		} catch (RuntimeException e) {
-			System.out.println(e.getMessage());
+			throw new RuntimeException(e.getMessage());
 		}
 
 	}
@@ -244,7 +236,7 @@ public class AnoteManager {
 		try {
 			repositorio.deleteMelodia(nombreCancion);
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
+			throw new IllegalArgumentException(e.getMessage());
 		}
 	}
 
@@ -268,7 +260,7 @@ public class AnoteManager {
 			repositorio.detallesMelodia(nombreMelodia);
 			repositorio.listarNotas(nombreMelodia);
 		} catch (RuntimeException re) {
-			// TODO: handle exception
+			throw new RuntimeException(re.getMessage());
 		}
 	}
 

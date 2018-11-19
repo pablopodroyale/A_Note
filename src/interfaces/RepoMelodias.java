@@ -20,7 +20,7 @@ public interface RepoMelodias {
 
 	// void loadNotas(ArrayList<Nota> notas, String nombreMelodia);
 
-	Melodia loadMelodia(String nombreMelodia);
+	//Melodia loadMelodia(String nombreMelodia);
 
 	// void cargarCanciones();
 
