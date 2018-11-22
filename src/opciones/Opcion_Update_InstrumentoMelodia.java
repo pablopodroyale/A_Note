@@ -20,7 +20,7 @@ public class Opcion_Update_InstrumentoMelodia extends Opcion {
 	public void ejecutar(AnoteManager manager, Scanner input) {
 		manager.listarCanciones();
 		String nombreMelodia = Funcion_Helper.pedirString(MENSAJE_NOMBRE_MELODIA, input);
-		manager.listarInstrumentos();
+		Funcion_Helper.listarInstrumentos();
 		String instrument = Funcion_Helper.pedirString(MENSAJE_INSTRUMENTO_MELODIA, input);
 		manager.updateInstrumentMelodia(nombreMelodia, instrument);
 

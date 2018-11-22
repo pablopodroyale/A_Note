@@ -3,7 +3,10 @@ package Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import funciones_helper.Funcion_Helper;
+
 public class Menu {
+	private static final String ERROR_OPCION_INVALIDA = "Error, opcion invalida";
 	protected String title;
 	private ArrayList<String> options;
 	private Scanner input;
@@ -12,25 +15,7 @@ public class Menu {
 		this.title = title;
 		this.input = scanner;
 		options = new ArrayList<String>();
-		cargarOpciones();
-	}
-
-	private void cargarOpciones() {
-		register("Crear Melodía");
-		//register("Cargar melodía existente");
-		register("Listar melodías");
-		register("Listar detalles melodías");
-		register("Agregar nota");
-		//register("Setear tiempo");
-		//register("Setear instrumento");
-		register("Modificar nombre de la melodia");
-		register("Modificar instrumento de una melodia");
-		register("Modificar tiempo de una melodía");
-		register("Modificar nota de una melodia");
-		register("Eliminar nota de una melodia");
-		register("Eliminar melodia");
-		register("Reproducir");
-		register("Salvar");
+		// cargarOpciones();
 	}
 
 	/***
@@ -64,8 +49,19 @@ public class Menu {
 		int selected = 0;
 		do {
 			show();
-			selected = input.nextInt();
-			input.nextLine();
+			try {
+				selected = input.nextInt();
+				input.nextLine();
+			} catch (Exception e) {
+
+			} finally {
+				if (selected == 0) {
+					input.nextLine();
+				}
+			}
+			if (selected < 1 || selected > exitValue()) {
+				throw new IllegalArgumentException(ERROR_OPCION_INVALIDA);
+			}
 		} while (selected < 1 || selected > exitValue());
 		return selected;
 	}

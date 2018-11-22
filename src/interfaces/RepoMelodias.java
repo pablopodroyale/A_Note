@@ -6,15 +6,16 @@ import entidades.Melodia;
 import entidades.Nota;
 import entidades.PlayerSingleton;
 
+
 public interface RepoMelodias {
 
-	void createMelodia(String nombreMelodia, String instrumento, String tempo);
+	void save(Melodia melodia, ArrayList<Nota> notas);
 
-	void saveMelodia(String nombreMelodia, boolean append);
+	//void saveMelodia(String nombreMelodia, boolean append);
 
 	// void saveNotas(ArrayList<Nota> notas, String nombreMelodia, boolean append);
 
-	void saveAll();
+	//void saveAll();
 
 	void updateNombreMelodia(String nombreMelodia, String nuevoNombre);
 
@@ -39,7 +40,7 @@ public interface RepoMelodias {
 
 	void listarNotas(String nombreMelodia);
 
-	void listarCanciones();
+	ArrayList<String> getCanciones();
 
 	void deleteMelodia(String nombreCancion);
 
@@ -50,6 +51,12 @@ public interface RepoMelodias {
 	void detallesMelodia(String nombreMelodia);
 
 	void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion);
+
+	Melodia loadMelodia(String nombreMelodia);
+
+	
+
+	//void saveMelodia(Melodia melodia2, boolean appen);
 
 	// void updateMelodiaParams(Melodia melodia);
 	// void removeNotaById(String idNota);

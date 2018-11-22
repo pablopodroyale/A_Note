@@ -180,3 +180,613 @@
   <thread>1</thread>
   <message>El valor no está configurado para el número de parámetro 4.</message>
 </record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-21T17:24:10</date>
+  <millis>1542831850797</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-21T17:24:11</date>
+  <millis>1542831851148</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'nombreMelodia', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-21T18:35:43</date>
+  <millis>1542836143952</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-21T18:35:43</date>
+  <millis>1542836143968</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'nombreMelodia', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-21T18:37:46</date>
+  <millis>1542836266686</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-21T18:37:46</date>
+  <millis>1542836266686</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'nombreMelodia', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T01:32:40</date>
+  <millis>1542861160301</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+</record>
+<record>
+  <date>2018-11-22T01:32:40</date>
+  <millis>1542861160382</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>El valor no está configurado para el número de parámetro 5.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T01:45:52</date>
+  <millis>1542861952080</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+</record>
+<record>
+  <date>2018-11-22T01:45:52</date>
+  <millis>1542861952254</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>El valor no está configurado para el número de parámetro 5.</message>
+</record>
+<record>
+  <date>2018-11-22T01:54:45</date>
+  <millis>1542862485989</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:54:46</date>
+  <millis>1542862486595</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:55:11</date>
+  <millis>1542862511024</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:55:11</date>
+  <millis>1542862511135</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:14</date>
+  <millis>1542862574886</millis>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:14</date>
+  <millis>1542862574915</millis>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:44</date>
+  <millis>1542862604017</millis>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:44</date>
+  <millis>1542862604105</millis>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:50</date>
+  <millis>1542862610871</millis>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:56:50</date>
+  <millis>1542862610933</millis>
+  <sequence>11</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:57:13</date>
+  <millis>1542862633926</millis>
+  <sequence>12</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:57:13</date>
+  <millis>1542862633970</millis>
+  <sequence>13</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T01:57:30</date>
+  <millis>1542862650952</millis>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T01:57:31</date>
+  <millis>1542862651000</millis>
+  <sequence>15</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:03:15</date>
+  <millis>1542862995313</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:03:15</date>
+  <millis>1542862995613</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Cannot insert the value NULL into column 'instrumento', table 'A_Note.dbo.melodias'; column does not allow nulls. INSERT fails.</message>
+</record>
+<record>
+  <date>2018-11-22T02:05:43</date>
+  <millis>1542863143831</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+</record>
+<record>
+  <date>2018-11-22T02:05:43</date>
+  <millis>1542863143858</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>El valor no está configurado para el número de parámetro 5.</message>
+</record>
+<record>
+  <date>2018-11-22T02:07:25</date>
+  <millis>1542863245608</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:07:27</date>
+  <millis>1542863247394</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of PRIMARY KEY constraint 'PK__melodias__E8AF660C161503ED'. Cannot insert duplicate key in object 'dbo.melodias'. The duplicate key value is (loco).</message>
+</record>
+<record>
+  <date>2018-11-22T02:10:56</date>
+  <millis>1542863456692</millis>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:10:56</date>
+  <millis>1542863456736</millis>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of PRIMARY KEY constraint 'PK__melodias__E8AF660C161503ED'. Cannot insert duplicate key in object 'dbo.melodias'. The duplicate key value is (loco).</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:24:07</date>
+  <millis>1542864247501</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:24:07</date>
+  <millis>1542864247893</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Incorrect syntax near the keyword 'WHERE'.</message>
+</record>
+<record>
+  <date>2018-11-22T02:30:25</date>
+  <millis>1542864625370</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:30:26</date>
+  <millis>1542864626076</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Incorrect syntax near the keyword 'WHERE'.</message>
+</record>
+<record>
+  <date>2018-11-22T02:32:03</date>
+  <millis>1542864723515</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:32:03</date>
+  <millis>1542864723557</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of PRIMARY KEY constraint 'PK__melodias__E8AF660C161503ED'. Cannot insert duplicate key in object 'dbo.melodias'. The duplicate key value is (pepe).</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:39:17</date>
+  <millis>1542865157002</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:39:17</date>
+  <millis>1542865157008</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Incorrect syntax near the keyword 'WHERE'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:47:50</date>
+  <millis>1542865670666</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:47:50</date>
+  <millis>1542865670949</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Incorrect syntax near ')'.</message>
+</record>
+<record>
+  <date>2018-11-22T02:50:20</date>
+  <millis>1542865820545</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:50:20</date>
+  <millis>1542865820609</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of PRIMARY KEY constraint 'PK__melodias__E8AF660C161503ED'. Cannot insert duplicate key in object 'dbo.melodias'. The duplicate key value is (pepe).</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:52:40</date>
+  <millis>1542865960175</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-11-22T02:52:40</date>
+  <millis>1542865960184</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of PRIMARY KEY constraint 'PK__melodias__E8AF660C161503ED'. Cannot insert duplicate key in object 'dbo.melodias'. The duplicate key value is (pepe).</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T02:56:27</date>
+  <millis>1542866187525</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:56:27</date>
+  <millis>1542866187533</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, &lt;, &lt;= , &gt;, &gt;= or when the subquery is used as an expression.</message>
+</record>
+<record>
+  <date>2018-11-22T02:58:15</date>
+  <millis>1542866295477</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-11-22T02:58:15</date>
+  <millis>1542866295478</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, &lt;, &lt;= , &gt;, &gt;= or when the subquery is used as an expression.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-11-22T03:16:18</date>
+  <millis>1542867378268</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+</record>
+<record>
+  <date>2018-11-22T03:16:18</date>
+  <millis>1542867378276</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>El valor no está configurado para el número de parámetro 4.</message>
+</record>

@@ -94,7 +94,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void setAlteracion(String alteracion) {
 		try {
 			Funcion_Helper.validarString(alteracion);
-			alteracionValidator(alteracion);
+	
 			this.alteracion = alteracion;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
@@ -110,7 +110,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void setFigura(String figura) {
 		try {
 			Funcion_Helper.validarString(figura);
-			messureValidator(figura);
+			//messureValidator(figura);
 			this.figura = figura;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());

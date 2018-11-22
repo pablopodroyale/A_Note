@@ -14,7 +14,9 @@ import entidades.PlayerSingleton;
 import funciones_helper.Contador;
 import interfaces.RepoMelodias;
 import utils.database.db.DBManager;
-import utils.database.logger.ILogger;;
+import utils.database.logger.ILogger;
+import viewmodels.ViewModelMelodia;
+import viewmodels.ViewModelNota;;
 
 public class Repositorio_MelodiaDb implements RepoMelodias {
 	private static final String ERROR_NULL = "Error, el logger y el dbManager no deben ser nulos";
@@ -30,8 +32,9 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	private static final Object ID = "Id";
 	private ILogger logger;
 	private Connection conn;
-	//private LinkedHashMap<String, Melodia> melodias;
+	// private LinkedHashMap<String, Melodia> melodias;
 	private Contador contador;
+	private Melodia melodia;
 
 	/***
 	 * Al construir la instancia de esta clase le pasaremos como parámetro (
@@ -43,11 +46,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	 * @param logger
 	 */
 	public Repositorio_MelodiaDb(DBManager dbManager, ILogger logger) {
-		/*
-		 * if (dbManager == null || logger == null) { throw new
-		 * IllegalArgumentException(ERROR_NULL); }
-		 */
-		//this.melodias = new LinkedHashMap<>();
+		this.melodia = null;
 		this.contador = new Contador();
 		this.logger = logger;
 		try {
@@ -59,49 +58,73 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	}
 
 	// Seguir salvando las notas
-	@Override
-	public void saveMelodia(String nombreMelodia, boolean append) {
-		/*
-		 * if (melodia != null) {
-		 * 
-		 * String consultaInsert =
-		 * String.format("INSERT INTO [dbo].[melodias]([%s][%s][%s])VALUES(?,?;?)",
-		 * NOMBRE, INSTRUMENTO, TEMPO); String consultaUpdate = String.format(
-		 * "UPDATE [dbo].[melodias m]\r\n" + "   SET %s = %s\r\n" + ",%s = %s\r\n" +
-		 * ",%s = %s\r\n" + " WHERE m.nombreMelodia = %s", NOMBRE_MELODIA,
-		 * melodia.getNombre(), TEMPO, melodia.getInstrument(), INSTRUMENTO,
-		 * melodia.getInstrument(), nombreMelodia); String insertOrUpdate =
-		 * String.format(
-		 * "IF NOT EXISTS (SELECT nombreMelodia FROM melodias WHERE (m.nombreMelodia = %s))\r\n"
-		 * + "BEGIN %s" + "ELSE\r\n" + "BEGIN\r\n" + "%s END", nombreMelodia,
-		 * consultaInsert, consultaUpdate);
-		 * 
-		 * PreparedStatement statement = null; try { statement =
-		 * conn.prepareStatement(insertOrUpdate); statement.setString(1,
-		 * melodia.getNombre()); statement.setString(2, melodia.getInstrument());
-		 * statement.setString(3, melodia.getTempo()); statement.executeUpdate();
-		 * melodia.llenarNotas(notas); saveNotas(notas, nombreMelodia, false); } catch
-		 * (SQLException e) { logSQLERROR(e); throw new
-		 * IllegalArgumentException(ERROR_MELODIA_EXISTENTE); } }
-		 */
+	/*
+	 * @Override public void saveMelodia(String nombreMelodia, boolean append) { /*
+	 * if (melodia != null) {
+	 * 
+	 * String consultaInsert =
+	 * String.format("INSERT INTO [dbo].[melodias]([%s][%s][%s])VALUES(?,?;?)",
+	 * NOMBRE, INSTRUMENTO, TEMPO); String consultaUpdate = String.format(
+	 * "UPDATE [dbo].[melodias m]\r\n" + "   SET %s = %s\r\n" + ",%s = %s\r\n" +
+	 * ",%s = %s\r\n" + " WHERE m.nombreMelodia = %s", NOMBRE_MELODIA,
+	 * melodia.getNombre(), TEMPO, melodia.getInstrument(), INSTRUMENTO,
+	 * melodia.getInstrument(), nombreMelodia); String insertOrUpdate =
+	 * String.format(
+	 * "IF NOT EXISTS (SELECT nombreMelodia FROM melodias WHERE (m.nombreMelodia = %s))\r\n"
+	 * + "BEGIN %s" + "ELSE\r\n" + "BEGIN\r\n" + "%s END", nombreMelodia,
+	 * consultaInsert, consultaUpdate);
+	 * 
+	 * PreparedStatement statement = null; try { statement =
+	 * conn.prepareStatement(insertOrUpdate); statement.setString(1,
+	 * melodia.getNombre()); statement.setString(2, melodia.getInstrument());
+	 * statement.setString(3, melodia.getTempo()); statement.executeUpdate();
+	 * melodia.llenarNotas(notas); saveNotas(notas, nombreMelodia, false); } catch
+	 * (SQLException e) { logSQLERROR(e); throw new
+	 * IllegalArgumentException(ERROR_MELODIA_EXISTENTE); } }
+	 */
 
+	// }
+
+	public void saveNotas(ArrayList<Nota> notas, String nombreMelodia, boolean append) {
+		deleteNotasFromMelodiaInDb(nombreMelodia);
+		PreparedStatement statement = null;
+		try {
+			String consulta = String.format(
+					"IF (SELECT nombreMelodia from melodias) IS NOT NULL \r\n" + "BEGIN\r\n"
+							+ "INSERT INTO notas (Id, nombreMelodia, nombreNota, octava,figura, alteracion)\r\n"
+							+ "VALUES (?,?,?,?,?,?) END",
+					ID, NOMBRE_MELODIA, NOMBRE_NOTA, OCTAVA, FIGURA, ALTERACION, nombreMelodia);
+			deleteNotasFromMelodiaInDb(nombreMelodia);
+			statement = conn.prepareStatement(consulta);
+			conn.setAutoCommit(false);
+			for (int i = 0; i < notas.size(); i++) {
+				Nota nota = notas.get(i);
+				statement.setString(1, Integer.toString(nota.getId()));
+				statement.setString(2, nombreMelodia);
+				statement.setString(3, nota.getNombre());
+				statement.setString(4, nota.getOctava());
+				statement.setString(5, nota.getFigura());
+				statement.setString(6, nota.getAlteracion());
+				statement.addBatch();
+			}
+			statement.executeBatch();
+			conn.commit();
+
+		} catch (SQLException e) {
+			logSQLERROR(e);
+		}
 	}
 
-	/*
-	 * public void saveNotas(ArrayList<Nota> notas, String nombreMelodia, boolean
-	 * append) { PreparedStatement statement = null; try {
-	 * deleteNotasFromMelodiaInDb(nombreMelodia); statement =
-	 * conn.prepareStatement(String.format(
-	 * "INSERT INTO notas (%s, %s, %s, %s,%s) VALUES (?, ?, ?, ?,?) WHERE notas.nombreMelodia = %s "
-	 * , NOMBRE_MELODIA, NOMBRE_NOTA, OCTAVA, FIGURA, ALTERACION, nombreMelodia));
-	 * conn.setAutoCommit(false); for (int i = 0; i < notas.size(); i++) { Nota nota
-	 * = notas.get(i); statement.setString(1, nota.getNombre());
-	 * statement.setString(2, nota.getOctava()); statement.setString(3,
-	 * nota.getFigura()); statement.setString(4, nota.getAlteracion());
-	 * statement.addBatch(); } statement.executeBatch(); conn.commit();
-	 * 
-	 * } catch (SQLException e) { logSQLERROR(e); } }
-	 */
+	private void deleteNotasFromMelodiaInDb(String nombreMelodia) {
+		String consulta = String.format("DELETE notas\r\n" + "	WHERE notas.nombreMelodia = '%s'", nombreMelodia);
+		try {
+			PreparedStatement statement = conn.prepareStatement(consulta);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			logSQLERROR(e);
+		}
+
+	}
 
 	@Override
 	public void updateNombreMelodia(String nombreMelodia, String nuevoNombre) {
@@ -117,7 +140,6 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 	}
 
-	/*
 	public void loadNotas(ArrayList<Nota> notas, String nombreMelodia) {
 		String consulta = String.format("SELECT [%s],[%s],[%s],[%s] FROM [dbo].[notas] WHERE nombreMelodia = %s",
 				NOMBRE_MELODIA, OCTAVA, FIGURA, ALTERACION, nombreMelodia);
@@ -132,9 +154,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 
 	}
-	*/
 
-	/*
 	@Override
 	public Melodia loadMelodia(String nombreMelodia) {
 		Melodia melodia = null;
@@ -157,7 +177,6 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 		return melodia;
 	}
-	*/
 
 	@Override
 	public void updateTempo(String nombreMelodia, String tempo) {
@@ -186,8 +205,8 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 
 	@Override
 	public void deleteMelodia(String nombreCancion) {
-		String consulta = String.format("DELETE melodias \r\n" + "WHERE nombreMelodia = '%s'\r\n" + "DELETE notas\r\n"
-				+ "WHERE nombreMelodia = '%s'", nombreCancion, nombreCancion);
+		String consulta = String.format("DELETE melodias \r\n" + " WHERE nombreMelodia = '%s'\r\n" + " DELETE notas\r\n"
+				+ " WHERE nombreMelodia = '%s'", nombreCancion, nombreCancion);
 		try {
 			PreparedStatement statement = conn.prepareStatement(consulta);
 			statement.executeUpdate();
@@ -202,23 +221,13 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	}
 
 	public void crearTablas() {
-		String consulta = String.format("if object_id('melodias', 'U') is null \r\n" + 
-				"CREATE TABLE melodias (\r\n" + 
-				"	nombreMelodia nvarchar(50) NOT NULL,\r\n" + 
-				"    instrumento nvarchar(50) NOT NULL,\r\n" + 
-				"    tempo nvarchar(50) NOT NULL,\r\n" + 
-				"    PRIMARY KEY (nombreMelodia)\r\n" + 
-				");\r\n" + 
-				"if object_id('notas', 'U') is null \r\n" + 
-				"CREATE TABLE notas (\r\n" + 
-				"	Id int NOT NULL,\r\n" + 
-				"	nombreMelodia nvarchar(50) NOT NULL,\r\n" + 
-				"	nombreNota nvarchar(50) NOT NULL,\r\n" + 
-				"    octava nvarchar(50) NOT NULL,\r\n" + 
-				"	figura nvarchar(50) NOT NULL,\r\n" + 
-				"	alteracion nvarchar(50) NOT NULL,\r\n" + 
-				"	PRIMARY KEY (Id, nombreMelodia)\r\n" + 
-				");", NOMBRE,
+		String consulta = String.format("if object_id('melodias', 'U') is null \r\n" + "CREATE TABLE melodias (\r\n"
+				+ "	nombreMelodia nvarchar(50) NOT NULL,\r\n" + "    instrumento nvarchar(50) NOT NULL,\r\n"
+				+ "    tempo nvarchar(50) NOT NULL,\r\n" + "    PRIMARY KEY (nombreMelodia)\r\n" + ");\r\n"
+				+ "if object_id('notas', 'U') is null \r\n" + "CREATE TABLE notas (\r\n" + "	Id int NOT NULL,\r\n"
+				+ "	nombreMelodia nvarchar(50) NOT NULL,\r\n" + "	nombreNota nvarchar(50) NOT NULL,\r\n"
+				+ "    octava nvarchar(50) NOT NULL,\r\n" + "	figura nvarchar(50) NOT NULL,\r\n"
+				+ "	alteracion nvarchar(50) NOT NULL,\r\n" + "	PRIMARY KEY (Id, nombreMelodia)\r\n" + ");", NOMBRE,
 				INSTRUMENTO, TEMPO);
 		Statement statement = null;
 		try {
@@ -253,33 +262,11 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		return canciones;
 	}
 
-	public void closeConnection() throws SQLException {
-
-	}
-
 	@Override
 	public void close() throws SQLException {
 		if (!conn.isClosed()) {
 			conn.close();
 		}
-	}
-
-	@Override
-	public void createMelodia(String nombreMelodia, String instrumento, String tempo) {
-		PreparedStatement statement = null;
-		String consulta = String.format("INSERT INTO [dbo].[melodias](%s,%s,%s)"
-				+ "  VALUES(?,?,?)", NOMBRE_MELODIA, INSTRUMENTO, TEMPO);
-		try {
-			statement = conn.prepareStatement(consulta);
-			statement.setString(1, nombreMelodia);
-			statement.setString(2, instrumento);
-			statement.setString(3, tempo);
-			statement.executeUpdate();
-		} catch (SQLException e) {
-			logSQLERROR(e);
-			throw new IllegalArgumentException(e.getMessage());
-		}
-
 	}
 
 	@Override
@@ -316,20 +303,19 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	@Override
 	public void listarNotas(String nombreMelodia) {
 		ResultSet rs = null;
-		String consulta = String.format("SELECT n.Id, n.nombreNota, n.octava, n.figura, n.alteracion \r\n" + "FROM notas n"
-				+ " WHERE n.nombreMelodia = '%s'", nombreMelodia);
+		String consulta = String.format("SELECT n.Id, n.nombreNota, n.octava, n.figura, n.alteracion \r\n"
+				+ "FROM notas n" + " WHERE n.nombreMelodia = '%s'", nombreMelodia);
 		try {
 			System.out.print("Id,nombre,Octava,alteración   ");
 			rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
 				System.out.println("");
-				System.out.print(rs.getString("Id")) ;
+				System.out.print(rs.getString("Id"));
 				System.out.print(rs.getString("nombreNota"));
 				System.out.print(rs.getString("octava"));
 				System.out.print(rs.getString("figura"));
 				System.out.print(rs.getString("alteracion"));
-				
-				
+
 			}
 		} catch (SQLException e) {
 			logSQLERROR(e);
@@ -338,18 +324,20 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	}
 
 	@Override
-	public void listarCanciones() {
+	public ArrayList<String> getCanciones() {
+		ArrayList<String> canciones = new ArrayList<>();
 		ResultSet rs = null;
 		String consulta = "SELECT nombreMelodia FROM melodias";
 		try {
 			rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getString("nombreMelodia"));
+				canciones.add(rs.getString("nombreMelodia"));
 			}
 		} catch (SQLException e) {
 			logSQLERROR(e);
 			throw new IllegalArgumentException(e.getMessage());
 		}
+		return canciones;
 
 	}
 
@@ -374,28 +362,19 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 
 	@Override
 	public void play(String nombreMelodia, PlayerSingleton player) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void saveAll() {
-		// TODO Auto-generated method stub
+		Melodia melodia = loadMelodia(nombreMelodia);
+		melodia.play(player);
 
 	}
 
 	@Override
 	public void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion) {
 		String consulta = String.format(
-				"IF (SELECT nombreMelodia FROM melodias WHERE nombreMelodia = '%s') IS NOT NULL\r\n" + 
-				"BEGIN\r\n" + 
-				"INSERT INTO notas (nombreMelodia,\r\n" + 
-				"			nombreNota,\r\n" + 
-				"			octava,\r\n" + 
-				"			figura, \r\n" + 
-				"			alteracion)\r\n" + 
-				"		VALUES('%s','%s','%s','%s','%s');\r\n" + 
-				"END", nombreMelodia, nombreNota,octava, figura, alteracion);
+				"IF (SELECT nombreMelodia FROM melodias WHERE nombreMelodia = '%s') IS NOT NULL\r\n" + "BEGIN\r\n"
+						+ "INSERT INTO notas (nombreMelodia,\r\n" + "			nombreNota,\r\n"
+						+ "			octava,\r\n" + "			figura, \r\n" + "			alteracion)\r\n"
+						+ "		VALUES('%s','%s','%s','%s','%s');\r\n" + "END",
+				nombreMelodia, nombreNota, octava, figura, alteracion);
 		try {
 			PreparedStatement statement = conn.prepareStatement(consulta);
 			statement.executeUpdate();
@@ -403,6 +382,40 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		} catch (SQLException e) {
 			logSQLERROR(e);
 			throw new RuntimeException(e.getMessage());
+		}
+
+	}
+
+	@Override
+	public void save(Melodia melodia, ArrayList<Nota> notas) {
+		//deleteMelodia(melodia.getNombre());
+		this.melodia = melodia;
+		PreparedStatement statement = null;
+		String consulta = String.format(
+				"IF (SELECT nombreMelodia from melodias WHERE nombreMelodia = '%s') IS NULL \r\n" + 
+				"BEGIN\r\n" + 
+				"INSERT INTO [dbo].[melodias](nombreMelodia,instrumento,tempo)  \r\n" + 
+				"VALUES('%s','%s','%s')\r\n" + 
+				"END\r\n" + 
+				"ELSE\r\n" + 
+				"BEGIN\r\n" + 
+				"UPDATE melodias \r\n" + 
+				"SET nombreMelodia = '%s',\r\n" + 
+				"	instrumento = '%s',\r\n" + 
+				"	tempo = '%s'\r\n" + 
+				"	WHERE nombreMelodia = '%s'\r\n" + 
+				"END",
+				melodia.getNombre(),melodia.getNombre(),melodia.getInstrument(),melodia.getTempo(),melodia.getNombre(),melodia.getInstrument(),melodia.getTempo(),melodia.getNombre());
+		try {
+			statement = conn.prepareStatement(consulta);
+			//statement.setString(1, melodia.getNombre());
+			//statement.setString(2, melodia.getInstrument());
+			//statement.setString(3, melodia.getTempo());
+			statement.executeUpdate();
+			saveNotas(notas, melodia.getNombre(), false);
+		} catch (SQLException e) {
+			logSQLERROR(e);
+			throw new IllegalArgumentException(e.getMessage());
 		}
 
 	}

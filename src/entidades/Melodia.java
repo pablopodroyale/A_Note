@@ -14,9 +14,6 @@ public class Melodia implements ISonable {
 	private static final String MASCARA_INSTRUMENT = " I[%s] ";
 	private static final int INSTRUMENTO_MIN = 0;
 	private static final int INSTRUMENTO_MAX = 127;
-	private static final String MASCARAPATH = "%s";
-	private static final String EXTENSION_INI = ".ini";
-	private static final String EXTENSION_CSV = ".csv";
 	private static final String TEMPO_CONST_STRING = "Tiempo";
 	private static final String INSTRUMENT = "Instrumento";
 	private static final String CANCIONES = "Canciones";
@@ -48,15 +45,19 @@ public class Melodia implements ISonable {
 
 	}
 
+	public Melodia() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTempo() {
 		return tempo;
 	}
 
 	public void setTempo(String tempo) {
 		try {
-			Funcion_Helper.validarString(tempo);
 			Funcion_Helper.validarRango(TEMPO_MINIMO, TEMPO_MAXIMO, Integer.parseInt(tempo));
-			this.tempo = String.format(MASCARA_TEMPO, tempo);
+			this.tempo = tempo;
+			//this.tempo = String.format(MASCARA_TEMPO, tempo);
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
@@ -99,9 +100,9 @@ public class Melodia implements ISonable {
 
 	public void setInstrument(String instrument) {
 		try {
-			Funcion_Helper.validarString(instrument);
-			Funcion_Helper.validarRango(INSTRUMENTO_MIN, INSTRUMENTO_MAX, Instrumentos.valueOf(instrument).getValue());
-			this.instrument = String.format(MASCARA_INSTRUMENT, instrument);
+			//Funcion_Helper.validarRango(INSTRUMENTO_MIN, INSTRUMENTO_MAX, Instrumentos.valueOf(instrument).getValue());
+			//this.instrument = String.format(MASCARA_INSTRUMENT, instrument);
+			this.instrument = instrument;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
@@ -130,18 +131,6 @@ public class Melodia implements ISonable {
 
 	public int getInstrumentoMax() {
 		return INSTRUMENTO_MAX;
-	}
-
-	public String getMascarapath() {
-		return MASCARAPATH;
-	}
-
-	public String getExtensionIni() {
-		return EXTENSION_INI;
-	}
-
-	public String getExtensionCsv() {
-		return EXTENSION_CSV;
 	}
 
 	public String getInstrumentConst() {
@@ -173,7 +162,6 @@ public class Melodia implements ISonable {
 	}
 
 	public void setNombre(String nombreMelodia) {
-		Funcion_Helper.validarString(nombreMelodia);
 		this.nombre = nombreMelodia;
 
 	}

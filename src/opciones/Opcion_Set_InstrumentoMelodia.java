@@ -17,7 +17,7 @@ public class Opcion_Set_InstrumentoMelodia extends Opcion  {
 
 	@Override
 	public void ejecutar(AnoteManager manager, Scanner input) {
-		manager.listarInstrumentos();
+		Funcion_Helper.listarInstrumentos();
 		String nombreMelodia = Funcion_Helper.pedirString(MENSAJE_NOMBRE_MELODIA, input);
 		String instrument = Funcion_Helper.pedirString(MENSAJE_NOMBRE_INSTRUMENTO, input);
 		//manager.setInstrument(nombreMelodia, instrument);
