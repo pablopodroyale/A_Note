@@ -14,8 +14,8 @@ public class NoteReader extends CSVReader<Nota> {
 
 	@Override
 	Nota fromCsv(String line) {
-		Nota note = new Nota(line, contadorNotas.getValor());
-		contadorNotas.incrementar();
+		Nota note = new Nota(line);
+		//contadorNotas.incrementar();
 		return note;
 	}
 

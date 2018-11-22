@@ -10,6 +10,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Scanner;
 
+import org.jfugue.pattern.PatternProducer;
+
 import entidades.Figuras_Ritmicas;
 import entidades.Instrumentos;
 import entidades.Notas;
@@ -19,6 +21,8 @@ public final class Funcion_Helper {
 	static final String ERROR_MELODIA_INEXISTENTE = "Error, la melodia no existe";
 	static final String ERROR_MELODIA_EXISTENTE = "Error, la melodia ya exite";
 	static final String CANCIONES = "Canciones";
+	private static final String MASCARA_INSTRUMENT = " I[%s] ";
+	private static final String MASCARA_TEMPO = " T%s ";
 	static final String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
 	private static final String ERROR_ARCHIVO_O_CARPETA_EN_USO = "Error, no se puede renombrar, el directorio esta en uso, cierre los archivos abiertos y vuelva a intentar";
 	private static final String ERROR_NOTA_INVALIDA = "ERROR la nota debe ser C,D,E,F,G,A, o B";
@@ -179,8 +183,8 @@ public final class Funcion_Helper {
 			System.out.println(mensajeNombreFigura);
 			respuesta = input.nextLine();
 		} while (respuesta.isEmpty() || respuesta == null || !validarFigura(respuesta));
-
-		return respuesta.toUpperCase();
+		
+		return Figuras_Ritmicas.valueOf(respuesta.toUpperCase()).getNombreJFuge();
 	}
 
 	public static boolean validarFigura(String respuesta) {
@@ -220,5 +224,27 @@ public final class Funcion_Helper {
 
 		return respuesta;
 	}
+
+	public static String pedirNombreCancionEdicion(String mensajeNombre, Scanner input, ArrayList<String> canciones2) {
+		String respuesta;
+		do {
+			System.out.println(mensajeNombre);
+			respuesta = input.nextLine();
+			if (!canciones2.contains(respuesta)) {
+				System.out.println("Selecc6ione una canción existente");
+			}
+		} while (respuesta.isEmpty() || respuesta == null || !canciones2.contains(respuesta));
+
+		return respuesta;
+	}
+
+	public static String toJFugueInstrument(String instrument) {
+		return String.format(MASCARA_INSTRUMENT, instrument);
+	}
+
+	public static String toJfugueTempo(String tempo) {
+		return String.format(MASCARA_TEMPO, tempo);
+	}
+
 
 }

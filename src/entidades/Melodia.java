@@ -2,6 +2,8 @@ package entidades;
 
 import java.util.ArrayList;
 
+import org.jfugue.pattern.PatternProducer;
+
 import funciones_helper.Contador;
 import funciones_helper.Funcion_Helper;
 import interfaces.ISonable;
@@ -70,10 +72,10 @@ public class Melodia implements ISonable {
 			throw new IllegalArgumentException(ERROR_MELODIA_VACIA);
 		} else {
 			if (!this.instrument.isEmpty()) {
-				this.pattern.add(instrument);
+				this.pattern.add(toJFugueInstrument(instrument));
 			}
 			if (!this.tempo.isEmpty()) {
-				this.pattern.add(tempo);
+				this.pattern.add(toJfugueTempo(tempo));
 			}
 
 			notas.forEach(x -> {
@@ -86,6 +88,14 @@ public class Melodia implements ISonable {
 			}
 		}
 
+	}
+
+	private String toJfugueTempo(String tempo2) {
+		return String.format(MASCARA_TEMPO, tempo2);
+	}
+
+	private String toJFugueInstrument(String instrument2) {
+		return String.format(MASCARA_INSTRUMENT, instrument2);
 	}
 
 	public void setNote(Nota nota) {
@@ -213,8 +223,8 @@ public class Melodia implements ISonable {
 		}
 	}
 
-	public void setNote(String nombreNota, String octava, String figura, String alteracion) {
-		Nota nota = new Nota(nombreNota, octava,figura,alteracion);
+	public void setNote(int Id,String nombreNota, String octava, String figura, String alteracion) {
+		Nota nota = new Nota(Id,nombreNota, octava,figura,alteracion);
 		nota.setId(contadorNotas.getValor());
 		notas.add(nota);
 	}

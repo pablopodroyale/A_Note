@@ -37,15 +37,15 @@ public class RepoMelodiasMixto implements RepoMelodias {
 	private NoteReader noteReader;
 	private Path rootPath;
 	private IniManager iniManager;
-	protected LinkedHashMap<String, Melodia> melodias;
+	// protected LinkedHashMap<String, Melodia> melodias;
 
 	public RepoMelodiasMixto() {
 		this.iniManager = new IniManager();
 		this.noteWriter = new NoteWriter();
 		this.noteReader = new NoteReader(Nota.getHeader());
 		rootPath = Paths.get(ROOT);
-		cargarCanciones();
-		this.melodias = new LinkedHashMap<>();
+		// cargarCanciones();
+		// this.melodias = new LinkedHashMap<>();
 	}
 
 	@Override
@@ -53,8 +53,8 @@ public class RepoMelodiasMixto implements RepoMelodias {
 		String pathIni = ROOT + File.separator + melodia.getNombre() + File.separator + melodia.getNombre()
 				+ EXTENSION_INI;
 		iniManager.setPathDestiny(pathIni);
-		String instrumento = removeInstrumentMask(melodia.getInstrument());
-		String tempo = removeTempoMak(melodia.getTempo());
+		String instrumento = melodia.getInstrument();
+		String tempo = melodia.getTempo();
 		Path rootPath = Paths.get(pathIni);
 		try {
 			if (Files.notExists(rootPath.getParent())) {
@@ -84,7 +84,6 @@ public class RepoMelodiasMixto implements RepoMelodias {
 		noteWriter.setHeader(Nota.getHeader());
 		// NoteWriter noteWriter = new NoteWriter(Nota.getHeader());
 		noteWriter.writeAll(pathCSV, notas, append);
-
 	}
 
 	/*
@@ -98,11 +97,11 @@ public class RepoMelodiasMixto implements RepoMelodias {
 
 	@Override
 	public void updateNombreMelodia(String nombreMelodia, String nuevoNombre) {
-		Melodia melodia = getMelodia(nombreMelodia);
+		Melodia melodia = loadMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.setNombre(nuevoNombre);
 			// Modificar nombre en memoria
-			updateNombreEnMapa(nombreMelodia, nuevoNombre);
+			// updateNombreEnMapa(nombreMelodia, nuevoNombre);
 			// Modificar contenido ini
 			updateMelodiaParams(melodia);
 			// Modificar la seccion del csv
@@ -120,11 +119,12 @@ public class RepoMelodiasMixto implements RepoMelodias {
 	public void loadNotas(ArrayList<Nota> notas, String nombreMelodia) {
 		String pathCsv = ROOT + File.separator + nombreMelodia + File.separator + nombreMelodia + EXTENSION_CSV;
 		noteReader.readAll(pathCsv, notas, ControlLevelError.IGNORE_ERRORS);
-		noteReader.resetContador();
+		// noteReader.resetContador();
 
 	}
 
 	public Melodia loadMelodia(String nombreMelodia) {
+		ArrayList<Nota> notas = new ArrayList<>();
 		Melodia melodia = null;
 		String pathIni = ROOT + File.separator + nombreMelodia + File.separator + nombreMelodia + EXTENSION_INI;
 		Path path = Paths.get(pathIni);
@@ -138,27 +138,25 @@ public class RepoMelodiasMixto implements RepoMelodias {
 			// melodia
 			melodia.setTempo(iniManager.getValueOf(nombreMelodia, "Tiempo"));
 			melodia.setInstrument(iniManager.getValueOf(nombreMelodia, "Instrumento"));
+			loadNotas(notas, nombreMelodia);
+			melodia.llenarNotas(notas);
 		}
 		return melodia;
 	}
 
-	public void cargarCanciones() {
-		Melodia melodia;
-		ArrayList<String> lstCancionesStr = getCancionesFromDisk();
-		ArrayList<Nota> notas = new ArrayList<>();
-
-		for (int i = 0; i < lstCancionesStr.size(); i++) {
-			melodia = loadMelodia(lstCancionesStr.get(i));
-			loadNotas(notas, melodia.getNombre());
-			melodia.llenarNotas(notas);
-			notas.clear();
-			addMelodia(melodia);
-		}
-	}
+	/*
+	 * public void cargarCanciones() { Melodia melodia; ArrayList<String>
+	 * lstCancionesStr = getCancionesFromDisk(); ArrayList<Nota> notas = new
+	 * ArrayList<>();
+	 * 
+	 * for (int i = 0; i < lstCancionesStr.size(); i++) { melodia =
+	 * loadMelodia(lstCancionesStr.get(i)); loadNotas(notas, melodia.getNombre());
+	 * melodia.llenarNotas(notas); notas.clear(); addMelodia(melodia); } }
+	 */
 
 	@Override
 	public void updateTempo(String nombreMelodia, String tempo) {
-		Melodia melodia = getMelodia(nombreMelodia);
+		Melodia melodia = loadMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.setTempo(tempo);
 			updateMelodiaParams(melodia);
@@ -170,7 +168,7 @@ public class RepoMelodiasMixto implements RepoMelodias {
 
 	@Override
 	public void updateInstrumento(String nombreMelodia, String instrumento) {
-		Melodia melodia = getMelodia(nombreMelodia);
+		Melodia melodia = loadMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.setInstrument(instrumento);
 			updateMelodiaParams(melodia);
@@ -184,15 +182,12 @@ public class RepoMelodiasMixto implements RepoMelodias {
 		String sPath = ROOT + File.separator + nombreCancion;
 		File pathCancion = new File(sPath);
 		Path path = Paths.get(sPath);
-		if (containsMelodia(nombreCancion)) {
-			melodias.remove(nombreCancion);
-			if (Files.exists(path)) {
-				deleteDir(pathCancion);
-			}
+		// melodias.remove(nombreCancion);
+		if (Files.exists(path)) {
+			deleteDir(pathCancion);
 		} else {
 			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
 		}
-
 	}
 
 	private void deleteDir(File file) {
@@ -220,20 +215,14 @@ public class RepoMelodiasMixto implements RepoMelodias {
 	 * 
 	 * @return
 	 */
-	public ArrayList<String> getCancionesFromDisk() {
-		ArrayList<String> canciones = new ArrayList<>();
-		File aDirectory = new File(ROOT);
-		// get a listing of all files in the directory
-		String[] filesInDir = aDirectory.list();
-		// sort the list of files (optional)
-		Arrays.sort(filesInDir);
-		// have everything i need, just print it now
-		for (int i = 0; i < filesInDir.length; i++) {
-			canciones.add(filesInDir[i]);
-		}
-		return canciones;
-	}
-
+	/*
+	 * public ArrayList<String> getCancionesFromDisk() { ArrayList<String> canciones
+	 * = new ArrayList<>(); File aDirectory = new File(ROOT); // get a listing of
+	 * all files in the directory String[] filesInDir = aDirectory.list(); // sort
+	 * the list of files (optional) Arrays.sort(filesInDir); // have everything i
+	 * need, just print it now for (int i = 0; i < filesInDir.length; i++) {
+	 * canciones.add(filesInDir[i]); } return canciones; }
+	 */
 	/***
 	 * Modifica las caracteristicas de la melodia cuando tiene modificaciones, me
 	 * sirve cuando modifico el nombre
@@ -274,7 +263,7 @@ public class RepoMelodiasMixto implements RepoMelodias {
 
 	@Override
 	public void play(String nombreMelodia, PlayerSingleton player) {
-		Melodia melodia = getMelodia(nombreMelodia);
+		Melodia melodia = loadMelodia(nombreMelodia);
 		if (melodia != null) {
 			melodia.play(player);
 		} else {
@@ -285,9 +274,11 @@ public class RepoMelodiasMixto implements RepoMelodias {
 
 	@Override
 	public void detallesMelodia(String nombreMelodia) {
-		Melodia melodia = getMelodia(nombreMelodia);
+		Melodia melodia = loadMelodia(nombreMelodia);
 		if (melodia != null) {
-			melodia.toString();
+			System.out.println(melodia.toString());
+			System.out.println("Notas:");
+			melodia.listarNotas();
 		} else {
 			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
 		}
@@ -296,92 +287,108 @@ public class RepoMelodiasMixto implements RepoMelodias {
 
 	@Override
 	public void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion) {
-		Melodia melodia = getMelodia(nombreMelodia);
-		if (melodia != null) {
-			melodia.setNote(nombreNota, octava, figura, alteracion);
-			;
-		}
-
-	}
-
-	public Melodia getMelodia(String nombreMelodia) {
-		Melodia melodia = null;
-		if (containsMelodia(nombreMelodia)) {
-			melodia = melodias.get(nombreMelodia);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-		return melodia;
-	}
-
-	public boolean containsMelodia(String nombreMelodia) {
-		return melodias.containsKey(nombreMelodia);
-	}
-
-	public void updateNombreEnMapa(String nombreAnterior, String nuevoNombre) {
-		if (melodias.containsKey(nombreAnterior)) {
-			melodias.put(nuevoNombre, melodias.remove(nombreAnterior));
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-
-	}
-
-	protected void addMelodia(Melodia melodia) {
-		melodias.put(melodia.getNombre(), melodia);
-
-	}
-
-	@Override
-	public void removeNotaById(String nombreMelodia, String idNota) {
-		Melodia melodia = getMelodia(nombreMelodia);
-		if (melodia != null) {
-			melodia.removeNotaById(idNota);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-
+		/*
+		 * Melodia melodia = getMelodia(nombreMelodia); if (melodia != null) {
+		 * melodia.setNote(nombreNota, octava, figura, alteracion); ; }
+		 */
 	}
 
 	@Override
 	public void listarNotas(String nombreMelodia) {
-		Melodia melodia = getMelodia(nombreMelodia);
-		if (melodia != null) {
-			melodia.listarNotas();
-		}
-
+		Melodia melodia = loadMelodia(nombreMelodia);
+		melodia.listarNotas();
 	}
 
 	@Override
 	public ArrayList<String> getCanciones() {
-		/*
-		 * Melodia melodia;
-		 * 
-		 * Set<String> canciones = melodias.keySet(); if (canciones.isEmpty()) { throw
-		 * new IllegalArgumentException(ERROR_LISTA_VACIA); } for (int j = 0; j <
-		 * canciones.size(); j++) { //System.out.println((j + 1) + ":" +
-		 * canciones.toArray()[j]); //melodia =
-		 * getMelodia(canciones.toArray()[j].toString()); //melodia.toString();
-		 * 
-		 * }
-		 */
-		return getCancionesFromDisk();
+		ArrayList<String> canciones = new ArrayList<>();
+		File aDirectory = new File(ROOT);
+		// get a listing of all files in the directory
+		String[] filesInDir = aDirectory.list();
+		// sort the list of files (optional)
+		Arrays.sort(filesInDir);
+		// have everything i need, just print it now
+		for (int i = 0; i < filesInDir.length; i++) {
+			canciones.add(filesInDir[i]);
+		}
+		return canciones;
 	}
 
 	@Override
-	public void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
-			String alteracion) {
-		Melodia melodia;
-		Funcion_Helper.validarString(nombreMelodia);
-		Funcion_Helper.validarString(idNota);
-		Funcion_Helper.validarString(nombreNota);
-		Funcion_Helper.validarString(octava);
-		Funcion_Helper.validarString(figura);
-		Funcion_Helper.validarString(alteracion);
-		melodia = getMelodia(nombreMelodia);
-		if (melodia != null) {
-			melodia.updateNota(idNota, nombreNota, octava, figura, alteracion);
+	public void removeNotaById(String nombreMelodia, String idNota) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void listarMelodias() {
+		ArrayList<String> melodias = getCanciones();
+		for (int i = 0; i < melodias.size(); i++) {
+			System.out.println((i + 1) + ":" + melodias.get(i));
 		}
 	}
+
+	/*
+	 * public Melodia getMelodia(String nombreMelodia) { Melodia melodia = null; if
+	 * (containsMelodia(nombreMelodia)) { melodia = melodias.get(nombreMelodia); }
+	 * else { throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+	 * return melodia; }
+	 */
+
+	/*
+	 * public boolean containsMelodia(String nombreMelodia) { return
+	 * melodias.containsKey(nombreMelodia); }
+	 */
+
+	/*
+	 * public void updateNombreEnMapa(String nombreAnterior, String nuevoNombre) {
+	 * if (melodias.containsKey(nombreAnterior)) { melodias.put(nuevoNombre,
+	 * melodias.remove(nombreAnterior)); } else { throw new
+	 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+	 * 
+	 * } /* protected void addMelodia(Melodia melodia) {
+	 * melodias.put(melodia.getNombre(), melodia);
+	 * 
+	 * }
+	 * 
+	 * @Override public void removeNotaById(String nombreMelodia, String idNota) {
+	 * Melodia melodia = getMelodia(nombreMelodia); if (melodia != null) {
+	 * melodia.removeNotaById(idNota); } else { throw new
+	 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+	 * 
+	 * }
+	 * 
+	 * @Override public void listarNotas(String nombreMelodia) { Melodia melodia =
+	 * getMelodia(nombreMelodia); if (melodia != null) { melodia.listarNotas(); }
+	 * 
+	 * }
+	 * 
+	 * @Override public ArrayList<String> getCanciones() { /* Melodia melodia;
+	 * 
+	 * Set<String> canciones = melodias.keySet(); if (canciones.isEmpty()) { throw
+	 * new IllegalArgumentException(ERROR_LISTA_VACIA); } for (int j = 0; j <
+	 * canciones.size(); j++) { //System.out.println((j + 1) + ":" +
+	 * canciones.toArray()[j]); //melodia =
+	 * getMelodia(canciones.toArray()[j].toString()); //melodia.toString();
+	 * 
+	 * }
+	 * 
+	 * return
+	 * 
+	 * getCancionesFromDisk();
+	 * 
+	 * }
+	 */
+	/*
+	 * @Override public void updateNota(String nombreMelodia, String idNota, String
+	 * nombreNota, String octava, String figura, String alteracion) { Melodia
+	 * melodia; Funcion_Helper.validarString(nombreMelodia);
+	 * Funcion_Helper.validarString(idNota);
+	 * Funcion_Helper.validarString(nombreNota);
+	 * Funcion_Helper.validarString(octava); Funcion_Helper.validarString(figura);
+	 * Funcion_Helper.validarString(alteracion); // melodia =
+	 * getMelodia(nombreMelodia); if (melodia != null) { melodia.updateNota(idNota,
+	 * nombreNota, octava, figura, alteracion); } }
+	 */
 
 }

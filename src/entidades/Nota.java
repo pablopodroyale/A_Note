@@ -5,13 +5,13 @@ import interfaces.ISonable;
 import utils.files.CSVCompatible;
 
 public class Nota implements ISonable, CSVCompatible<Nota> {
-	private static final String HEADER_NOTA = "Nombre_Nota,Octava,Figura,Alteracion";
+	private static final String HEADER_NOTA = "Id,Nombre_Nota,Octava,Figura,Alteracion";
 	private static final String ERROR_ALTERACION = "Error, la alteracion debe ser '#' o 'b' o 'n'";
 	private static final String ERROR_FIGURA_INVALIDA = "Error, figura invalida";
 	private static final String ERROR_RANGO_OCTAVA = "Error, la octava debe estar entre 0 y 9";
 	private static final int RANGO_OCTAVA_MIN = 0;
 	private static final int RANGO_OCTAVA_MAX = 9;
-	private static final int CANT_ATRIBUTOS = 4;
+	private static final int CANT_ATRIBUTOS = 5;
 	private static final String ERR_CANT_VALORES = "Error, la cantidad de valores recibidos, no coincide con los esperados";
 	private String nombre;
 	private String octava;
@@ -20,30 +20,21 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	// Definir como manejar el id
 	private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getId() {
-		return id;
-	}
-
 	/***
 	 * Fomato Nota: [nombre],[octava],[figura],[alteración] Sólo recibe el nombre de
 	 * la nota, setea la octava por defecto 6, figura negra, alteracion ""
 	 * 
 	 * @param line
-	 * @param id
 	 */
-	public Nota(String line, int id) {
+	public Nota(String line) {
 		// por el if esta recibiendo la linea leida por el reader
 		String fields[] = line.split(",");
 		// verifyFields(lineOrName);
 		if (fields.length < CANT_ATRIBUTOS) {
 			throw new IllegalArgumentException(ERR_CANT_VALORES);
 		}
-		setValues(fields[0], fields[1], (fields[2]), fields[3]);
-		setId(id);
+		setValues(Integer.parseInt(fields[0]), fields[1], (fields[2]), fields[3], fields[4]);
+		//setId(id);
 	}
 
 	/***
@@ -55,8 +46,8 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	 * @param figura
 	 * @param alteracion
 	 */
-	public Nota(String nombre, String octava, String figura, String alteracion) {
-		setValues(nombre, octava, figura, alteracion);
+	public Nota(int Id, String nombre, String octava, String figura, String alteracion) {
+		setValues(Id, nombre, octava, figura, alteracion);
 	}
 
 	/*
@@ -69,7 +60,8 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	 * }
 	 */
 
-	private void setValues(String nombre, String octava, String figura, String alteracion) {
+	private void setValues(int Id, String nombre, String octava, String figura, String alteracion) {
+		setId(Id);
 		setNombre(nombre);
 		setOctava(octava);
 		setFigura(figura);
@@ -178,7 +170,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 
 	@Override
 	public String toString() {
-		return nombre + "," + octava + "," + figura + "," + alteracion;
+		return id + "," + nombre + "," + octava + "," + figura + "," + alteracion;
 	}
 
 	public String toStringConId() {
@@ -200,6 +192,14 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void play(PlayerSingleton player) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }

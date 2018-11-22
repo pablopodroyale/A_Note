@@ -29,8 +29,8 @@ public interface RepoMelodias {
 
 	// Melodia getMelodia(String nombreMelodia);
 
-	void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
-			String alteracion);
+	//void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
+			//String alteracion);
 
 	void updateTempo(String nombreMelodia, String tempo);
 
@@ -53,6 +53,8 @@ public interface RepoMelodias {
 	void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion);
 
 	Melodia loadMelodia(String nombreMelodia);
+
+	void listarMelodias();
 
 	
 

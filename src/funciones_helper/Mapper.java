@@ -16,9 +16,24 @@ public class Mapper {
 		melodia.setTempo(modelMelodia.getTempo());
 		Nota nota;
 		for (ViewModelNota notaVM : notascompuestas) {
-			nota = new Nota(notaVM.getNombre(),notaVM.getOctava(),notaVM.getFigura(),notaVM.getAlteracion());
+			nota = new Nota(notaVM.getId(), notaVM.getNombre(), notaVM.getOctava(), notaVM.getFigura(),
+					notaVM.getAlteracion());
 			nota.setId(notaVM.getId());
 			notas.add(nota);
+		}
+	}
+
+	public static void MapToVm(Melodia melodia, ViewModelMelodia modelMelodia,
+			ArrayList<ViewModelNota> notascompuestas) {
+		modelMelodia.setNombre(melodia.getNombre());
+		modelMelodia.setInstrument(melodia.getInstrument());
+		modelMelodia.setTempo(melodia.getTempo());
+		ViewModelNota notaVM;
+		for (Nota nota : melodia.getNotas()) {
+			notaVM = new ViewModelNota(nota.getId(), nota.getNombre(), nota.getOctava(), nota.getFigura(),
+					nota.getAlteracion());
+			notaVM.setId(notaVM.getId());
+			notascompuestas.add(notaVM);
 		}
 	}
 

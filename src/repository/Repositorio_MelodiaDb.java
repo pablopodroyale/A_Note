@@ -34,7 +34,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	private Connection conn;
 	// private LinkedHashMap<String, Melodia> melodias;
 	private Contador contador;
-	private Melodia melodia;
+	//private Melodia melodia;
 
 	/***
 	 * Al construir la instancia de esta clase le pasaremos como parámetro (
@@ -46,7 +46,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	 * @param logger
 	 */
 	public Repositorio_MelodiaDb(DBManager dbManager, ILogger logger) {
-		this.melodia = null;
+		//this.melodia = null;
 		this.contador = new Contador();
 		this.logger = logger;
 		try {
@@ -141,12 +141,14 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	}
 
 	public void loadNotas(ArrayList<Nota> notas, String nombreMelodia) {
-		String consulta = String.format("SELECT [%s],[%s],[%s],[%s] FROM [dbo].[notas] WHERE nombreMelodia = %s",
-				NOMBRE_MELODIA, OCTAVA, FIGURA, ALTERACION, nombreMelodia);
+		Nota nota;
+		String consulta = String.format("SELECT [%s],[%s],[%s],[%s], [%s] FROM [dbo].[notas] WHERE nombreMelodia = %s",
+				ID,NOMBRE_NOTA, OCTAVA, FIGURA, ALTERACION, nombreMelodia);
 		try {
 			ResultSet rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
-				notas.add(new Nota(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+				nota = new Nota(Integer.parseInt(rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5));
+				notas.add(nota);
 			}
 		} catch (SQLException e) {
 			logSQLERROR(e);
@@ -269,6 +271,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 	}
 
+	/*
 	@Override
 	public void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
 			String alteracion) {
@@ -285,9 +288,12 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 		}
 
 	}
+	*/
 
 	@Override
 	public void removeNotaById(String nombreMelodia, String idNota) {
+		
+		/*
 		String consulta = String.format(
 				"DELETE notas\r\n" + "WHERE notas.nombreNota = '%s' AND notas.nombreMelodia = '%s'", idNota,
 				nombreMelodia);
@@ -298,13 +304,14 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 			logSQLERROR(e);
 			throw new RuntimeException(e.getMessage());
 		}
+		*/
 	}
 
 	@Override
 	public void listarNotas(String nombreMelodia) {
 		ResultSet rs = null;
 		String consulta = String.format("SELECT n.Id, n.nombreNota, n.octava, n.figura, n.alteracion \r\n"
-				+ "FROM notas n" + " WHERE n.nombreMelodia = '%s'", nombreMelodia);
+				+ "FROM notas n" + " WHERE n.nombreMelodia = '%s' ORDER BY n.Id ASC", nombreMelodia);
 		try {
 			System.out.print("Id,nombre,Octava,alteración   ");
 			rs = conn.prepareStatement(consulta).executeQuery();
@@ -338,7 +345,6 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 			throw new IllegalArgumentException(e.getMessage());
 		}
 		return canciones;
-
 	}
 
 	@Override
@@ -389,7 +395,7 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 	@Override
 	public void save(Melodia melodia, ArrayList<Nota> notas) {
 		//deleteMelodia(melodia.getNombre());
-		this.melodia = melodia;
+		//this.melodia = melodia;
 		PreparedStatement statement = null;
 		String consulta = String.format(
 				"IF (SELECT nombreMelodia from melodias WHERE nombreMelodia = '%s') IS NULL \r\n" + 
@@ -408,9 +414,6 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 				melodia.getNombre(),melodia.getNombre(),melodia.getInstrument(),melodia.getTempo(),melodia.getNombre(),melodia.getInstrument(),melodia.getTempo(),melodia.getNombre());
 		try {
 			statement = conn.prepareStatement(consulta);
-			//statement.setString(1, melodia.getNombre());
-			//statement.setString(2, melodia.getInstrument());
-			//statement.setString(3, melodia.getTempo());
 			statement.executeUpdate();
 			saveNotas(notas, melodia.getNombre(), false);
 		} catch (SQLException e) {
@@ -418,6 +421,12 @@ public class Repositorio_MelodiaDb implements RepoMelodias {
 			throw new IllegalArgumentException(e.getMessage());
 		}
 
+	}
+
+	@Override
+	public void listarMelodias() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

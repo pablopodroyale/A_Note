@@ -22,14 +22,27 @@ public class ViewModelNota {
 
 	}
 
+	public ViewModelNota(int id2, String nombre2, String octava2, String figura2, String alteracion2) {
+		setValues(id2,nombre2,octava2,figura2,alteracion2);
+	}
+
+	private void setValues(int id2, String nombre2, String octava2, String figura2, String alteracion2) {
+		setId(id2);
+		setNombre(nombre2);
+		setOctava(octava2);
+		setFigura(figura2);
+		setAlteracion(alteracion2);
+		
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		try {
-			//validarNombreNota(nombre);
-			//Funcion_Helper.validarString(nombre);
+			// validarNombreNota(nombre);
+			// Funcion_Helper.validarString(nombre);
 			this.nombre = nombre;
 		} catch (RuntimeException re) {
 			throw new RuntimeException(re.getMessage());
@@ -57,8 +70,8 @@ public class ViewModelNota {
 
 	public void setOctava(String octava) {
 		try {
-			//Funcion_Helper.validarString(octava);
-			//validarOctava(octava);
+			// Funcion_Helper.validarString(octava);
+			// validarOctava(octava);
 			this.octava = octava;
 		} catch (RuntimeException re) {
 			throw new RuntimeException(re.getMessage());
@@ -72,28 +85,29 @@ public class ViewModelNota {
 	public void setFigura(String figura) {
 		try {
 			Funcion_Helper.validarString(figura);
-			messureValidator(figura);
+			// messureValidator(figura);
 			this.figura = figura;
 		} catch (RuntimeException re) {
 			throw new RuntimeException(re.getMessage());
 		}
 	}
 
-	private void messureValidator(String figura2) {
-		if (Figuras_Ritmicas.valueOf(figura2.toUpperCase()) == null) {
-			throw new IllegalArgumentException(ERROR_FIGURA_INVALIDA);
-		}
-
-	}
-
+	/*
+	 * private void messureValidator(String figura2) { if
+	 * (Figuras_Ritmicas.valueOf(figura2.toUpperCase()) == null) { throw new
+	 * IllegalArgumentException(ERROR_FIGURA_INVALIDA); }
+	 * 
+	 * }
+	 */
+	
 	public String getAlteracion() {
 		return alteracion;
 	}
 
 	public void setAlteracion(String alteracion) {
 		try {
-			//Funcion_Helper.validarString(alteracion);
-			//salteracionValidator(alteracion);
+			// Funcion_Helper.validarString(alteracion);
+			// salteracionValidator(alteracion);
 			this.alteracion = alteracion;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
@@ -120,6 +134,5 @@ public class ViewModelNota {
 		return "ViewModelNota [nombre=" + nombre + ", octava=" + octava + ", figura=" + figura + ", alteracion="
 				+ alteracion + ", id=" + id + "]";
 	}
-	
-	
+
 }

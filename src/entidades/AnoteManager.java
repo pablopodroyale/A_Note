@@ -12,6 +12,7 @@ import opciones.Opcion_Delete_Melodia;
 import opciones.Opcion_Delete_NotaMelodia;
 import opciones.Opcion_Details_Cancion;
 import opciones.Opcion_Details_Canciones;
+import opciones.Opcion_Editar_Melodia;
 import opciones.Opcion_Reproducir_Melodia;
 import opciones.Opcion;
 import opciones.Opcion_AddNota;
@@ -38,9 +39,10 @@ public class AnoteManager {
 
 	private void cargarOpciones() {
 		opciones.put(1, new Opcion_Componer_Melodia(this.repositorio));
-		opciones.put(2, new Opcion_Details_Canciones(repositorio));
-		opciones.put(3, new Opcion_Details_Cancion(repositorio));
-		//opciones.put(4, new Opcion_AddNota(repositorio));
+		opciones.put(2, new Opcion_Editar_Melodia(this.repositorio));
+		opciones.put(3, new Opcion_Details_Canciones(repositorio));
+		opciones.put(4, new Opcion_Details_Cancion(repositorio));
+		// opciones.put(4, new Opcion_AddNota(repositorio));
 		opciones.put(5, new Opcion_Update_NombreMelodia(repositorio));
 		opciones.put(6, new Opcion_Update_InstrumentoMelodia(repositorio));
 		opciones.put(7, new Opcion_Update_TempoMelodia(repositorio));
@@ -48,14 +50,14 @@ public class AnoteManager {
 		opciones.put(9, new Opcion_Delete_NotaMelodia(repositorio));
 		opciones.put(10, new Opcion_Delete_Melodia(repositorio));
 		opciones.put(11, new Opcion_Reproducir_Melodia(repositorio));
-		opciones.put(12, new Opcion_SaveMelodia(repositorio));
+		//opciones.put(11, new Opcion_SaveMelodia(repositorio));
 	}
 
 	public void save(ViewModelMelodia modelMelodia, ArrayList<ViewModelNota> notascompuestas) {
 		try {
 			Melodia melodia = new Melodia();
 			ArrayList<Nota> notas = new ArrayList<>();
-			Mapper.Map(modelMelodia, notascompuestas,melodia, notas);
+			Mapper.Map(modelMelodia, notascompuestas, melodia, notas);
 			repositorio.save(melodia, notas);
 		} catch (RuntimeException re) {
 			throw new RuntimeException(re.getMessage());
@@ -114,38 +116,6 @@ public class AnoteManager {
 		}
 	}
 
-	/*
-	 * public void setTempo(String nombreMelodia, String tempo) { Melodia melodia;
-	 * try { Funcion_Helper.validarString(nombreMelodia);
-	 * Funcion_Helper.validarString(tempo); melodia = getMelody(nombreMelodia); if
-	 * (melodia != null) { melodia.setTempo(tempo); } } catch (RuntimeException re)
-	 * { System.out.println(re.getMessage()); }
-	 * 
-	 * }
-	 */
-
-	/*
-	 * 
-	 * public void setInstrument(String nombreMelodia, String instrument) { try {
-	 * repositorio.updateInstrumento(nombreMelodia, instrument);
-	 * 
-	 * melodia = getMelody(nombreMelodia); if (melodia != null) {
-	 * melodia.setInstrument(instrument); } } catch (RuntimeException re) {
-	 * System.out.println(re.getMessage()); }
-	 * 
-	 * }
-	 */
-
-	/*
-	public void save(String nombreMelodia, boolean append) {
-		repositorio.saveMelodia(nombreMelodia, append);
-	}
-	*/
-	/*
-	 * public void loadMelodia(String nombreMelodia) {
-	 * repositorio.loadMelodia(nombreMelodia); }
-	 */
-
 	public void updateNombreMelodia(String nombreaAnteriorMelodia, String nuevoNombre, boolean append) {
 		repositorio.updateNombreMelodia(nombreaAnteriorMelodia, nuevoNombre);
 
@@ -175,12 +145,11 @@ public class AnoteManager {
 
 	public void updateNota(String nombreMelodia, String idNota, String nombreNota, String octava, String figura,
 			String alteracion) {
-		repositorio.updateNota(nombreMelodia, idNota, nombreNota, octava, figura, alteracion);
+		// repositorio.updateNota(nombreMelodia, idNota, nombreNota, octava, figura,
+		// alteracion);
 	}
 
 	public void start() {
-		// cargarCanciones();
-
 		try {
 			vista.EjecutarOpcion(this, repositorio, opciones);
 		} catch (RuntimeException e) {
@@ -189,13 +158,8 @@ public class AnoteManager {
 
 	}
 
-	/*
-	 * private void cargarCanciones() { try { repositorio.cargarCanciones(); } catch
-	 * (RuntimeException re) { System.out.println(re.getMessage()); } }
-	 */
-
 	public void listarCanciones() {
-		repositorio.getCanciones();
+		repositorio.listarMelodias();
 	}
 
 	public void deleteMelodia(String nombreCancion) {
@@ -205,8 +169,6 @@ public class AnoteManager {
 			throw new IllegalArgumentException(e.getMessage());
 		}
 	}
-
-	
 
 	public void listarNotasDeMelodia(String nombreMelodia) {
 		repositorio.listarNotas(nombreMelodia);

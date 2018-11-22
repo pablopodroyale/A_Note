@@ -31,6 +31,7 @@ public class VistaConsola implements Vista {
 
 	private void cargarOpciones() {
 		this.menu.register("Componer Melodía");
+		this.menu.register("Editar Melodía");
 		this.menu.register("Listar melodías");
 		this.menu.register("Listar detalles melodías");
 		// this.menu.register("Agregar nota");
@@ -41,7 +42,7 @@ public class VistaConsola implements Vista {
 		this.menu.register("Eliminar nota de una melodia");
 		this.menu.register("Eliminar melodia");
 		this.menu.register("Reproducir");
-		this.menu.register("Salvar");
+		//this.menu.register("Salvar");
 	}
 
 	private Opcion getOpcion(LinkedHashMap<Integer, Opcion> opciones, int pOpcion) throws Exception {
