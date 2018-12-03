@@ -118,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="14" language="java" name="entidades.Melodia" project="A_Note" file="/A_Note/src/entidades/Melodia.java" 
+  <class id="14" language="java" name="entidades.Pista" project="A_Note" file="/A_Note/src/entidades/Pista.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1147" y="2902"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,34 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="opciones.Opcion_Set_InstrumentoMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Set_InstrumentoMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2524" y="1301"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="opciones.Opcion_Set_TempoMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Set_TempoMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3845" y="1301"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="opciones.Opcion_Delete_NotaMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Delete_NotaMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3578" y="1301"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="18" language="java" name="utils.files.CSVCompatible" project="A_Note" 
+  <interface id="15" language="java" name="utils.files.CSVCompatible" project="A_Note" 
     file="/A_Note/src/utils/files/CSVCompatible.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1429" y="4386"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="19" language="java" name="opciones.Opcion_Details_Canciones" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Details_Canciones.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="opciones.OpcionConsola_Details_Canciones" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Details_Canciones.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="5264" y="1283"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -172,16 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="opciones.Opcion_SaveMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_SaveMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3044" y="1292"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="utils.files.Section" project="A_Note" file="/A_Note/src/utils/files/Section.java" 
+  <class id="17" language="java" name="utils.files.Section" project="A_Note" file="/A_Note/src/utils/files/Section.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="584" y="5272"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -190,8 +154,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="opciones.Opcion_Details_Cancion" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Details_Cancion.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="opciones.OpcionConsola_Details_Cancion" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Details_Cancion.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="4676" y="1292"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -199,8 +163,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="repository.Repositorio_MelodiaDb" project="A_Note" 
-    file="/A_Note/src/repository/Repositorio_MelodiaDb.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="19" language="java" name="repository.Repositorio_CancionDb" project="A_Note" 
+    file="/A_Note/src/repository/Repositorio_CancionDb.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1042" y="901"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -208,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="24" language="java" name="entidades.Instrumentos" project="A_Note" 
+  <enumeration id="20" language="java" name="entidades.Instrumentos" project="A_Note" 
     file="/A_Note/src/entidades/Instrumentos.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="3617" y="3770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -217,16 +181,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="25" language="java" name="opciones.Opcion_AddNota" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_AddNota.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2004" y="1328"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="26" language="java" name="utils.files.CSVReader" project="A_Note" 
+  <class id="21" language="java" name="utils.files.CSVReader" project="A_Note" 
     file="/A_Note/src/utils/files/CSVReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1765" y="1863"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -235,8 +190,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="opciones.Opcion_Update_NombreMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Update_NombreMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="22" language="java" name="opciones.OpcionConsola_Update_NombreCancion" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Update_NombreCancion.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="4122" y="1301"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -244,7 +199,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="utils.files.NoteWriter" project="A_Note" 
+  <class id="23" language="java" name="utils.files.NoteWriter" project="A_Note" 
     file="/A_Note/src/utils/files/NoteWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1543" y="2659"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -253,7 +208,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="29" language="java" name="utils.files.TextReader" project="A_Note" 
+  <interface id="24" language="java" name="utils.files.TextReader" project="A_Note" 
     file="/A_Note/src/utils/files/TextReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1891" y="5173"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -262,16 +217,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="30" language="java" name="opciones.Opcion_Update_NotaMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Update_NotaMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3306" y="1337"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="31" language="java" name="utils.files.IniManager" project="A_Note" 
+  <class id="25" language="java" name="utils.files.IniManager" project="A_Note" 
     file="/A_Note/src/utils/files/IniManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="998" y="4710"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -280,17 +226,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="opciones.Opcion_Update_InstrumentoMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Update_InstrumentoMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4957" y="1301"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="33" language="java" name="opciones.Opcion_Delete_Melodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Delete_Melodia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="26" language="java" name="opciones.OpcionConsola_Delete_Cancion" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Delete_Cancion.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2794" y="1292"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -298,7 +235,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="utils.files.BufferedTextWriter" project="A_Note" 
+  <class id="27" language="java" name="utils.files.BufferedTextWriter" project="A_Note" 
     file="/A_Note/src/utils/files/BufferedTextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1603" y="5191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -307,16 +244,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="35" language="java" name="opciones.Opcion_Reproducir_Melodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Reproducir_Melodia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1743" y="1292"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="36" language="java" name="utils.files.CSVWriter" project="A_Note" 
+  <class id="28" language="java" name="utils.files.CSVWriter" project="A_Note" 
     file="/A_Note/src/utils/files/CSVWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2105" y="1863"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -325,7 +253,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="37" language="java" name="funciones_helper.Mapper_Ini" project="A_Note" 
+  <class id="29" language="java" name="funciones_helper.Mapper_Ini" project="A_Note" 
     file="/A_Note/src/funciones_helper/Mapper_Ini.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1117" y="1881"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -334,8 +262,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="38" language="java" name="opciones.Opcion_Update_TempoMelodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Update_TempoMelodia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="30" language="java" name="opciones.OpcionConsola_Update_Tempo" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Update_Tempo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="4408" y="1301"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -343,7 +271,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="39" language="java" name="utils.files.NoteReader" project="A_Note" 
+  <class id="31" language="java" name="utils.files.NoteReader" project="A_Note" 
     file="/A_Note/src/utils/files/NoteReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1383" y="2668"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -352,7 +280,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="40" language="java" name="funciones_helper.Contador" project="A_Note" 
+  <class id="32" language="java" name="funciones_helper.Contador" project="A_Note" 
     file="/A_Note/src/funciones_helper/Contador.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1505" y="3311"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -361,7 +289,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="41" language="java" name="entidades.Figuras_Ritmicas" project="A_Note" 
+  <enumeration id="33" language="java" name="entidades.Figuras_Ritmicas" project="A_Note" 
     file="/A_Note/src/entidades/Figuras_Ritmicas.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1654" y="4485"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -370,8 +298,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="42" language="java" name="opciones.Opcion_Componer_Melodia" project="A_Note" 
-    file="/A_Note/src/opciones/Opcion_Componer_Melodia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="34" language="java" name="opciones.OpcionConsola_Componer" project="A_Note" 
+    file="/A_Note/src/opciones/OpcionConsola_Componer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2254" y="1292"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -379,7 +307,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="43" language="java" name="utils.files.ControlLevelError" project="A_Note" 
+  <enumeration id="35" language="java" name="utils.files.ControlLevelError" project="A_Note" 
     file="/A_Note/src/utils/files/ControlLevelError.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1762" y="2695"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -388,8 +316,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="44" language="java" name="repository.RepoMelodiasMixto" project="A_Note" 
-    file="/A_Note/src/repository/RepoMelodiasMixto.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="36" language="java" name="repository.RepoCancionesMixto" project="A_Note" 
+    file="/A_Note/src/repository/RepoCancionesMixto.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1124" y="1481"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -397,7 +325,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="45" language="java" name="utils.files.TextWriter" project="A_Note" 
+  <interface id="37" language="java" name="utils.files.TextWriter" project="A_Note" 
     file="/A_Note/src/utils/files/TextWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1431" y="5528"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -406,936 +334,596 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <realization id="46">    
+  <dependency id="38">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="39">    
+    <bendpoint x="1249" y="1769"/>    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="40">    
+    <bendpoint x="984" y="1769"/>    
+    <bendpoint x="984" y="2610"/>    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="41">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="43">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="44">    
+    <bendpoint x="963" y="2610"/>    
+    <bendpoint x="963" y="3235"/>    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <association id="45">    
+    <bendpoint x="1312" y="1769"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="46" name="noteWriter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="49">    
+    <bendpoint x="5121" y="1234"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="50" name="opciones">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="52">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="6"/>  
   </realization>  
-  <dependency id="47">    
-    <bendpoint x="1915" y="2610"/>    
-    <bendpoint x="1915" y="3235"/>    
-    <bendpoint x="1915" y="4346"/>    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="29"/>  
-  </dependency>  
-  <dependency id="48">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="49">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="50">    
-    <bendpoint x="2553" y="1769"/>    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="51">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="52">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
   <dependency id="53">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
   <dependency id="54">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="30"/>  
   </dependency>  
-  <generalization id="55">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
+  <dependency id="55">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
   <dependency id="56">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
   <dependency id="57">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="9"/>  
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="27"/>  
   </dependency>  
   <dependency id="58">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="19"/>  
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="5"/>  
   </dependency>  
   <dependency id="59">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="38"/>  
+    <end type="TARGET" refId="30"/>  
   </dependency>  
-  <generalization id="60">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
+  <dependency id="60">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
   <dependency id="61">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="62">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="63">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="45"/>  
-  </dependency>  
-  <dependency id="64">    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="37"/>  
-  </dependency>  
-  <dependency id="65">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="66">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="32"/>  
-  </dependency>  
-  <dependency id="67">    
-    <bendpoint x="3788" y="1769"/>    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="68">    
-    <bendpoint x="1936" y="2610"/>    
-    <bendpoint x="1894" y="3235"/>    
-    <bendpoint x="1894" y="4346"/>    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="34"/>  
-  </dependency>  
-  <generalization id="69">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="70">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="38"/>  
-  </dependency>  
-  <dependency id="71">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="72">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <association id="73">    
-    <bendpoint x="5407" y="1234"/>    
-    <bendpoint x="5407" y="1769"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="74" name="repositoryMelodia">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="75" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="76">    
-    <end type="SOURCE" refId="37"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <dependency id="77">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="78">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="79">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="80">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="31"/>  
-  </dependency>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="82">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="83">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="84" name="contadorNotas">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="85" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="86">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="87">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="35"/>  
-  </dependency>  
-  <dependency id="88">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="9"/>  
   </dependency>  
-  <generalization id="89">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="90">    
-    <bendpoint x="3809" y="1769"/>    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="91">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="42"/>  
-  </dependency>  
-  <dependency id="92">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="93">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="94">    
-    <bendpoint x="3888" y="1769"/>    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="95">    
-    <bendpoint x="2418" y="1769"/>    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="96">    
+  <dependency id="62">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="97">    
-    <bendpoint x="984" y="1769"/>    
-    <bendpoint x="984" y="2610"/>    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="98">    
+  <dependency id="63">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="42"/>  
+    <end type="TARGET" refId="18"/>  
   </dependency>  
-  <generalization id="99">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="36"/>  
-  </generalization>  
-  <realization id="100">    
+  <dependency id="64">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="65">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <realization id="66">    
+    <bendpoint x="1024" y="3235"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <realization id="68">    
     <bendpoint x="5428" y="609"/>    
     <bendpoint x="5428" y="1234"/>    
     <bendpoint x="5428" y="1769"/>    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="12"/>  
   </realization>  
-  <dependency id="101">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="102">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="103">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="42"/>  
-  </dependency>  
-  <dependency id="104">    
+  <dependency id="69">    
     <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="105">    
-    <end type="SOURCE" refId="38"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="106">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="107">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <generalization id="108">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="109">    
-    <bendpoint x="1312" y="1769"/>    
-    <end type="SOURCE" refId="44" navigable="false">      
-      <attribute id="110" name="noteWriter">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="111" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="112">    
-    <bendpoint x="2698" y="1769"/>    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="113">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="114">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="115">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="35"/>  
-  </dependency>  
-  <dependency id="116">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="117">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="32"/>  
-  </dependency>  
-  <dependency id="118">    
-    <bendpoint x="3198" y="1769"/>    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="119">    
-    <bendpoint x="1291" y="1769"/>    
-    <end type="SOURCE" refId="44" navigable="false">      
-      <attribute id="120" name="noteReader">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="121" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="39" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="122">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="123" name="pattern">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="124" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="125">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="126">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <association id="127">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="128" name="notas">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="129" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="130">    
-    <bendpoint x="963" y="2610"/>    
-    <bendpoint x="963" y="3235"/>    
-    <end type="SOURCE" refId="37"/>    
-    <end type="TARGET" refId="31"/>  
-  </dependency>  
-  <association id="131">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="132" name="instance">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="133" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="134">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <generalization id="135">    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="136">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="27"/>  
-  </dependency>  
-  <dependency id="137">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="138">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="42"/>  
-  </dependency>  
-  <association id="139">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="140" name="sections">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="141" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="142">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="35"/>  
-  </dependency>  
-  <dependency id="143">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="144">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="145">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <association id="146">    
-    <bendpoint x="5121" y="1234"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="147" name="opciones">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="148" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="149">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="150">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="151">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="152">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="153">    
-    <bendpoint x="1333" y="1769"/>    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="43"/>  
-  </dependency>  
-  <dependency id="154">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="155">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="156">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="157">    
-    <bendpoint x="1249" y="1769"/>    
-    <end type="SOURCE" refId="44"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <dependency id="158">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="159">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="160">    
+  <dependency id="70">    
     <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="161">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <generalization id="162">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="26"/>  
-  </generalization>  
-  <dependency id="163">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="164">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="30"/>  
-  </dependency>  
-  <dependency id="165">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="166">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="167" name="vista">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="168" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="169">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <dependency id="170">    
-    <bendpoint x="1137" y="5115"/>    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="45"/>  
-  </dependency>  
-  <dependency id="171">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="172">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <generalization id="173">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="174">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="43"/>  
-  </dependency>  
-  <dependency id="175">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="176">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="177">    
-    <end type="SOURCE" refId="35"/>    
+  <dependency id="71">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="178">    
+  <dependency id="72">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="30"/>  
+    <end type="TARGET" refId="34"/>  
   </dependency>  
-  <dependency id="179">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
+  <dependency id="73">    
+    <bendpoint x="1915" y="2610"/>    
+    <bendpoint x="1915" y="3235"/>    
+    <bendpoint x="1915" y="4346"/>    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="24"/>  
   </dependency>  
-  <dependency id="180">    
-    <bendpoint x="3830" y="1769"/>    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <realization id="181">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <dependency id="182">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="183">    
-    <bendpoint x="942" y="1769"/>    
-    <bendpoint x="921" y="2610"/>    
-    <bendpoint x="921" y="3235"/>    
-    <end type="SOURCE" refId="44" navigable="false">      
-      <attribute id="184" name="iniManager">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="185" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="186">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="187">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="188">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="189" name="contadorNotas">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="190" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="40" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="191">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="192">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="193">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="194">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="195">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <realization id="196">    
-    <bendpoint x="1024" y="3235"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <dependency id="197">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="198">    
-    <bendpoint x="3335" y="1769"/>    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="199">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="29"/>  
-  </dependency>  
-  <generalization id="200">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="201">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <dependency id="202">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="203">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="41"/>  
-  </dependency>  
-  <dependency id="204">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="38"/>  
-  </dependency>  
-  <dependency id="205">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <realization id="206">    
-    <end type="SOURCE" refId="34"/>    
-    <end type="TARGET" refId="45"/>  
-  </realization>  
-  <dependency id="207">    
-    <bendpoint x="3073" y="1769"/>    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="208">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="32"/>  
-  </dependency>  
-  <dependency id="209">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="210">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="211">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="212">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="213">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="38"/>  
-  </dependency>  
-  <dependency id="214">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="215">    
-    <bendpoint x="4015" y="1769"/>    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <generalization id="216">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="217">    
-    <bendpoint x="2677" y="1769"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="218">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="219">    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="220">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="221">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="27"/>  
-  </dependency>  
-  <dependency id="222">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <association id="223">    
+  <association id="74">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="224" name="opcion">        
+      <attribute id="75" name="menu">        
         <position height="0" width="0" x="-39" y="199"/>      
       </attribute>      
-      <multiplicity id="225" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="226">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="227">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="33"/>  
-  </dependency>  
-  <association id="228">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="229" name="menu">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="230" minimum="0" maximum="1">        
+      <multiplicity id="76" minimum="0" maximum="1">        
         <position height="0" width="0" x="-39" y="199"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="231">    
-    <bendpoint x="4179" y="1769"/>    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="232">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="233">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="234">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="235">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="236">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="237">    
+  <dependency id="77">    
     <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="238">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="239">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="240">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="30"/>  
-  </dependency>  
-  <dependency id="241">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="242">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="35"/>  
-  </dependency>  
-  <dependency id="243">    
-    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="244">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="32"/>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="245">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="246">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="27"/>  
-  </dependency>  
-  <dependency id="247">    
+  <dependency id="79">    
     <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="248">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="249">    
-    <bendpoint x="2656" y="1769"/>    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <association id="250">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="251" name="repositorio">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </attribute>      
-      <multiplicity id="252" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-39" y="199"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="253">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="18"/>  
-  </realization>  
-  <dependency id="254">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="30"/>  
-  </dependency>  
-  <generalization id="255">    
-    <end type="SOURCE" refId="25"/>    
     <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <dependency id="256">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="13"/>  
   </dependency>  
-  <dependency id="257">    
-    <end type="SOURCE" refId="33"/>    
+  <dependency id="80">    
+    <end type="SOURCE" refId="36"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="258">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="34"/>  
+  <dependency id="81">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="259">    
+  <dependency id="82">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="83">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="260">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="27"/>  
+  <dependency id="84">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
   </dependency>  
-  <dependency id="261">    
-    <end type="SOURCE" refId="27"/>    
+  <dependency id="85">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="86">    
+    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="262">    
-    <end type="SOURCE" refId="44"/>    
+  <association id="87">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="88" name="contadorNotas">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="89" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="91" name="contadorNotas">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="92" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="93">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="94">    
+    <bendpoint x="1936" y="2610"/>    
+    <bendpoint x="1894" y="3235"/>    
+    <bendpoint x="1894" y="4346"/>    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <dependency id="95">    
+    <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="5"/>  
   </dependency>  
-  <dependency id="263">    
+  <dependency id="96">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="97">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <dependency id="98">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="99">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <association id="100">    
+    <bendpoint x="1291" y="1769"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="101" name="noteReader">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="103">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="105">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="106">    
     <bendpoint x="1978" y="2610"/>    
     <bendpoint x="1978" y="3235"/>    
     <bendpoint x="1978" y="4346"/>    
     <bendpoint x="1978" y="5115"/>    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="45"/>  
-  </dependency>  
-  <dependency id="264">    
     <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="TARGET" refId="37"/>  
   </dependency>  
-  <dependency id="265">    
+  <association id="107">    
+    <bendpoint x="942" y="1769"/>    
+    <bendpoint x="921" y="2610"/>    
+    <bendpoint x="921" y="3235"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="108" name="iniManager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="109" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="110">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <dependency id="111">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="112">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="113">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="114">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="115">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="116">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="117">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="118">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="119">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="121">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="122">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <generalization id="266">    
-    <end type="SOURCE" refId="19"/>    
+  <dependency id="123">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="124">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <association id="125">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="126" name="sections">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="127" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="129" name="opcion">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="130" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="131">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="132">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="133">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="134">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="135">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="136">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="137">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="138" name="pattern">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="139" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="140">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <dependency id="141">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="142">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="143">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <realization id="144">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="37"/>  
+  </realization>  
+  <generalization id="145">    
+    <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <dependency id="267">    
+  <association id="146">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="147" name="notas">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="148" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="149">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="150">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="151" name="instance">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="152" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="153">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="154">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="155">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <realization id="156">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <dependency id="157">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <dependency id="158">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <dependency id="159">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="160">    
+    <bendpoint x="1333" y="1769"/>    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="161">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <dependency id="162">    
+    <bendpoint x="1137" y="5115"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <dependency id="163">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="164">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="165">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="166">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="167">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <generalization id="168">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="169">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="170">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <generalization id="171">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="172">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <association id="173">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="174" name="vista">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </attribute>      
+      <multiplicity id="175" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-39" y="199"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="176">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <dependency id="177">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <dependency id="178">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

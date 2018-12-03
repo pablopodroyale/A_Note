@@ -15,6 +15,7 @@ import org.jfugue.pattern.PatternProducer;
 import entidades.Figuras_Ritmicas;
 import entidades.Instrumentos;
 import entidades.Notas;
+import viewmodels.ViewModelPista;
 
 public final class Funcion_Helper {
 	static final String ERROR_STRING_VACIO = "Error, el nombre no puede estar vacio";
@@ -26,6 +27,10 @@ public final class Funcion_Helper {
 	static final String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
 	private static final String ERROR_ARCHIVO_O_CARPETA_EN_USO = "Error, no se puede renombrar, el directorio esta en uso, cierre los archivos abiertos y vuelva a intentar";
 	private static final String ERROR_NOTA_INVALIDA = "ERROR la nota debe ser C,D,E,F,G,A, o B";
+	private static final String ERROR_YA_EXISTE_PISTA = "Error, ya existe la pista";
+	private static final String ERROR_NO_EXISTE_PISTA = "Error, no existe la pista";
+	private static final String ERROR_NO_HAY_P = null;
+	private static final String ERROR_NO_HAY_PISTAS = "Error, no hay pistas";
 
 	public static final void validarString(String str) {
 		if (str.isEmpty() || str == null) {
@@ -183,7 +188,7 @@ public final class Funcion_Helper {
 			System.out.println(mensajeNombreFigura);
 			respuesta = input.nextLine();
 		} while (respuesta.isEmpty() || respuesta == null || !validarFigura(respuesta));
-		
+
 		return Figuras_Ritmicas.valueOf(respuesta.toUpperCase()).getNombreJFuge();
 	}
 
@@ -214,15 +219,16 @@ public final class Funcion_Helper {
 		return respuesta.equalsIgnoreCase("#") || respuesta.equalsIgnoreCase("b") || respuesta.equalsIgnoreCase("n");
 	}
 
-	public static String pedirIdNota(String mensajePedirId, Scanner input, int sizeLista) {
+	public static int pedirIdNota(String mensajePedirId, Scanner input, ViewModelPista pistaVM) {
 		String respuesta;
+		int valor = 0;
 		do {
 			System.out.println(mensajePedirId);
 			respuesta = input.nextLine();
 		} while (respuesta.isEmpty() || respuesta == null || !validarNumero(respuesta)
-				|| !validarRango(1, sizeLista, Integer.parseInt(respuesta)));
-
-		return respuesta;
+				|| !validarRango(1, pistaVM.getSize(), Integer.parseInt(respuesta) - 1));
+		valor = Integer.parseInt(respuesta);
+		return valor;
 	}
 
 	public static String pedirNombreCancionEdicion(String mensajeNombre, Scanner input, ArrayList<String> canciones2) {
@@ -246,5 +252,47 @@ public final class Funcion_Helper {
 		return String.format(MASCARA_TEMPO, tempo);
 	}
 
+	public static String pedirNuevaPista(Scanner input, String mensajePedirTipoPista,
+			ArrayList<ViewModelPista> pistasVM) {
+		String respuesta;
+		do {
+			System.out.println(mensajePedirTipoPista);
+			respuesta = input.nextLine();
+			if (valueOfPista(respuesta, pistasVM) != null) {
+				System.out.println(ERROR_YA_EXISTE_PISTA);
+			}
+		} while (respuesta.isEmpty() || respuesta == null || valueOfPista(respuesta, pistasVM) != null);
+		return respuesta;
+	}
+
+	public static ViewModelPista valueOfPista(String respuesta, ArrayList<ViewModelPista> pistasVM) {
+		ViewModelPista aux;
+		ViewModelPista pista = null;
+		int indice = 0;
+		while (indice < pistasVM.size() && pista == null) {
+			aux = pistasVM.get(indice);
+			if (aux.getNombre().equalsIgnoreCase(respuesta)) {
+				pista = aux;
+			} else {
+				indice++;
+			}
+		}
+		return pista;
+	}
+
+	public static String pedirPista(Scanner input, String mensajePedirPista, ArrayList<ViewModelPista> pistasVM) {
+		String respuesta;
+		if (pistasVM.isEmpty()) {
+			throw new IllegalArgumentException(ERROR_NO_HAY_PISTAS);
+		}
+		do {
+			System.out.println(mensajePedirPista);
+			respuesta = input.nextLine();
+			if (valueOfPista(respuesta, pistasVM) == null) {
+				System.out.println(ERROR_NO_EXISTE_PISTA);
+			}
+		} while (respuesta.isEmpty() || respuesta == null || valueOfPista(respuesta, pistasVM) == null);
+		return respuesta;
+	}
 
 }

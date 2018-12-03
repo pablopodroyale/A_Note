@@ -9,6 +9,7 @@ import Menu.Menu;
 import interfaces.Vista;
 import interfaces.RepoMelodias;
 import opciones.Opcion;
+import repository.Repositorio_CancionDb;
 
 public class VistaConsola implements Vista {
 	// private static final String ERROR_EL_TIPO_ES_INVALIDO = "Error, el tipo es
@@ -30,19 +31,14 @@ public class VistaConsola implements Vista {
 	}
 
 	private void cargarOpciones() {
-		this.menu.register("Componer Melodía");
-		this.menu.register("Editar Melodía");
-		this.menu.register("Listar melodías");
-		this.menu.register("Listar detalles melodías");
-		// this.menu.register("Agregar nota");
-		this.menu.register("Modificar nombre de la melodia");
-		this.menu.register("Modificar instrumento de una melodia");
-		this.menu.register("Modificar tiempo de una melodía");
-		this.menu.register("Modificar nota de una melodia");
-		this.menu.register("Eliminar nota de una melodia");
+		this.menu.register("Componer Canción");
+		this.menu.register("Editar Canción");
+		this.menu.register("Listar canciones");
+		this.menu.register("Detalles de una canción");
+		this.menu.register("Modificar nombre de canción");
+		this.menu.register("Modificar tiempo de una canción");
 		this.menu.register("Eliminar melodia");
 		this.menu.register("Reproducir");
-		//this.menu.register("Salvar");
 	}
 
 	private Opcion getOpcion(LinkedHashMap<Integer, Opcion> opciones, int pOpcion) throws Exception {
@@ -55,7 +51,7 @@ public class VistaConsola implements Vista {
 	}
 
 	@Override
-	public void EjecutarOpcion(AnoteManager manager, RepoMelodias melodiaRepository,
+	public void EjecutarOpcion(AnoteManager manager, RepoMelodias repo,
 			LinkedHashMap<Integer, Opcion> opciones) {
 		int pOpcion = 0;
 		do {
@@ -81,7 +77,7 @@ public class VistaConsola implements Vista {
 				} else if (pOpcion == menu.exitValue()) {
 					// melodiaRepository.saveAll();
 					try {
-						melodiaRepository.close();
+						repo.close();
 					} catch (SQLException e) {
 						System.out.println(e.getMessage());
 					}

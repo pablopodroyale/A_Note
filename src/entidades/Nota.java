@@ -13,7 +13,9 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	private static final int RANGO_OCTAVA_MAX = 9;
 	private static final int CANT_ATRIBUTOS = 5;
 	private static final String ERR_CANT_VALORES = "Error, la cantidad de valores recibidos, no coincide con los esperados";
-	private String nombre;
+	private int pistaID;
+	private String nombreCancion;
+	private String nombreNota;
 	private String octava;
 	private String figura;
 	private String alteracion;
@@ -34,7 +36,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 			throw new IllegalArgumentException(ERR_CANT_VALORES);
 		}
 		setValues(Integer.parseInt(fields[0]), fields[1], (fields[2]), fields[3], fields[4]);
-		//setId(id);
+		// setId(id);
 	}
 
 	/***
@@ -49,6 +51,10 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public Nota(int Id, String nombre, String octava, String figura, String alteracion) {
 		setValues(Id, nombre, octava, figura, alteracion);
 	}
+	
+	public Nota() {
+		
+	}
 
 	/*
 	 * private void verifyFields(String lineOrName) { String fields[] =
@@ -59,6 +65,29 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	 * 
 	 * }
 	 */
+	public int getPistaID() {
+		return pistaID;
+	}
+
+	public void setPistaID(int pistaID) {
+		this.pistaID = pistaID;
+	}
+
+	public String getNombreCancion() {
+		return nombreCancion;
+	}
+
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion = nombreCancion;
+	}
+
+	public String getNombreNota() {
+		return nombreNota;
+	}
+
+	public void setNombreNota(String nombreNota) {
+		this.nombreNota = nombreNota;
+	}
 
 	private void setValues(int Id, String nombre, String octava, String figura, String alteracion) {
 		setId(Id);
@@ -72,7 +101,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void setNombre(String nombreNota) {
 		try {
 			Funcion_Helper.validarString(nombreNota);
-			this.nombre = nombreNota;
+			this.nombreNota = nombreNota;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
 		}
@@ -86,7 +115,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void setAlteracion(String alteracion) {
 		try {
 			Funcion_Helper.validarString(alteracion);
-	
+
 			this.alteracion = alteracion;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
@@ -102,7 +131,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	public void setFigura(String figura) {
 		try {
 			Funcion_Helper.validarString(figura);
-			//messureValidator(figura);
+			// messureValidator(figura);
 			this.figura = figura;
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
@@ -133,7 +162,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return nombreNota;
 	}
 
 	// Validadores
@@ -170,11 +199,11 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 
 	@Override
 	public String toString() {
-		return id + "," + nombre + "," + octava + "," + figura + "," + alteracion;
+		return id + "," + nombreNota + "," + octava + "," + figura + "," + alteracion;
 	}
 
 	public String toStringConId() {
-		return id + ":" + nombre + "," + octava + "," + figura + "," + alteracion;
+		return id + ":" + nombreNota + "," + octava + "," + figura + "," + alteracion;
 	}
 
 	public static String getHeader() {
@@ -186,14 +215,14 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	//TODO
-	@Override	
+
+	// TODO
+	@Override
 	public void play(PlayerSingleton player) {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}

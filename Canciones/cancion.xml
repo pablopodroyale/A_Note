@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_191" class="java.beans.XMLDecoder">
+ <object class="entidades.Cancion" id="Cancion0">
+  <void property="nombreCancion">
+   <string>asd</string>
+  </void>
+  <void property="pistas">
+   <void method="add">
+    <object class="entidades.Pista" id="Pista0">
+     <void property="instrumento">
+      <string>PIANO</string>
+     </void>
+     <void property="nombre">
+      <string>verso</string>
+     </void>
+     <void property="nombreCancion">
+      <string>asd</string>
+     </void>
+     <void property="notas">
+      <void method="add">
+       <object class="entidades.Nota">
+        <void property="alteracion">
+         <string>n</string>
+        </void>
+        <void property="figura">
+         <string>q</string>
+        </void>
+        <void property="id">
+         <int>1</int>
+        </void>
+        <void property="nombre">
+         <string>c</string>
+        </void>
+        <void property="octava">
+         <string>5</string>
+        </void>
+       </object>
+      </void>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="tempo">
+   <string>55</string>
+  </void>
+ </object>
+</java>

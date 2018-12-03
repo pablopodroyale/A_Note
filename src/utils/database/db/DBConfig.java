@@ -105,6 +105,7 @@ public class DBConfig {
 		return new IniPersDBEnvironment("DBCONFIG", im).getURL();
 	}
 
+	//TODO
 	/**
 	 * @param environmentName
 	 *            Nombre del ambiente.

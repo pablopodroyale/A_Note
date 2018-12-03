@@ -1,33 +1,48 @@
 --Scripts
-
 --Creacion
-if object_id('melodias', 'U') is null 
-CREATE TABLE melodias (
-	nombreMelodia nvarchar(50) NOT NULL,
-    instrumento nvarchar(50) NOT NULL,
-    tempo nvarchar(50) NOT NULL,
-    PRIMARY KEY (nombreMelodia)
+--Creacion
+if object_id('canciones', 'U') is null 
+CREATE TABLE canciones (
+	IdCancion int IDENTITY(1,1) NOT NULL,
+	nombreCancion nvarchar(250) UNIQUE NOT NULL,
+	tempo nvarchar(50) NOT NULL,
+    PRIMARY KEY (IdCancion)
+);
+if object_id('pistas', 'U') is null 
+CREATE TABLE pistas (
+	PistaID int IDENTITY(1,1) NOT NULL,
+	IdCancion int NOT NULL,
+	nombrePista nvarchar(250) UNIQUE NOT NULL,
+	instrumento nvarchar(50) NOT NULL,
+	PRIMARY KEY (PistaID),
+	FOREIGN KEY(IdCancion) REFERENCES canciones(IdCancion)
 );
 if object_id('notas', 'U') is null 
 CREATE TABLE notas (
-	Id int NOT NULL,
-	nombreMelodia nvarchar(50) NOT NULL,
+	IdNota int IDENTITY(1,1) NOT NULL,
+	PistaID int NOT NULL,
 	nombreNota nvarchar(50) NOT NULL,
     octava nvarchar(50) NOT NULL,
 	figura nvarchar(50) NOT NULL,
 	alteracion nvarchar(50) NOT NULL,
-	PRIMARY KEY (Id, nombreMelodia)
+	PRIMARY KEY (IdNota),
+	FOREIGN KEY(PistaID) REFERENCES pistas(PistaID)
 );
-
 --INSERT
-INSERT notas (id, nombreMelodia, nombreNota,octava, figura,alteracion)
-	VALUES ('2','loco','C','5','q','n')
-INSERT melodias(nombreMelodia,instrumento,tempo)
-VALUES('loco','PIANO','100')
+INSERT canciones (nombreCancion,tempo)
+VALUES ('flaca','100')
+INSERT pistas(IdCancion,nombrePista,instrumento)
+VALUES(1,'verso','PIANO')
+INSERT notas(PistaID,nombreNota,octava,figura,alteracion)
+VALUES(1,'C','5','q','n')
 
 --DELETE
-DELETE FROM melodias 	
-where melodias.nombreMelodia = 'flaca'
+DELETE notas 
+WHERE nombreCancion = '%s'
+DELETE pistas
+WHERE nombreCancion = '%s'
+DELETE canciones
+WHERE nombreCancion = '%s'
 
 --Update
 UPDATE [dbo].[melodias]
@@ -42,6 +57,9 @@ UPDATE [dbo].[melodias]
  ALTER TABLE notas CHECK CONSTRAINT FK_notas_melodias
  
 --Details
-SELECT m.nombreMelodia,m.instrumento,m.tempo,n.Id,n.nombreNota,n.octava,n.figura,n.alteracion
-	FROM melodias m INNER JOIN notas n 
-	ON m.nombreMelodia = n.nombreMelodia
+SELECT c.IdCancion,c.nombreCancion,c.tempo, p.PistaID, p.nombrePista,n.nombreNota,n.octava,n.figura,n.alteracion
+FROM canciones c INNER JOIN pistas p 
+ON c.IdCancion = p.IdCancion 
+INNER JOIN notas n 
+ON p.PistaID = n.PistaID
+WHERE c.nombreCancion = 'flaca' AND p.nombrePista = 'verso'

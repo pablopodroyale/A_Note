@@ -55,6 +55,7 @@ public class Menu {
 			} catch (Exception e) {
 
 			} finally {
+				
 				if (selected == 0) {
 					input.nextLine();
 				}

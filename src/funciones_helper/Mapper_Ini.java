@@ -1,7 +1,7 @@
 package funciones_helper;
 import java.io.File;
 
-import entidades.Melodia;
+import entidades.Pista;
 import utils.files.IniManager;
 
 public final class Mapper_Ini {
@@ -12,11 +12,11 @@ public final class Mapper_Ini {
 	private static final String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES;
 	private static final String EXTENSION_INI = ".ini";
 
-	public static void Map(Melodia melodia, IniManager iniManager) {
-		String pathIni = ROOT + File.separator + melodia.getNombre() + File.separator + melodia.getNombre() + EXTENSION_INI;
-		String nombre = melodia.getNombre();
-		String instrumento = removeInstrumentMask(melodia.getInstrument());
-		String tempo = removeTempoMak(melodia.getTempo());
+	public static void Map(Pista pista, IniManager iniManager) {
+		String pathIni = ROOT + File.separator + pista.getNombre() + File.separator + pista.getNombre() + EXTENSION_INI;
+		String nombre = pista.getNombre();
+		String instrumento = removeInstrumentMask(pista.getInstrumento());
+		String tempo = removeTempoMak(pista.getTempo());
 		iniManager.clear();
 		iniManager.setPathDestiny(pathIni);
 		iniManager.addSection(nombre);

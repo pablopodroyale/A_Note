@@ -12,6 +12,8 @@ public class ViewModelNota {
 	private static final int RANGO_OCTAVA_MIN = 0;
 	private static final int RANGO_OCTAVA_MAX = 9;
 	private static final String ERROR_NOTA_INVALIDA = "ERROR la nota debe ser C, D, E, F, G, A, o B";
+	private int pistaID;
+	private String nombreCancion;
 	private String nombre;
 	private String octava;
 	private String figura;
@@ -128,11 +130,28 @@ public class ViewModelNota {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public int getPistaID() {
+		return pistaID;
+	}
+
+	public void setPistaID(int pistaID) {
+		this.pistaID = pistaID;
+	}
+
+	public String getNombreCancion() {
+		return nombreCancion;
+	}
+
+	public void setNombreCancion(String nombreCancion) {
+		this.nombreCancion = nombreCancion;
+	}
+
 
 	@Override
 	public String toString() {
-		return "ViewModelNota [nombre=" + nombre + ", octava=" + octava + ", figura=" + figura + ", alteracion="
-				+ alteracion + ", id=" + id + "]";
+		return  id + ":" + "Nota: " + nombre.toUpperCase() + ", octava:" + octava + ", figura: " + figura + ", alteracion:"
+				+ alteracion;
 	}
 
 }
