@@ -266,7 +266,7 @@ public class Pista implements ISonable {
 	private void llenarPattern() {
 		this.pattern.clear();
 		notas.forEach(x -> {
-			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
+			pattern.add(" " + x.getNombre() + x.getAlteracion() + x.getOctava() + x.getFigura() +  " ");
 		});
 	}
 

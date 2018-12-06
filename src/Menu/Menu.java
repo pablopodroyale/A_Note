@@ -44,6 +44,7 @@ public class Menu {
 	 * de options).
 	 */
 	public int choice() {
+
 		int selected = 0;
 		do {
 			show();

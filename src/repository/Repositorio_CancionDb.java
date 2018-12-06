@@ -166,7 +166,8 @@ public class Repositorio_CancionDb implements RepoMelodias {
 		String consulta = String.format("SELECT n.IdNota,n.nombreNota,n.octava,n.figura,n.alteracion\r\n" + 
 				"FROM notas n INNER JOIN pistas p \r\n" + 
 				"ON n.PistaID = p.PistaID\r\n" + 
-				"WHERE p.nombrePista = '%s'  AND n.nombreCancion = '%s'", nombrePista, nombreCancion);
+				"WHERE p.nombrePista = '%s'  AND n.nombreCancion = '%s'"
+				+ "ORDER BY n.IdNota ASC", nombrePista, nombreCancion);
 		try {
 			ResultSet rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
