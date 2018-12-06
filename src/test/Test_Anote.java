@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 
 import entidades.AnoteManager;
+import entidades.ExportadorMusicXml;
 import entidades.VistaConsola;
+import interfaces.Exportador;
 import interfaces.RepoMelodias;
 import interfaces.Vista;
 import repository.RepoCancionesMixto;
@@ -20,6 +22,7 @@ public class Test_Anote {
 		String DBCONFIG = "dbconfig.ini";
 		String ROOT = new File("").getAbsolutePath() + File.separator;
 		String file = ROOT + DBCONFIG;
+		Exportador exportador = new ExportadorMusicXml();
 		AnoteManager anoteManager;
 		DBManager dbManager = null;
 		Vista vista = new VistaConsola();
@@ -29,7 +32,7 @@ public class Test_Anote {
 			dbManager = new DBManager(dbConfig);
 			logger = new FileLogger(ROOT, "loger.log");
 			RepoMelodias repoMelodia = new Repositorio_CancionDb(dbManager, logger);
-			anoteManager = new AnoteManager(vista, repoMelodia);
+			anoteManager = new AnoteManager(vista, repoMelodia, exportador);
 			anoteManager.start();
 		} catch (SecurityException e) {
 			System.out.println(e.getMessage());

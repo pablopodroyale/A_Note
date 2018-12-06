@@ -1,8 +1,10 @@
 package opciones;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import entidades.AnoteManager;
+import funciones_helper.Funcion_Helper;
 
 public class OpcionConsola_Details_Canciones extends Opcion {
 
@@ -11,7 +13,7 @@ public class OpcionConsola_Details_Canciones extends Opcion {
 
 	@Override
 	public void ejecutar(AnoteManager manager, Scanner input) {
-		manager.listarCanciones();
+		ArrayList<String> canciones = manager.getCanciones();
+		Funcion_Helper.listarCanciones(canciones);
 	}
-
 }

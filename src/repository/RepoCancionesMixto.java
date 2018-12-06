@@ -52,10 +52,10 @@ public class RepoCancionesMixto implements RepoMelodias {
 
 	@Override
 	public void save(ViewModelCancion cancionVM) {
-		String pathIni = ROOT + File.separator + cancionVM.getNombreCancion() + File.separator +cancionVM.getNombreCancion()
-				+ EXTENSION_INI;
+		String pathIni = ROOT + File.separator + cancionVM.getNombreCancion() + File.separator
+				+ cancionVM.getNombreCancion() + EXTENSION_INI;
 		iniManager.setPathDestiny(pathIni);
-		//String instrumento = cancionVM.getInstrument();
+		// String instrumento = cancionVM.getInstrument();
 		String tempo = cancionVM.getTempo();
 		Path rootPath = Paths.get(pathIni);
 		try {
@@ -66,13 +66,12 @@ public class RepoCancionesMixto implements RepoMelodias {
 			System.out.println(e.getMessage());
 		}
 		/*
-		this.iniManager.addSection(melodia.getNombre());
-		iniManager.setItem(melodia.getNombre(), melodia.getTempoConstString(), tempo);
-		iniManager.setItem(melodia.getNombre(), melodia.getInstrumentConst(), instrumento);
-		iniManager.save(false);
-		// Hasta aca salva la melodia en el ini
-		saveNotas(notas, melodia.getNombre(), false);
-		*/
+		 * this.iniManager.addSection(melodia.getNombre());
+		 * iniManager.setItem(melodia.getNombre(), melodia.getTempoConstString(),
+		 * tempo); iniManager.setItem(melodia.getNombre(), melodia.getInstrumentConst(),
+		 * instrumento); iniManager.save(false); // Hasta aca salva la melodia en el ini
+		 * saveNotas(notas, melodia.getNombre(), false);
+		 */
 
 	}
 
@@ -102,24 +101,17 @@ public class RepoCancionesMixto implements RepoMelodias {
 	@Override
 	public void updateNombreMelodia(String nombreMelodia, String nuevoNombre) {
 		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		if (melodia != null) {
-			melodia.setNombre(nuevoNombre);
-			// Modificar nombre en memoria
-			// updateNombreEnMapa(nombreMelodia, nuevoNombre);
-			// Modificar contenido ini
-			updateMelodiaParams(melodia);
-			// Modificar la seccion del csv
-			updateSection(nombreMelodia, nuevoNombre);
-			// Modificar nombre ini
-			updateNombreIni(nombreMelodia, nuevoNombre);
-			// Modificar nombre csv
-			updateNombreCsv(nombreMelodia, nuevoNombre);
-			// Modificar nombre carpeta
-			Funcion_Helper.updateFolder(nombreMelodia, nuevoNombre);
-			
-		}
-		*/
+		 * Pista melodia = loadCancion(nombreMelodia); if (melodia != null) {
+		 * melodia.setNombre(nuevoNombre); // Modificar nombre en memoria //
+		 * updateNombreEnMapa(nombreMelodia, nuevoNombre); // Modificar contenido ini
+		 * updateMelodiaParams(melodia); // Modificar la seccion del csv
+		 * updateSection(nombreMelodia, nuevoNombre); // Modificar nombre ini
+		 * updateNombreIni(nombreMelodia, nuevoNombre); // Modificar nombre csv
+		 * updateNombreCsv(nombreMelodia, nuevoNombre); // Modificar nombre carpeta
+		 * Funcion_Helper.updateFolder(nombreMelodia, nuevoNombre);
+		 * 
+		 * }
+		 */
 	}
 
 	public void loadNotas(ArrayList<Nota> notas, String nombreMelodia) {
@@ -130,29 +122,20 @@ public class RepoCancionesMixto implements RepoMelodias {
 	}
 
 	/*
-	public Pista loadCancion(String nombreMelodia) {
-		ArrayList<Nota> notas = new ArrayList<>();
-		Pista melodia = null;
-		String pathIni = ROOT + File.separator + nombreMelodia + File.separator + nombreMelodia + EXTENSION_INI;
-		Path path = Paths.get(pathIni);
-		if (Files.notExists(path)) {
-			throw new IllegalArgumentException(ERROR_NO_EXISTE_CANCION);
-		} else {
-			iniManager.setPathSource(path.toAbsolutePath().toString());
-			iniManager.load();
-			melodia = new Pista(iniManager.getValueof(nombreMelodia));
-			// setear el tiempo a la melodia con item tiempo dentro de la seccion nombre
-			// melodia
-			melodia.setTempo(iniManager.getValueOf(nombreMelodia, "Tiempo"));
-			melodia.setInstrument(iniManager.getValueOf(nombreMelodia, "Instrumento"));
-			loadNotas(notas, nombreMelodia);
-			melodia.llenarNotas(notas);
-		}
-		return melodia;
-	}
-
-	/*
-	 * public void cargarCanciones() { Melodia melodia; ArrayList<String>
+	 * public Pista loadCancion(String nombreMelodia) { ArrayList<Nota> notas = new
+	 * ArrayList<>(); Pista melodia = null; String pathIni = ROOT + File.separator +
+	 * nombreMelodia + File.separator + nombreMelodia + EXTENSION_INI; Path path =
+	 * Paths.get(pathIni); if (Files.notExists(path)) { throw new
+	 * IllegalArgumentException(ERROR_NO_EXISTE_CANCION); } else {
+	 * iniManager.setPathSource(path.toAbsolutePath().toString());
+	 * iniManager.load(); melodia = new Pista(iniManager.getValueof(nombreMelodia));
+	 * // setear el tiempo a la melodia con item tiempo dentro de la seccion nombre
+	 * // melodia melodia.setTempo(iniManager.getValueOf(nombreMelodia, "Tiempo"));
+	 * melodia.setInstrument(iniManager.getValueOf(nombreMelodia, "Instrumento"));
+	 * loadNotas(notas, nombreMelodia); melodia.llenarNotas(notas); } return
+	 * melodia; }
+	 * 
+	 * /* public void cargarCanciones() { Melodia melodia; ArrayList<String>
 	 * lstCancionesStr = getCancionesFromDisk(); ArrayList<Nota> notas = new
 	 * ArrayList<>();
 	 * 
@@ -163,44 +146,30 @@ public class RepoCancionesMixto implements RepoMelodias {
 
 	public void updateTempo(String nombreMelodia, String tempo) {
 		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		if (melodia != null) {
-			melodia.setTempo(tempo);
-			updateMelodiaParams(melodia);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-		*/
+		 * Pista melodia = loadCancion(nombreMelodia); if (melodia != null) {
+		 * melodia.setTempo(tempo); updateMelodiaParams(melodia); } else { throw new
+		 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+		 */
 	}
 
 	public void updateInstrumento(String nombreMelodia, String instrumento) {
 		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		if (melodia != null) {
-			melodia.setInstrument(instrumento);
-			updateMelodiaParams(melodia);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-		*/
+		 * Pista melodia = loadCancion(nombreMelodia); if (melodia != null) {
+		 * melodia.setInstrument(instrumento); updateMelodiaParams(melodia); } else {
+		 * throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+		 */
 	}
 
 	/*
-	@Override
-	public void deleteCancion(String nombreCancion) {
-
-		String sPath = ROOT + File.separator + nombreCancion;
-		File pathCancion = new File(sPath);
-		Path path = Paths.get(sPath);
-		// melodias.remove(nombreCancion);
-		if (Files.exists(path)) {
-			deleteDir(pathCancion);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-		
-	}
-	*/
+	 * @Override public void deleteCancion(String nombreCancion) {
+	 * 
+	 * String sPath = ROOT + File.separator + nombreCancion; File pathCancion = new
+	 * File(sPath); Path path = Paths.get(sPath); // melodias.remove(nombreCancion);
+	 * if (Files.exists(path)) { deleteDir(pathCancion); } else { throw new
+	 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+	 * 
+	 * }
+	 */
 	private void deleteDir(File file) {
 		File[] contents = file.listFiles();
 		if (contents != null) {
@@ -275,44 +244,33 @@ public class RepoCancionesMixto implements RepoMelodias {
 	@Override
 	public void play(String nombreMelodia, PlayerSingleton player) {
 		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		if (melodia != null) {
-			melodia.play(player);
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-	*/
+		 * Pista melodia = loadCancion(nombreMelodia); if (melodia != null) {
+		 * melodia.play(player); } else { throw new
+		 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+		 */
 	}
 
-	@Override
-	public void detallesCancion(String nombreMelodia) {
-		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		if (melodia != null) {
-			System.out.println(melodia.toString());
-			System.out.println("Notas:");
-			melodia.listarNotas();
-		} else {
-			throw new IllegalArgumentException(ERROR_MELODIA_INEXISTENTE);
-		}
-	*/
-	}	
+	/*
+	 * @Override public void detallesCancion(String nombreMelodia) { /* Pista
+	 * melodia = loadCancion(nombreMelodia); if (melodia != null) {
+	 * System.out.println(melodia.toString()); System.out.println("Notas:");
+	 * melodia.listarNotas(); } else { throw new
+	 * IllegalArgumentException(ERROR_MELODIA_INEXISTENTE); }
+	 */
+	// }
 
 	/*
-	@Override
-	public void addNote(String nombreMelodia, String nombreNota, String octava, String figura, String alteracion) {
-		/*
-		 * Melodia melodia = getMelodia(nombreMelodia); if (melodia != null) {
-		 * melodia.setNote(nombreNota, octava, figura, alteracion); ; }
-		 */
-	
+	 * @Override public void addNote(String nombreMelodia, String nombreNota, String
+	 * octava, String figura, String alteracion) { /* Melodia melodia =
+	 * getMelodia(nombreMelodia); if (melodia != null) { melodia.setNote(nombreNota,
+	 * octava, figura, alteracion); ; }
+	 */
 
 	@Override
 	public void listarNotas(String nombreMelodia) {
 		/*
-		Pista melodia = loadCancion(nombreMelodia);
-		melodia.listarNotas();
-		*/
+		 * Pista melodia = loadCancion(nombreMelodia); melodia.listarNotas();
+		 */
 	}
 
 	@Override
@@ -330,8 +288,6 @@ public class RepoCancionesMixto implements RepoMelodias {
 		return canciones;
 	}
 
-
-	@Override
 	public void listarCanciones() {
 		ArrayList<String> melodias = getCanciones();
 		for (int i = 0; i < melodias.size(); i++) {
@@ -341,7 +297,7 @@ public class RepoCancionesMixto implements RepoMelodias {
 
 	public void exportar() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -351,21 +307,9 @@ public class RepoCancionesMixto implements RepoMelodias {
 	}
 
 	@Override
-	public void exportar(Cancion cancion) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void savePista(Pista pista) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void deleteCancion(String nombreCancion) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/*

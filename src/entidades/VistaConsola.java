@@ -9,11 +9,8 @@ import Menu.Menu;
 import interfaces.Vista;
 import interfaces.RepoMelodias;
 import opciones.Opcion;
-import repository.Repositorio_CancionDb;
 
 public class VistaConsola implements Vista {
-	// private static final String ERROR_EL_TIPO_ES_INVALIDO = "Error, el tipo es
-	// invalido";
 	private static final String BIENVENIDO = "Bienvenido a Anote, el programa con el que podrá componer, reproducir y guardar melodías fácilmente.\n"
 			+ "Seleccione una opción para continuar:";
 	private static final String ERROR_OPCION_INVALIDA = "Error, opcion invalida";
@@ -31,13 +28,10 @@ public class VistaConsola implements Vista {
 	}
 
 	private void cargarOpciones() {
-		this.menu.register("Componer Canción");
-		this.menu.register("Editar Canción");
+		this.menu.register("Componer o editar Canción");
 		this.menu.register("Listar canciones");
 		this.menu.register("Detalles de una canción");
-		this.menu.register("Modificar nombre de canción");
-		this.menu.register("Modificar tiempo de una canción");
-		this.menu.register("Eliminar melodia");
+		this.menu.register("Eliminar canción");
 		this.menu.register("Reproducir");
 	}
 
@@ -51,8 +45,7 @@ public class VistaConsola implements Vista {
 	}
 
 	@Override
-	public void EjecutarOpcion(AnoteManager manager, RepoMelodias repo,
-			LinkedHashMap<Integer, Opcion> opciones) {
+	public void EjecutarOpcion(AnoteManager manager, RepoMelodias repo, LinkedHashMap<Integer, Opcion> opciones) {
 		int pOpcion = 0;
 		do {
 			try {
@@ -61,8 +54,6 @@ public class VistaConsola implements Vista {
 					try {
 						this.opcion = getOpcion(opciones, pOpcion);
 						opcion.ejecutar(manager, this.scanner);
-						// System.out.println("Presione enter para continuar");
-						// System.in.read();
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
 

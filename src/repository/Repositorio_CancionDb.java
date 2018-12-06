@@ -1,11 +1,5 @@
 package repository;
 
-import java.beans.ExceptionListener;
-import java.beans.XMLEncoder;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,16 +20,8 @@ import viewmodels.ViewModelCancion;
 public class Repositorio_CancionDb implements RepoMelodias {
 	private static final String ERROR_NULL = "Error, el logger y el dbManager no deben ser nulos";
 	private static final String ERROR_CREACION_TABLA = "Error, no se pudo crear la tabla melodia";
-	private static final Object NOMBRE = "nombre";
 	private static final Object NOMBRE_CANCION = "nombreCancion";
-	private static final Object INSTRUMENTO = "instrumento";
 	private static final Object TEMPO = "tempo";
-	private static final Object NOMBRE_NOTA = "nombreNota";
-	private static final Object OCTAVA = "octava";
-	private static final Object FIGURA = "figura";
-	private static final Object ALTERACION = "alteracion";
-	private static final Object ID = "Id";
-	private static final String CANCIONES = "Canciones";
 	private ILogger logger;
 	private Connection conn;
 	// private LinkedHashMap<String, Melodia> melodias;
@@ -63,34 +49,6 @@ public class Repositorio_CancionDb implements RepoMelodias {
 		crearTablas();
 	}
 
-	// Seguir salvando las notas
-	/*
-	 * @Override public void saveMelodia(String nombreMelodia, boolean append) { /*
-	 * if (melodia != null) {
-	 * 
-	 * String consultaInsert =
-	 * String.format("INSERT INTO [dbo].[melodias]([%s][%s][%s])VALUES(?,?;?)",
-	 * NOMBRE, INSTRUMENTO, TEMPO); String consultaUpdate = String.format(
-	 * "UPDATE [dbo].[melodias m]\r\n" + "   SET %s = %s\r\n" + ",%s = %s\r\n" +
-	 * ",%s = %s\r\n" + " WHERE m.nombreMelodia = %s", NOMBRE_MELODIA,
-	 * melodia.getNombre(), TEMPO, melodia.getInstrument(), INSTRUMENTO,
-	 * melodia.getInstrument(), nombreMelodia); String insertOrUpdate =
-	 * String.format(
-	 * "IF NOT EXISTS (SELECT nombreMelodia FROM melodias WHERE (m.nombreMelodia = %s))\r\n"
-	 * + "BEGIN %s" + "ELSE\r\n" + "BEGIN\r\n" + "%s END", nombreMelodia,
-	 * consultaInsert, consultaUpdate);
-	 * 
-	 * PreparedStatement statement = null; try { statement =
-	 * conn.prepareStatement(insertOrUpdate); statement.setString(1,
-	 * melodia.getNombre()); statement.setString(2, melodia.getInstrument());
-	 * statement.setString(3, melodia.getTempo()); statement.executeUpdate();
-	 * melodia.llenarNotas(notas); saveNotas(notas, nombreMelodia, false); } catch
-	 * (SQLException e) { logSQLERROR(e); throw new
-	 * IllegalArgumentException(ERROR_MELODIA_EXISTENTE); } }
-	 */
-
-	// }
-
 	@Override
 	public void save(ViewModelCancion cancionVM) {
 		Cancion cancion = new Cancion();
@@ -112,7 +70,6 @@ public class Repositorio_CancionDb implements RepoMelodias {
 		}
 	}
 
-	@Override
 	public void savePista(Pista pista) {
 		int IdCancion = 0;
 		PreparedStatement statement;
@@ -177,11 +134,25 @@ public class Repositorio_CancionDb implements RepoMelodias {
 	}
 
 	@Override
-	public void updateNombreMelodia(String nombreMelodia, String nuevoNombre) {
+	public void updateNombreMelodia(String nombreAnterior, String nuevoNombre) {
 		String consulta = String.format(
-				"UPDATE melodias \r\n" + "SET nombreMelodia = '%s'\r\n" + "WHERE nombreMelodia = '%s'\r\n"
-						+ "UPDATE notas \r\n" + "SET nombreMelodia = '%s'\r\n" + "WHERE nombreMelodia = '%s'",
-				nuevoNombre, nombreMelodia, nuevoNombre, nombreMelodia);
+				"\r\n" + 
+				"ALTER TABLE canciones NOCHECK CONSTRAINT ALL\r\n" + 
+				"ALTER TABLE pistas NOCHECK CONSTRAINT ALL\r\n" + 
+				"ALTER TABLE notas NOCHECK CONSTRAINT ALL\r\n" + 
+				"UPDATE notas \r\n" + 
+				"SET nombreCancion = '%s'\r\n" + 
+				"WHERE nombreCancion = '%s'\r\n" + 
+				"UPDATE pistas\r\n" + 
+				"SET nombreCancion = '%s'\r\n" + 
+				"WHERE nombreCancion = '%s'\r\n" + 
+				"UPDATE canciones\r\n" + 
+				"SET nombreCancion = '%s'\r\n" + 
+				"WHERE nombreCancion = '%s'\r\n" + 
+				"ALTER TABLE canciones WITH CHECK CHECK CONSTRAINT ALL\r\n" + 
+				"ALTER TABLE pistas WITH CHECK CHECK CONSTRAINT ALL\r\n" + 
+				"ALTER TABLE notas WITH CHECK CHECK CONSTRAINT ALL",
+				nuevoNombre, nombreAnterior, nuevoNombre, nombreAnterior,nuevoNombre, nombreAnterior);
 		try {
 			PreparedStatement statement = conn.prepareStatement(consulta);
 			statement.executeUpdate();
@@ -192,12 +163,14 @@ public class Repositorio_CancionDb implements RepoMelodias {
 
 	public void loadNotas(ArrayList<Nota> notas, String nombreCancion, String nombrePista, Pista pista) {
 		Nota nota;
-		String consulta = String.format("SELECT n.IdNota,n.nombreNota,n.octava,n.figura,n.alteracion\r\n"
-				+ "FROM notas n\r\n" + "WHERE n.PistaID = %s  AND n.nombreCancion = '%s'", nombreCancion, nombrePista);
+		String consulta = String.format("SELECT n.IdNota,n.nombreNota,n.octava,n.figura,n.alteracion\r\n" + 
+				"FROM notas n INNER JOIN pistas p \r\n" + 
+				"ON n.PistaID = p.PistaID\r\n" + 
+				"WHERE p.nombrePista = '%s'  AND n.nombreCancion = '%s'", nombrePista, nombreCancion);
 		try {
 			ResultSet rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
-				nota = new Nota(Integer.parseInt(rs.getString(1)), rs.getString(2), rs.getString(3), rs.getString(4),
+				nota = new Nota(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5));
 				notas.add(nota);
 			}
@@ -212,8 +185,6 @@ public class Repositorio_CancionDb implements RepoMelodias {
 	@Override
 	public Cancion loadCancion(String nombreCancion) {
 		Cancion cancion = null;
-
-		ArrayList<Nota> notas = new ArrayList<>();
 		String consulta = String.format("SELECT c.IdCancion,c.nombreCancion,c.tempo\r\n" + "FROM canciones c\r\n"
 				+ "WHERE c.nombreCancion = '%s'", nombreCancion);
 		try {
@@ -223,12 +194,7 @@ public class Repositorio_CancionDb implements RepoMelodias {
 				cancion.setId(rs.getInt(1));
 				cancion.setNombreCancion(rs.getString(2));
 				cancion.setTempo(rs.getString(3));
-				//
-				// pista.setInstrument(rs.getString(2));
-				// pista.setTempo(rs.getString(3));
-				// loadNotas(notas, nombreCancion);
-				// pista.llenarNotas(notas);
-			}
+		}
 			loadPistas(cancion);
 		} catch (SQLException e) {
 			logSQLERROR(e);
@@ -241,16 +207,17 @@ public class Repositorio_CancionDb implements RepoMelodias {
 		Pista pista = null;
 		ArrayList<Nota> notas;
 		String consulta = String.format(
-				"SELECT p.nombrePista,p.instrumento FROM pistas p\r\n" + "WHERE p.nombreCancion = '%s'",
+				"SELECT p.nombrePista,p.instrumento, p.pistaID FROM pistas p\r\n" + "WHERE p.nombreCancion = '%s'",
 				cancion.getNombreCancion());
 		try {
 			ResultSet rs = conn.prepareStatement(consulta).executeQuery();
 			while (rs.next()) {
-
 				pista = new Pista(rs.getString(1));
 				pista.setInstrumento(rs.getString(2));
+				pista.setPistaID(rs.getInt(3));
+				cancion.addPista(pista);
 				notas = new ArrayList<>();
-				loadNotas(notas, pista.getNombreCancion(), pista.getNombre(), pista);
+				loadNotas(notas, cancion.getNombreCancion(), pista.getNombre(), pista);
 			}
 		} catch (SQLException e) {
 			logSQLERROR(e);
@@ -320,24 +287,6 @@ public class Repositorio_CancionDb implements RepoMelodias {
 			logSQLERROR(e);
 			throw new RuntimeException(ERROR_CREACION_TABLA);
 		}
-	}
-
-	private ArrayList<String> getCancionesFromDb() {
-		ArrayList<String> canciones = new ArrayList<>();
-		String consulta = String.format("SELECT [%s] FROM [dbo].[canciones]", NOMBRE_CANCION);
-		try {
-			ResultSet rs = conn.prepareStatement(consulta).executeQuery();
-			if (rs.next()) {
-				while (rs.next()) {
-					canciones.add(rs.getString(1));
-				}
-			}
-
-		} catch (SQLException e) {
-			logSQLERROR(e);
-			throw new IllegalArgumentException(e.getMessage());
-		}
-		return canciones;
 	}
 
 	@Override
@@ -412,82 +361,11 @@ public class Repositorio_CancionDb implements RepoMelodias {
 		}
 		return canciones;
 	}
-
-	@Override
-	public void detallesCancion(String nombreMelodia) {
-		ResultSet rs = null;
-		String consulta = String.format("SELECT m.nombreMelodia, m.instrumento , m.tempo\r\n" + "FROM melodias m"
-				+ " WHERE m.nombreMelodia = '%s'", nombreMelodia);
-		try {
-			rs = conn.prepareStatement(consulta).executeQuery();
-			while (rs.next()) {
-				System.out.println(rs.getString("nombreMelodia"));
-				System.out.println(rs.getString("instrumento"));
-				System.out.println(rs.getString("tempo"));
-			}
-		} catch (SQLException e) {
-			logSQLERROR(e);
-			throw new IllegalArgumentException(e.getMessage());
-		}
-
-	}
-
 	@Override
 	public void play(String nombreMelodia, PlayerSingleton player) {
 		Cancion cancion = loadCancion(nombreMelodia);
 		cancion.play(player);
 
 	}
-
-	/*
-	 * @Override public void addNote(String nombreMelodia, String nombreNota, String
-	 * octava, String figura, String alteracion) { String consulta = String.format(
-	 * "IF (SELECT nombreMelodia FROM melodias WHERE nombreMelodia = '%s') IS NOT NULL\r\n"
-	 * + "BEGIN\r\n" + "INSERT INTO notas (nombreMelodia,\r\n" +
-	 * "			nombreNota,\r\n" + "			octava,\r\n" +
-	 * "			figura, \r\n" + "			alteracion)\r\n" +
-	 * "		VALUES('%s','%s','%s','%s','%s');\r\n" + "END", nombreMelodia,
-	 * nombreNota, octava, figura, alteracion); try { PreparedStatement statement =
-	 * conn.prepareStatement(consulta); statement.executeUpdate();
-	 * contador.incrementar(); } catch (SQLException e) { logSQLERROR(e); throw new
-	 * RuntimeException(e.getMessage()); }
-	 * 
-	 * }
-	 */
-
-	@Override
-	public void listarCanciones() {
-		ArrayList<String> melodias = getCanciones();
-		for (int i = 0; i < melodias.size(); i++) {
-			System.out.println((i + 1) + ":" + melodias.get(i));
-		}
-
-	}
-
-	@Override
-	public void exportar(Cancion cancion) {
-		String ROOT = new File("").getAbsolutePath() + File.separator + CANCIONES +File.separator + "cancion.xml";
-		FileOutputStream fos = null;
-		try {
-			fos = new FileOutputStream(ROOT);
-		} catch (FileNotFoundException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		XMLEncoder encoder = new XMLEncoder(fos);
-		encoder.setExceptionListener(new ExceptionListener() {
-			public void exceptionThrown(Exception e) {
-				System.out.println("Exception! :" + e.toString());
-			}
-		});
-		encoder.writeObject(cancion);
-		encoder.close();
-		try {
-			fos.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-
+	
 }

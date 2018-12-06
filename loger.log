@@ -1729,3 +1729,148 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-03T18:07:06</date>
+  <millis>1543871226807</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0002</message>
+</record>
+<record>
+  <date>2018-12-03T18:07:06</date>
+  <millis>1543871226985</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid object name 'melodias'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-03T18:17:41</date>
+  <millis>1543871861555</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>S0001</message>
+</record>
+<record>
+  <date>2018-12-03T18:17:41</date>
+  <millis>1543871861564</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Invalid column name 'nombreMelodia'.</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-03T20:30:51</date>
+  <millis>1543879851783</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-12-03T20:30:51</date>
+  <millis>1543879851893</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of UNIQUE KEY constraint 'UQ__pistas__E56EF00FBB9EACEC'. Cannot insert duplicate key in object 'dbo.pistas'. The duplicate key value is (verso).</message>
+</record>
+<record>
+  <date>2018-12-03T20:30:51</date>
+  <millis>1543879851923</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-12-03T20:30:51</date>
+  <millis>1543879851923</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>The INSERT statement conflicted with the FOREIGN KEY constraint "FK__notas__PistaID__671F4F74". The conflict occurred in database "A_Note", table "dbo.pistas", column 'PistaID'.</message>
+</record>
+<record>
+  <date>2018-12-03T20:33:30</date>
+  <millis>1543880010373</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-12-03T20:33:30</date>
+  <millis>1543880010373</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>Violation of UNIQUE KEY constraint 'UQ__pistas__E56EF00FBB9EACEC'. Cannot insert duplicate key in object 'dbo.pistas'. The duplicate key value is (verso).</message>
+</record>
+<record>
+  <date>2018-12-03T20:33:30</date>
+  <millis>1543880010376</millis>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>23000</message>
+</record>
+<record>
+  <date>2018-12-03T20:33:30</date>
+  <millis>1543880010377</millis>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>utils.database.logger.FileLogger</class>
+  <method>logSevere</method>
+  <thread>1</thread>
+  <message>The INSERT statement conflicted with the FOREIGN KEY constraint "FK__notas__PistaID__671F4F74". The conflict occurred in database "A_Note", table "dbo.pistas", column 'PistaID'.</message>
+</record>

@@ -1,16 +1,12 @@
 package opciones;
-
+import java.util.ArrayList;
 import java.util.Scanner;
-
 import entidades.AnoteManager;
+import entidades.Cancion;
 import funciones_helper.Funcion_Helper;
-import interfaces.RepoMelodias;
-import repository.RepoCancionesMixto;
-import repository.Repositorio_CancionDb;
 
 public class OpcionConsola_Details_Cancion extends Opcion {
-
-	private static final String MENSAJE = "Ingrese el nombre de la canción a detallar";
+	private static final String MENSAJE_NOMBRE_CANCION = "Ingrese el nombre de la canción a detallar";
 
 	public OpcionConsola_Details_Cancion() {
 		super();
@@ -19,11 +15,11 @@ public class OpcionConsola_Details_Cancion extends Opcion {
 
 	@Override
 	public void ejecutar(AnoteManager manager, Scanner input) {
-		System.out.println("Canciones guardadas:");
-		manager.listarCanciones();
-		System.out.println("---------------------");
-		String nombre = Funcion_Helper.pedirString(MENSAJE, input);
-		manager.detallesMelodia(nombre);
+		ArrayList<String> canciones = manager.getCanciones();
+		Funcion_Helper.listarCanciones(canciones);
+		String nombreCancion = Funcion_Helper.pedirCancion(MENSAJE_NOMBRE_CANCION, input, canciones);
+		Cancion cancion = manager.loadCancion(nombreCancion);
+		cancion.listar();
 		System.out.println("---------------------");
 	}
 

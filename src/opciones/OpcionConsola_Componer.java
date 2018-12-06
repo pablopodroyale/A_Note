@@ -1,36 +1,35 @@
 package opciones;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import com.sun.javafx.stage.FocusUngrabEvent;
-
 import Menu.Menu;
 import entidades.AnoteManager;
-import entidades.Pista;
-import entidades.PlayerSingleton;
+import entidades.Cancion;
 import funciones_helper.Contador;
 import funciones_helper.Funcion_Helper;
-import interfaces.RepoMelodias;
-import repository.RepoCancionesMixto;
-import repository.Repositorio_CancionDb;
+import funciones_helper.Mapper;
 import viewmodels.ViewModelPista;
 import viewmodels.ViewModelCancion;
 import viewmodels.ViewModelNota;
 
 public class OpcionConsola_Componer extends Opcion {
+	// Menu inicial
 	private static final int OPCION_COMPONER = 1;
+	private static final int OPCION_EDITAR = 2;
+	// Submenu
 	private static final int OPCION_AGREGAR_PISTA = 1;
-	private static final int OPCION_ELIMINAR_PISTA = 2;
-	private static final int OPCION_LISTAR_PISTAS = 3;
-	private static final int OPCION_ADD_NOTA = 4;
-	private static final int OPCION_ELIMINAR_NOTA = 5;
-	private static final int OPCION_EDITAR_NOTA_EN_PISTA = 6;
-	private static final int OPCION_LISTAR_NOTAS = 7;
-	private static final int OPCION_SALVAR = 8;
-	private static final int OPCION_EXPORTAR = 9;
-	private static final int OPCION_REPRODUCIR = 10;
+	private static final int OPCION_ADD_NOTA = 2;
+	private static final int OPCION_EDITAR_NOTA_EN_PISTA = 3;
+	private static final int OPCION_ELIMINAR_NOTA = 4;
+	private static final int OPCION_ELIMINAR_PISTA = 5;
+	private static final int OPCION_CAMBIAR_NOMBRE_PISTA = 6;
+	private static final int OPCION_CAMBIAR_INSTRUMENTO_PISTA = 7;
+	private static final int OPCION_DETALLES_CANCION = 8;
+	private static final int OPCION_LISTAR_PISTAS = 9;
+	private static final int OPCION_LISTAR_NOTAS = 10;
+	private static final int OPCION_SALVAR = 11;
+	private static final int OPCION_EXPORTAR = 12;
+	private static final int OPCION_REPRODUCIR = 13;
 	private static final String MENSAJE_NOMBRE = "Ingrese el nombre de la canción";
 	private static final String MENSAJE_NOMBRE_INSTRUMENTO = "Ingrese el nombre del instrumento de la lista, tal como figura en mayúscula";
 	private static final String MENSAJE_TEMPO_CANCION = "Ingrese el tiempo deseado mayor a 0";
@@ -41,7 +40,7 @@ public class OpcionConsola_Componer extends Opcion {
 	private static final String MENSAJE_NOMBRE_FIGURA = "Ingrese la figura, REDONDA, BLANCA,NEGRA, CORCHEA, SEMICORCHEA, FUSA, SEMIFUSA";
 	private static final String MENSAJE_TIPO_ALTERACION = "Ingrese la alteracion, Sotenido '#', bemol 'b', becuadro 'n' ";
 	private static final String MENSAJE_PEDIR_ID = "Ingrese el número de la nota a modificar:";
-	private static final String ERROR_LISTA_VACIA = null;
+	private static final String ERROR_LISTA_VACIA = "No hay canciones compuestas";
 	private static final String MENSAJE_PEDIR_TIPO_PISTA = "Ingrese el nombre de la pista (Verso, estribillo,etc)";
 	private static final String MENSAJE_PEDIR_PISTA = "Ingrese el nombre de la pista";
 	private static final String ERROR_PISTA_INEXISTENTE = "Error, no existe la pista";
@@ -60,44 +59,61 @@ public class OpcionConsola_Componer extends Opcion {
 		Menu menuComponer = new Menu(COMPONER, input);
 		// En componer puede agregar notas o editar las que esta componiendo
 		menuComponer.register("Componer");
+		menuComponer.register("Editar");
 		// En editar modifica de alguna cancion
 		ViewModelCancion cancionVM = new ViewModelCancion();
-		// ViewModelPista pistaVM = new ViewModelPista();
-		ArrayList<ViewModelPista> pistasVM = new ArrayList<>();
-		// ArrayList<ViewModelNota> notascompuestas = new ArrayList<>();
 		int pOpcion = 0;
 		do {
 			try {
 				// Puede componer
 				pOpcion = menuComponer.choice();
-				if (pOpcion == OPCION_COMPONER) {
+				switch (pOpcion) {
+				case OPCION_COMPONER:
 					pedirDetallesCancion(input, cancionVM, canciones);
 					// Pedir notas
-					componerOEditar(input, cancionVM, manager);
-				} else if (pOpcion == menuComponer.exitValue() && pistasVM.size() > 0) {
-					String respuesta = Funcion_Helper.pedirString("Desea Guardar la canción, Si/No?", input);
-					if (respuesta.toLowerCase().equals("si")) {
-						manager.save(cancionVM);
-					}
+					componer(input, cancionVM, manager);
+					break;
+				case OPCION_EDITAR:
+					pedirCancionGuardada(manager, input, cancionVM, canciones);
+					componer(input, cancionVM, manager);
+				default:
+					break;
 				}
 			} catch (RuntimeException e) {
-
+				throw new RuntimeException(e.getMessage());
 			}
 		} while (pOpcion != menuComponer.exitValue());
 		// manager.save(modelMelodia, notascompuestas);
 	}
 
-	private void componerOEditar(Scanner input, ViewModelCancion cancionVM, AnoteManager manager) {
+	private void pedirCancionGuardada(AnoteManager manager, Scanner input, ViewModelCancion cancionVM,
+			ArrayList<String> canciones) {
+		ArrayList<String> cancionesGuardadas = manager.getCanciones();
+		if (canciones.isEmpty()) {
+			throw new NullPointerException(ERROR_LISTA_VACIA);
+		} else {
+			Funcion_Helper.listarCanciones(cancionesGuardadas);
+			String sCancion = Funcion_Helper.pedirNombreCancionEdicion("Seleccione una canción para editar", input, canciones);
+			Cancion cancion = manager.loadCancion(sCancion);
+			Mapper.MapToVm(cancion, cancionVM);
+		}
+
+	}
+
+	private void componer(Scanner input, ViewModelCancion cancionVM, AnoteManager manager) {
 		int pOpcion = 0;
 		Menu menuNota = new Menu(DETALLES_NOTAS, input);
 		ViewModelPista pistaVM;
 		String sPista;
 		menuNota.register("Agregar Pista");
-		menuNota.register("Eliminar Pista");
-		menuNota.register("Listar Pistas");
 		menuNota.register("Agregar nota a pista");
 		menuNota.register("Editar nota");
 		menuNota.register("Eliminar nota");
+		menuNota.register("Eliminar Pista");
+		menuNota.register("Cambiar nombre Pista");
+		menuNota.register("Cambiar instrumento Pista");
+		menuNota.register("Detalles canción");
+		menuNota.register("Listar Pistas");
 		menuNota.register("Listar notas");
 		menuNota.register("Guardar");
 		menuNota.register("Exportar");
@@ -110,12 +126,6 @@ public class OpcionConsola_Componer extends Opcion {
 				case OPCION_AGREGAR_PISTA:
 					agregarPista(input, cancionVM);
 					break;
-				case OPCION_ELIMINAR_PISTA:
-					eliminarPista(input, cancionVM);
-					break;
-				case OPCION_LISTAR_PISTAS:
-					listarPistas(cancionVM.getPistas());
-					break;
 				case OPCION_ADD_NOTA:
 					listarPistas(cancionVM.getPistas());
 					sPista = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
@@ -127,17 +137,6 @@ public class OpcionConsola_Componer extends Opcion {
 					}
 					break;
 				case OPCION_EDITAR_NOTA_EN_PISTA:
-					sPista = Funcion_Helper.pedirNuevaPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
-					pistaVM = getPista(sPista, cancionVM.getPistas());
-					if (pistaVM == null) {
-						System.out.println(ERROR_PISTA_INEXISTENTE);
-					} else if (!pistaVM.hasNotes()) {
-						System.out.println(ERROR_PISTA_SIN_NOTAS);
-					} else {
-						editarNota(input, pistaVM);
-					}
-					break;
-				case OPCION_LISTAR_NOTAS:
 					listarPistas(cancionVM.getPistas());
 					sPista = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
 					pistaVM = getPista(sPista, cancionVM.getPistas());
@@ -146,7 +145,7 @@ public class OpcionConsola_Componer extends Opcion {
 					} else if (!pistaVM.hasNotes()) {
 						System.out.println(ERROR_PISTA_SIN_NOTAS);
 					} else {
-						pistaVM.listarNotas();
+						editarNota(input, pistaVM);
 					}
 					break;
 				case OPCION_ELIMINAR_NOTA:
@@ -163,11 +162,30 @@ public class OpcionConsola_Componer extends Opcion {
 						pistaVM.removeNotaById(idNota);
 					}
 					break;
-				case OPCION_EXPORTAR:
-					if (!cancionVM.hasPistas()) {
-						System.out.println(ERROR_CANCION_VACIA);
+				case OPCION_ELIMINAR_PISTA:
+					eliminarPista(input, cancionVM);
+					break;
+				case OPCION_CAMBIAR_NOMBRE_PISTA:
+					cambiarNombrePista(input, cancionVM);
+					break;
+				case OPCION_CAMBIAR_INSTRUMENTO_PISTA:
+					cambiarInstrumentoPista(input, cancionVM);
+					break;
+				case OPCION_DETALLES_CANCION:
+					cancionVM.listar();
+				case OPCION_LISTAR_PISTAS:
+					listarPistas(cancionVM.getPistas());
+					break;
+				case OPCION_LISTAR_NOTAS:
+					listarPistas(cancionVM.getPistas());
+					sPista = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
+					pistaVM = getPista(sPista, cancionVM.getPistas());
+					if (pistaVM == null) {
+						System.out.println(ERROR_PISTA_INEXISTENTE);
+					} else if (!pistaVM.hasNotes()) {
+						System.out.println(ERROR_PISTA_SIN_NOTAS);
 					} else {
-						manager.exportar(cancionVM);
+						pistaVM.listarNotas();
 					}
 					break;
 				case OPCION_SALVAR:
@@ -177,7 +195,14 @@ public class OpcionConsola_Componer extends Opcion {
 						manager.save(cancionVM);
 					}
 					break;
-				case OPCION_REPRODUCIR:
+				case OPCION_EXPORTAR:
+					if (!cancionVM.hasPistas()) {
+						System.out.println(ERROR_CANCION_VACIA);
+					} else {
+						manager.exportar(cancionVM);
+					}
+					break;
+			case OPCION_REPRODUCIR:
 					cancionVM.play();
 					break;
 				default:
@@ -187,6 +212,14 @@ public class OpcionConsola_Componer extends Opcion {
 				System.out.println(e.getMessage());
 			} finally {
 				try {
+					if (pOpcion == menuNota.exitValue()) {
+						if (!cancionVM.IsEmpty()) {
+							String sRes = Funcion_Helper.pedirString("Desea guardar la canción? Si/No", input);
+							if (sRes.equalsIgnoreCase("si")) {
+								manager.save(cancionVM);
+							}
+						}
+					}
 					System.out.println("Presione enter para continuar");
 					System.in.read();
 				} catch (IOException e) {
@@ -194,6 +227,23 @@ public class OpcionConsola_Componer extends Opcion {
 				}
 			}
 		} while (pOpcion != menuNota.exitValue());
+	}
+
+	private void cambiarInstrumentoPista(Scanner input, ViewModelCancion cancionVM) {
+		listarPistas(cancionVM.getPistas());
+		String sPista = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
+		ViewModelPista pistaVM = getPista(sPista, cancionVM.getPistas());
+		String nombreNuevo = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
+		pistaVM.setInstrument(nombreNuevo);
+
+	}
+
+	private void cambiarNombrePista(Scanner input, ViewModelCancion cancionVM) {
+		listarPistas(cancionVM.getPistas());
+		String sPista = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
+		ViewModelPista pistaVM = getPista(sPista, cancionVM.getPistas());
+		String nombreNuevo = Funcion_Helper.pedirPista(input, MENSAJE_PEDIR_PISTA, cancionVM.getPistas());
+		pistaVM.setNombre(nombreNuevo);
 	}
 
 	private void eliminarPista(Scanner input, ViewModelCancion cancionVM) {
@@ -253,7 +303,7 @@ public class OpcionConsola_Componer extends Opcion {
 		modelNota.setId(contador.getValor());
 		contador.incrementar();
 		pistaVM.addNota(modelNota);
-		//cancionVM.addPista(pistaVM);
+		// cancionVM.addPista(pistaVM);
 	}
 
 	private void agregarPista(Scanner input, ViewModelCancion cancionVM) {
@@ -322,10 +372,6 @@ public class OpcionConsola_Componer extends Opcion {
 	private void pedirDetallesCancion(Scanner input, ViewModelCancion cancionVM, ArrayList<String> canciones) {
 		String nombre = Funcion_Helper.pedirNombreCancion(MENSAJE_NOMBRE, input, canciones);
 		cancionVM.setNombreCancion(nombre);
-		// Funcion_Helper.listarInstrumentos();
-		// String instrument =
-		// Funcion_Helper.pedirInstrumento(MENSAJE_NOMBRE_INSTRUMENTO, input);
-		// cancionVM.setInstrument(instrument);
 		String tempo = Funcion_Helper.pedirTempo(MENSAJE_TEMPO_CANCION, input);
 		cancionVM.setTempo(tempo);
 	}

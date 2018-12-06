@@ -69,8 +69,21 @@ public class Cancion {
 		return this.pistas;
 	}
 
+	@Override
+	public String toString() {
+		return "Cancion: "  + nombreCancion +  ", Id=" + Id + ", tempo: " + tempo;
+	}
+
 	public void setPistas(ArrayList<Pista> pistas) {
 		this.pistas = pistas;
+	}
+
+	public void listar() {
+		System.out.println(toString());
+		for (Pista pista : pistas) {
+			pista.listar();
+		}
+		
 	}
 
 }

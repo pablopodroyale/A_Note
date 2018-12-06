@@ -56,15 +56,6 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 		
 	}
 
-	/*
-	 * private void verifyFields(String lineOrName) { String fields[] =
-	 * lineOrName.split(","); if (fields[0] != null) { System.out.println("0 ok"); }
-	 * if (fields[1] != null) { System.out.println("1 ok"); } if (fields[2] != null)
-	 * { System.out.println("2 ok"); } if (fields[3] != null) {
-	 * System.out.println("3 ok"); }
-	 * 
-	 * }
-	 */
 	public int getPistaID() {
 		return pistaID;
 	}
@@ -203,7 +194,7 @@ public class Nota implements ISonable, CSVCompatible<Nota> {
 	}
 
 	public String toStringConId() {
-		return id + ":" + nombreNota + "," + octava + "," + figura + "," + alteracion;
+		return "Nota:" + nombreNota.toUpperCase() + ", Id:" + id +  ", Octava: " + octava + ", Figura: " + figura + ", Alteracion:" + alteracion;
 	}
 
 	public static String getHeader() {

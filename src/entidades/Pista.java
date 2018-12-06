@@ -35,7 +35,6 @@ public class Pista implements ISonable {
 	private Contador contadorNotas;
 	private MyPattern pattern;
 
-	
 	public Pista() {
 		this("");
 	}
@@ -125,9 +124,7 @@ public class Pista implements ISonable {
 				this.pattern.add(toJfugueTempo(tempo));
 			}
 
-			notas.forEach(x -> {
-				pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
-			});
+			llenarPattern();
 			try {
 				player.play(pattern);
 			} catch (Exception e) {
@@ -246,9 +243,7 @@ public class Pista implements ISonable {
 
 	@Override
 	public String toString() {
-		return "Pista [pistaID=" + pistaID + ", idCancion=" + idCancion + ", nombreCancion=" + nombreCancion
-				+ ", nombrePista=" + nombrePista + ", tempo=" + tempo + ", instrumento=" + instrumento + ", notas="
-				+ notas + ", contadorNotas=" + contadorNotas + ", pattern=" + pattern + "]";
+		return "Pista:" + nombrePista + ", Id:" +  pistaID + ", Instrumento=" + instrumento;
 	}
 
 	public void llenarNotas(ArrayList<Nota> notas) {
@@ -263,9 +258,16 @@ public class Pista implements ISonable {
 		notas.add(nota);
 	}
 
-	public PatternProducer getPattern() {
-		// TODO Auto-generated method stub
-		return null;
+	public MyPattern getPattern() {
+		llenarPattern();
+		return this.pattern;
+	}
+
+	private void llenarPattern() {
+		this.pattern.clear();
+		notas.forEach(x -> {
+			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
+		});
 	}
 
 	public void addNotas(ArrayList<Nota> notas2) {
@@ -273,6 +275,11 @@ public class Pista implements ISonable {
 			this.notas.add(nota);
 		}
 
+	}
+
+	public void listar() {
+		System.out.println(toString());
+		listarNotas();
 	}
 
 }

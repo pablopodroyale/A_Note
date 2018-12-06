@@ -237,7 +237,7 @@ public final class Funcion_Helper {
 			System.out.println(mensajeNombre);
 			respuesta = input.nextLine();
 			if (!canciones2.contains(respuesta)) {
-				System.out.println("Selecc6ione una canción existente");
+				System.out.println("Seleccione una canción existente");
 			}
 		} while (respuesta.isEmpty() || respuesta == null || !canciones2.contains(respuesta));
 
@@ -292,6 +292,25 @@ public final class Funcion_Helper {
 				System.out.println(ERROR_NO_EXISTE_PISTA);
 			}
 		} while (respuesta.isEmpty() || respuesta == null || valueOfPista(respuesta, pistasVM) == null);
+		return respuesta;
+	}
+
+	public static void listarCanciones(ArrayList<String> canciones2) {
+		for (String cancion : canciones2) {
+			System.out.println(cancion);
+		}
+	}
+
+	public static String pedirCancion(String mensajeNombreCancion, Scanner input, ArrayList<String> canciones2) {
+		String respuesta;
+		do {
+			System.out.println(mensajeNombreCancion);
+			respuesta = input.nextLine();
+			if (!canciones2.contains(respuesta)) {
+				System.out.println("Seleccione una canción existente");
+			}
+		} while (respuesta.isEmpty() || respuesta == null || !canciones2.contains(respuesta));
+
 		return respuesta;
 	}
 

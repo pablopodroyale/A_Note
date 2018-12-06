@@ -3,8 +3,6 @@ package Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import funciones_helper.Funcion_Helper;
-
 public class Menu {
 	private static final String ERROR_OPCION_INVALIDA = "Error, opcion invalida";
 	protected String title;

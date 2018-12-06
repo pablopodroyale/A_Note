@@ -1,5 +1,6 @@
 package opciones;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import entidades.AnoteManager;
@@ -16,9 +17,9 @@ public class OpcionConsola_Update_NombreCancion extends Opcion {
 
 	@Override
 	public void ejecutar(AnoteManager manager, Scanner input) {
-		System.out.println("Canciones guardadas:");
-		manager.listarCanciones();
-		String nombreaAnteriorMelodia = Funcion_Helper.pedirString(MENSAJE_NOMBRE_ANTERIOR, input);
+		ArrayList<String> canciones = manager.getCanciones();
+		Funcion_Helper.listarCanciones(canciones);
+		String nombreaAnteriorMelodia = Funcion_Helper.pedirNombreCancion(MENSAJE_NOMBRE_ANTERIOR, input, canciones);
 		String nuevoNombre = Funcion_Helper.pedirString(MENSAJE_NOMBRE_NUEVO, input);
 		manager.updateNombreMelodia(nombreaAnteriorMelodia, nuevoNombre, false);
 	}

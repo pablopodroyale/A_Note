@@ -1,21 +1,13 @@
 package viewmodels;
 
 import java.util.ArrayList;
-
-import org.jfugue.pattern.PatternProducer;
-
-import entidades.Instrumentos;
 import entidades.MyPattern;
 import entidades.PlayerSingleton;
 import funciones_helper.Funcion_Helper;
 import interfaces.ISonable;
 
-public class ViewModelPista {
-	private static final int TEMPO_MAXIMO = Integer.MAX_VALUE;
-	private static final int TEMPO_MINIMO = 1;
-	private static final int INSTRUMENTO_MIN = 0;
-	private static final int INSTRUMENTO_MAX = 127;
-	private static final String ERROR_MELODIA_VACIA = null;
+public class ViewModelPista implements ISonable{
+	private static final String ERROR_MELODIA_VACIA = "Error, No hay notas compuestas";
 	private int pistaID;
 	private int idCancion;
 	private String nombreCancion;
@@ -103,31 +95,7 @@ public class ViewModelPista {
 
 	@Override
 	public String toString() {
-		return "ViewModelPista [pistaID=" + pistaID + ", idCancion=" + idCancion + ", nombreCancion=" + nombreCancion
-				+ ", nombrePista=" + nombrePista + ", tempo=" + tempo + ", instrumento=" + instrumento + ", notas="
-				+ notas + ", pattern=" + pattern + "]";
-	}
-
-	public void play(PlayerSingleton player, ArrayList<ViewModelNota> notas) {
-		if (notas.isEmpty()) {
-			throw new IllegalArgumentException(ERROR_MELODIA_VACIA);
-		} else {
-			if (!this.instrumento.isEmpty()) {
-				this.pattern.add(Funcion_Helper.toJFugueInstrument(instrumento));
-			}
-			if (!this.tempo.isEmpty()) {
-				this.pattern.add(Funcion_Helper.toJfugueTempo(tempo));
-			}
-			notas.forEach(x -> {
-				pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
-			});
-			try {
-				player.play(pattern);
-				pattern.clear();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
+		return "Pista:" + nombrePista + ", Tempo:" + tempo + ", Instrumento=" + instrumento;
 	}
 
 	public boolean hasNotes() {
@@ -147,10 +115,16 @@ public class ViewModelPista {
 
 	public MyPattern getPattern() {
 		this.pattern.clear();
-		for (ViewModelNota viewModelNota : notas) {
-			pattern.add(viewModelNota.toString());
+		if (!this.instrumento.isEmpty()) {
+			this.pattern.add(Funcion_Helper.toJFugueInstrument(instrumento));
 		}
-		return null;
+		if (!this.tempo.isEmpty()) {
+			this.pattern.add(Funcion_Helper.toJfugueTempo(tempo));
+		}
+		notas.forEach(x -> {
+			pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
+		});
+		return pattern;
 	}
 
 	public void addNota(ViewModelNota modelNota) {
@@ -179,5 +153,29 @@ public class ViewModelPista {
 
 	public ArrayList<ViewModelNota> getNotas() {
 		return notas;
+	}
+
+	@Override
+	public void play(PlayerSingleton player) {
+		if (!hasNotes()) {
+			throw new IllegalArgumentException(ERROR_MELODIA_VACIA);
+		} else {
+			if (!this.instrumento.isEmpty()) {
+				this.pattern.add(Funcion_Helper.toJFugueInstrument(instrumento));
+			}
+			if (!this.tempo.isEmpty()) {
+				this.pattern.add(Funcion_Helper.toJfugueTempo(tempo));
+			}
+			notas.forEach(x -> {
+				pattern.add(" " + x.getNombre() + x.getOctava() + x.getFigura() + x.getAlteracion() + " ");
+			});
+			try {
+				player.play(pattern);
+				pattern.clear();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
 	}
 }

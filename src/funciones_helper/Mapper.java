@@ -12,6 +12,7 @@ import viewmodels.ViewModelNota;
 public class Mapper {
 
 	/***
+	 * Pasa de viewModelPista a pista
 	 * 
 	 * @param pistaVM
 	 * @param notascompuestas
@@ -22,7 +23,6 @@ public class Mapper {
 			ArrayList<Nota> notas) {
 		pista.setNombre(pistaVM.getNombre());
 		pista.setInstrumento(pistaVM.getInstrument());
-		// pista.setTempo(pistaVM.getTempo());
 		Nota nota;
 		for (ViewModelNota notaVM : notascompuestas) {
 			nota = new Nota(notaVM.getId(), notaVM.getNombre(), notaVM.getOctava(), notaVM.getFigura(),
@@ -33,10 +33,16 @@ public class Mapper {
 		pista.addNotas(notas);
 	}
 
+	/***
+	 * pasa de pista a ViewModel
+	 * 
+	 * @param pista
+	 * @param pistaVM
+	 * @param notascompuestas
+	 */
 	public static void MapToVm(Pista pista, ViewModelPista pistaVM, ArrayList<ViewModelNota> notascompuestas) {
 		pistaVM.setNombre(pista.getNombre());
 		pistaVM.setInstrument(pista.getInstrumento());
-		// pistaVM.setTempo(pista.getTempo());
 		ViewModelNota notaVM;
 		for (Nota nota : pista.getNotas()) {
 			notaVM = new ViewModelNota(nota.getId(), nota.getNombre(), nota.getOctava(), nota.getFigura(),
@@ -46,6 +52,12 @@ public class Mapper {
 		}
 	}
 
+	/***
+	 * Mapea el VM a Cancion
+	 * 
+	 * @param cancionVM
+	 * @param cancion
+	 */
 	public static void MapCancion(ViewModelCancion cancionVM, Cancion cancion) {
 		cancion.setNombreCancion(cancionVM.getNombreCancion());
 		cancion.setTempo(cancionVM.getTempo());
@@ -60,4 +72,34 @@ public class Mapper {
 			cancion.addPista(pista);
 		}
 	}
+
+	public static void MapToVm(Cancion cancion, ViewModelCancion cancionVM) {
+		cancionVM.setNombreCancion(cancion.getNombreCancion());
+		cancionVM.setTempo(cancion.getTempo());
+		ViewModelPista pistaVM;
+		ArrayList<Pista> pistas = cancion.getPistas();
+		ArrayList<ViewModelNota> notasVM;
+		for (Pista pista : pistas) {
+			pistaVM = new ViewModelPista();
+			pistaVM.setNombreCancion(cancion.getNombreCancion());
+			pistaVM.setTempo(cancion.getTempo());
+			notasVM = new ArrayList<>();
+			MapToVm(pista, pistaVM);
+			cancionVM.addPista(pistaVM);
+		}
+
+	}
+
+	private static void MapToVm(Pista pista, ViewModelPista pistaVM) {
+		pistaVM.setNombre(pista.getNombre());
+		pistaVM.setInstrument(pista.getInstrumento());
+		ViewModelNota notaVM;
+		for (Nota nota : pista.getNotas()) {
+			notaVM = new ViewModelNota(nota.getId(), nota.getNombre(), nota.getOctava(), nota.getFigura(),
+					nota.getAlteracion());
+			notaVM.setId(notaVM.getId());
+			pistaVM.addNota(notaVM);
+		}
+	}
+
 }

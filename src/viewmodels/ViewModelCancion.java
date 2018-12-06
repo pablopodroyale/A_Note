@@ -3,7 +3,6 @@ package viewmodels;
 import java.util.ArrayList;
 
 import entidades.MyPattern;
-import entidades.Pista;
 import entidades.PlayerSingleton;
 
 public class ViewModelCancion {
@@ -58,6 +57,7 @@ public class ViewModelCancion {
 	}
 
 	public void play() {
+		pattern.clear();
 		for (ViewModelPista viewModelPista : pistas) {
 			pattern.add(viewModelPista.getPattern());
 		}
@@ -80,6 +80,31 @@ public class ViewModelCancion {
 				index++;
 			}
 		}
+	}
+
+	public boolean IsEmpty() {
+		int cantPistas = pistas.size();
+		int cont = 0;
+		for (int i = 0; i < pistas.size(); i++) {
+			if (pistas.get(i).hasNotes()) {
+				cont += 1;
+			}
+		}
+		return cantPistas == 0 || cont < cantPistas;
+	}
+
+	public void listar() {
+		System.out.println(toString());
+		for (ViewModelPista viewModelPista : pistas) {
+			System.out.println(viewModelPista.toString());
+			viewModelPista.listarNotas();
+		}
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Nombre:" + nombreCancion +  ", Tempo:" + tempo;
 	}
 
 }

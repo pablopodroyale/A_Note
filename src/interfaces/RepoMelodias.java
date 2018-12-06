@@ -8,13 +8,12 @@ import entidades.Nota;
 import entidades.PlayerSingleton;
 import viewmodels.ViewModelCancion;
 
-
 public interface RepoMelodias {
 
 	void save(ViewModelCancion cancionVM);
-	
+
 	void updateNombreMelodia(String nombreMelodia, String nuevoNombre);
-	
+
 	void listarNotas(String nombreMelodia);
 
 	ArrayList<String> getCanciones();
@@ -25,16 +24,8 @@ public interface RepoMelodias {
 
 	void play(String nombreCancion, PlayerSingleton player);
 
-	void detallesCancion(String nombreMelodia);
+	Cancion loadCancion(String nombreCancion);
 
-	Cancion loadCancion(String nombreMelodia);
-
-	void listarCanciones();
-
-	void exportar(Cancion cancion);
-
-	void savePista(Pista pista);
-
-	
+	//void listarCanciones();
 
 }
