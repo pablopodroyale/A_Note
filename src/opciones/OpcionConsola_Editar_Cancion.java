@@ -1,22 +1,12 @@
 package opciones;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import Menu.Menu;
 import entidades.AnoteManager;
-import entidades.Pista;
-import entidades.PlayerSingleton;
-import funciones_helper.Contador;
-import funciones_helper.Funcion_Helper;
-import funciones_helper.Mapper;
-import interfaces.RepoMelodias;
-import repository.RepoCancionesMixto;
-import viewmodels.ViewModelPista;
-import viewmodels.ViewModelNota;
+
+
 
 public class OpcionConsola_Editar_Cancion extends Opcion {
+	/*
 	private static final int OPCION_EDITAR = 1;
 	private static final int OPCION_EDITAR_NOMBRE = 1;
 	private static final int OPCION_EDITAR_INSTRUMENTO = 2;
@@ -42,9 +32,9 @@ public class OpcionConsola_Editar_Cancion extends Opcion {
 	// private static final String ERROR_LISTA_VACIA = null;
 	private Contador contador;
 	private ArrayList<String> canciones;
-
+	*/
 	public OpcionConsola_Editar_Cancion() {
-		this.contador = new Contador();
+		//this.contador = new Contador();
 	}
 
 	@Override

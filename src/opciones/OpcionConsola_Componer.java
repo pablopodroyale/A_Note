@@ -45,7 +45,7 @@ public class OpcionConsola_Componer extends Opcion {
 	private static final String MENSAJE_PEDIR_PISTA = "Ingrese el nombre de la pista";
 	private static final String ERROR_PISTA_INEXISTENTE = "Error, no existe la pista";
 	private static final String ERROR_PISTA_SIN_NOTAS = "Error, no hay notas compuestas";
-	private static final String ERROR_CANCION_VACIA = "Error, la canción no tiene pistas";
+	private static final String ERROR_CANCION_VACIA = "La canción no tiene pistas";
 
 	private Contador contador;
 
@@ -173,6 +173,7 @@ public class OpcionConsola_Componer extends Opcion {
 					break;
 				case OPCION_DETALLES_CANCION:
 					cancionVM.listar();
+					break;
 				case OPCION_LISTAR_PISTAS:
 					listarPistas(cancionVM.getPistas());
 					break;
@@ -310,6 +311,7 @@ public class OpcionConsola_Componer extends Opcion {
 		ViewModelPista pistaVM = new ViewModelPista();
 		String tipoPista = Funcion_Helper.pedirNuevaPista(input, MENSAJE_PEDIR_TIPO_PISTA, cancionVM.getPistas());
 		pistaVM.setNombre(tipoPista);
+		pistaVM.setTempo(cancionVM.getTempo());
 		Funcion_Helper.listarInstrumentos();
 		String instrumento = Funcion_Helper.pedirInstrumento(MENSAJE_NOMBRE_INSTRUMENTO, input);
 		pistaVM.setInstrument(instrumento);

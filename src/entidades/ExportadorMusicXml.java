@@ -18,7 +18,7 @@ public class ExportadorMusicXml implements Exportador {
 		String path = ROOT + ((entidades.Cancion) cancion).getNombreCancion() + EXTENSION;
 		FileOutputStream fos = null;
 		try {
-			fos = new FileOutputStream(ROOT);
+			fos = new FileOutputStream(path);
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException(e.getMessage());
 		}

@@ -95,7 +95,7 @@ public class ViewModelPista implements ISonable{
 
 	@Override
 	public String toString() {
-		return "Pista:" + nombrePista + ", Tempo:" + tempo + ", Instrumento=" + instrumento;
+		return "Pista:" + nombrePista + ", Instrumento:" + instrumento;
 	}
 
 	public boolean hasNotes() {
@@ -106,7 +106,6 @@ public class ViewModelPista implements ISonable{
 		notas.forEach(x -> {
 			System.out.println(x.toString());
 		});
-
 	}
 
 	public int getSize() {
@@ -115,6 +114,7 @@ public class ViewModelPista implements ISonable{
 
 	public MyPattern getPattern() {
 		this.pattern.clear();
+		
 		if (!this.instrumento.isEmpty()) {
 			this.pattern.add(Funcion_Helper.toJFugueInstrument(instrumento));
 		}
@@ -176,6 +176,7 @@ public class ViewModelPista implements ISonable{
 				System.out.println(e.getMessage());
 			}
 		}
+	
 		
 	}
 }

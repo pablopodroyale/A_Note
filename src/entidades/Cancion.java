@@ -58,10 +58,15 @@ public class Cancion {
 
 	public void play(PlayerSingleton player) {
 		pattern.clear();
+		int cont = 1;
+		MyPattern pat;
 		for (Pista pista : pistas) {
-			pattern.add(pista.getPattern());
+			pat = pista.getPattern();
+			pat.add("L" + cont);
+			cont+=1;
+			pattern.add(pat);
 		}
-		PlayerSingleton.getInstance().play(pattern);
+		PlayerSingleton.getInstance();
 
 	}
 

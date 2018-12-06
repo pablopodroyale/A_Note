@@ -226,7 +226,7 @@ public final class Funcion_Helper {
 			System.out.println(mensajePedirId);
 			respuesta = input.nextLine();
 		} while (respuesta.isEmpty() || respuesta == null || !validarNumero(respuesta)
-				|| !validarRango(1, pistaVM.getSize(), Integer.parseInt(respuesta) - 1));
+				|| !validarRango(1, pistaVM.getNotas().get(pistaVM.getNotas().size()-1).getId(), Integer.parseInt(respuesta) - 1));
 		valor = Integer.parseInt(respuesta);
 		return valor;
 	}

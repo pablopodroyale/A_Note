@@ -58,8 +58,13 @@ public class ViewModelCancion {
 
 	public void play() {
 		pattern.clear();
+		int cont = 1;
+		MyPattern pat;
 		for (ViewModelPista viewModelPista : pistas) {
-			pattern.add(viewModelPista.getPattern());
+			pat = viewModelPista.getPattern();
+			pat.add("L" + cont);
+			cont+=1;
+			pattern.add(pat);
 		}
 		PlayerSingleton.getInstance().play(pattern);
 	}

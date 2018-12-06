@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/ort/Segundo_1/Taller3/A_Note/JFUGUE_DIR/jfugue-5.0.9.jar" sourcepath="JFUGUE_DIR"/>
 	<classpathentry kind="lib" path="JFUGUE_DIR"/>
 	<classpathentry kind="lib" path="D:/ort/Segundo_1/Teller3_Tps/BasededatosDany/TC3_TP3_DB_v2.3/src/tc3/tp3/lib/sqljdbc42.jar"/>
